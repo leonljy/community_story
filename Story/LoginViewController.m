@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "TabBarViewController.h"
+#import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface LoginViewController () <FBSDKLoginButtonDelegate>
 
@@ -25,10 +28,10 @@
 //    loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 //
 //    [self.view addSubview:loginButton];
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[@"public_profile"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-        
-    }];
+//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+//    [login logInWithReadPermissions:@[@"public_profile"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+//        
+//    }];
 //    [login
 //     logInWithReadPermissions: @[@"public_profile"]
 //     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
@@ -52,6 +55,13 @@
 
 -(BOOL)loginButtonWillLogin:(FBSDKLoginButton *)loginButton{
     return YES;
+}
+- (IBAction)handleTest:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    TabBarViewController *tabBarViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.window.rootViewController = tabBarViewController;
 }
 
 - (void)didReceiveMemoryWarning {

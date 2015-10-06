@@ -16,8 +16,26 @@
                     <view key="view" contentMode="scaleToFill" id="IGF-zW-5bG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egw-vm-3Zi">
+                                <rect key="frame" x="139" y="629" width="97" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="jPf-H1-S8c"/>
+                                    <constraint firstAttribute="height" constant="30" id="ndf-E5-nkg"/>
+                                </constraints>
+                                <state key="normal" title="Go To MainVC"/>
+                                <connections>
+                                    <action selector="handleTest:" destination="YqT-vb-Yby" eventType="touchUpInside" id="9NK-8Z-wmH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gws-ai-Ofj" firstAttribute="top" secondItem="egw-vm-3Zi" secondAttribute="bottom" constant="8" id="Rpu-Dt-OnS"/>
+                            <constraint firstItem="egw-vm-3Zi" firstAttribute="centerX" secondItem="IGF-zW-5bG" secondAttribute="centerX" id="Ttf-MU-Zk4"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>

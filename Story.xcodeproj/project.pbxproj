@@ -28,6 +28,7 @@
 		91A8B1891BC3571C0000178F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A8B1861BC3571C0000178F /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
 		91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A8B18A1BC35AB30000178F /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
 		91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B18D1BC35AEA0000178F /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B1911BC3A7150000178F /* TabBarViewController.m */; settings = {ASSET_TAGS = (); }; };
 		91AD920F1BBE0FC8000137A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD920E1BBE0FC8000137A4 /* main.m */; };
 		91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92111BBE0FC8000137A4 /* AppDelegate.m */; };
 		91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92141BBE0FC8000137A4 /* ViewController.m */; };
@@ -84,6 +85,8 @@
 		91A8B18A1BC35AB30000178F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		91A8B18C1BC35AEA0000178F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		91A8B18D1BC35AEA0000178F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		91A8B1901BC3A7150000178F /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		91A8B1911BC3A7150000178F /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		91AD920A1BBE0FC8000137A4 /* Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Story.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AD920E1BBE0FC8000137A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91AD92101BBE0FC8000137A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,6 +186,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		91A8B18F1BC3A67C0000178F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				91A8B18C1BC35AEA0000178F /* LoginViewController.h */,
+				91A8B18D1BC35AEA0000178F /* LoginViewController.m */,
+				91A8B1901BC3A7150000178F /* TabBarViewController.h */,
+				91A8B1911BC3A7150000178F /* TabBarViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		91AD92011BBE0FC8000137A4 = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +266,7 @@
 		E138E4331BBE2D6300A8614F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				91A8B18F1BC3A67C0000178F /* Login */,
 				E13F5A261BBE39BD00F7264B /* MainView */,
 				E138E4301BBE2D5E00A8614F /* ProfileViewController.h */,
 				E138E4311BBE2D5E00A8614F /* ProfileViewController.m */,
@@ -259,8 +274,6 @@
 				E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */,
 				E138E42A1BBE2D4A00A8614F /* BookMarkViewController.h */,
 				E138E42B1BBE2D4A00A8614F /* BookMarkViewController.m */,
-				91A8B18C1BC35AEA0000178F /* LoginViewController.h */,
-				91A8B18D1BC35AEA0000178F /* LoginViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -408,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */,
 				E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */,
 				E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */,
 				E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */,
