@@ -26,6 +26,8 @@
 		91A8B1871BC3571C0000178F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A8B1841BC3571C0000178F /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		91A8B1881BC3571C0000178F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A8B1851BC3571C0000178F /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		91A8B1891BC3571C0000178F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A8B1861BC3571C0000178F /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
+		91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A8B18A1BC35AB30000178F /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
+		91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B18D1BC35AEA0000178F /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
 		91AD920F1BBE0FC8000137A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD920E1BBE0FC8000137A4 /* main.m */; };
 		91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92111BBE0FC8000137A4 /* AppDelegate.m */; };
 		91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92141BBE0FC8000137A4 /* ViewController.m */; };
@@ -79,6 +81,9 @@
 		91A8B1841BC3571C0000178F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		91A8B1851BC3571C0000178F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		91A8B1861BC3571C0000178F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		91A8B18A1BC35AB30000178F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		91A8B18C1BC35AEA0000178F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		91A8B18D1BC35AEA0000178F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		91AD920A1BBE0FC8000137A4 /* Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Story.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AD920E1BBE0FC8000137A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91AD92101BBE0FC8000137A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -209,6 +214,7 @@
 				91AD92141BBE0FC8000137A4 /* ViewController.m */,
 				E55C219C1BBF2461002F0831 /* DetailStory.storyboard */,
 				91AD92161BBE0FC8000137A4 /* Main.storyboard */,
+				91A8B18A1BC35AB30000178F /* Login.storyboard */,
 				91AD92191BBE0FC8000137A4 /* Assets.xcassets */,
 				91AD921B1BBE0FC8000137A4 /* LaunchScreen.storyboard */,
 				91AD921E1BBE0FC8000137A4 /* Info.plist */,
@@ -253,6 +259,8 @@
 				E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */,
 				E138E42A1BBE2D4A00A8614F /* BookMarkViewController.h */,
 				E138E42B1BBE2D4A00A8614F /* BookMarkViewController.m */,
+				91A8B18C1BC35AEA0000178F /* LoginViewController.h */,
+				91A8B18D1BC35AEA0000178F /* LoginViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -374,6 +382,7 @@
 				91AD921D1BBE0FC8000137A4 /* LaunchScreen.storyboard in Resources */,
 				E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */,
 				91AD921A1BBE0FC8000137A4 /* Assets.xcassets in Resources */,
+				91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */,
 				91AD92181BBE0FC8000137A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +413,7 @@
 				E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */,
 				91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */,
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
+				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
 				E138E4291BBE2D3E00A8614F /* NewStoryViewController.m in Sources */,
 				E138E4261BBE2D0E00A8614F /* MainViewController.m in Sources */,
