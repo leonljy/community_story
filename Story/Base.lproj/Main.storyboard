@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHO-6L-Vaj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHO-6L-Vaj">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -48,7 +49,7 @@
         <!--Create New Story-->
         <scene sceneID="LG3-EX-TXx">
             <objects>
-                <viewController id="xYa-N5-ZlD" customClass="NewStoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MAIN" id="xYa-N5-ZlD" customClass="NewStoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GP3-n6-NMz"/>
                         <viewControllerLayoutGuide type="bottom" id="EuN-cJ-pwE"/>
@@ -72,6 +73,9 @@
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xYa-N5-ZlD" id="biu-Ld-3As"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ud5-jG-wnj">
                                         <rect key="frame" x="32" y="108" width="88" height="21"/>
@@ -86,6 +90,9 @@
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xYa-N5-ZlD" id="OTt-mq-SuO"/>
+                                        </connections>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prologue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7my-KZ-0h1">
                                         <rect key="frame" x="32" y="237" width="69" height="21"/>
@@ -100,6 +107,9 @@
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xYa-N5-ZlD" id="B5B-du-pdC"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                                 <animations/>
@@ -147,10 +157,19 @@
                     <tabBarItem key="tabBarItem" title="Item" id="zOi-G0-Fy8"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Create New Story" id="CwY-Ow-YW3">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="owq-tF-TDO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="owq-tF-TDO">
+                            <connections>
+                                <action selector="saveNewStory:" destination="xYa-N5-ZlD" id="PwO-mM-22Q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="NfI-R6-tws" id="m0p-6j-st3"/>
+                        <outlet property="prologueTextView" destination="Z22-z2-KoA" id="8Qd-yS-Qgs"/>
+                        <outlet property="titleTextField" destination="D50-3f-6WU" id="yhH-1s-qhN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwf-wU-0vV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

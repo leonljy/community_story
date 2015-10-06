@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewStoryViewController : UIViewController
+@interface NewStoryViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UITextView *prologueTextView;
 
 @end

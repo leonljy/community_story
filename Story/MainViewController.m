@@ -7,6 +7,8 @@
 //
 
 #import "MainViewController.h"
+#import "NewStoryViewController.h"
+
 
 @interface MainViewController ()
 
@@ -24,7 +26,10 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)handleNewStory:(id)sender {
+    NewStoryViewController *newStoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MAIN"];
     
+    
+    [self.navigationController pushViewController:newStoryViewController animated:YES];
 }
 
 /*
