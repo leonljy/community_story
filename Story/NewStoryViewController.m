@@ -7,22 +7,47 @@
 //
 
 #import "NewStoryViewController.h"
+#import <Parse/Parse.h>
 
-@interface NewStoryViewController ()
+@interface NewStoryViewController () 
 
 @end
 
 @implementation NewStoryViewController
+@synthesize titleTextField;
+@synthesize descriptionTextView;
+@synthesize prologueTextView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)saveNewStory:(id)sender {
+   
+    PFObject *newStory = [PFObject objectWithClassName:@"Story"];
+    newStory[@"title"] = titleTextField.text;
+    newStory[@"description"] = descriptionTextView.text;
+    newStory[@"prologue"] = prologueTextView.text;
+    
+    [newStory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+
+}
+
+
 
 /*
 #pragma mark - Navigation
