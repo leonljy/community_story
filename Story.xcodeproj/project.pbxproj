@@ -87,6 +87,7 @@
 		91A8B18D1BC35AEA0000178F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		91A8B1901BC3A7150000178F /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		91A8B1911BC3A7150000178F /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		91A8B1951BC475C30000178F /* Story-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Story-Prefix.pch"; sourceTree = "<group>"; };
 		91AD920A1BBE0FC8000137A4 /* Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Story.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AD920E1BBE0FC8000137A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91AD92101BBE0FC8000137A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -240,6 +241,7 @@
 		91AD920D1BBE0FC8000137A4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				91A8B1951BC475C30000178F /* Story-Prefix.pch */,
 				91AD920E1BBE0FC8000137A4 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -575,6 +577,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "Story/Story-Prefix.pch";
 				INFOPLIST_FILE = Story/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Favorie-John.Story";
@@ -591,6 +594,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "Story/Story-Prefix.pch";
 				INFOPLIST_FILE = Story/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Favorie-John.Story";

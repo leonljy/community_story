@@ -12,8 +12,10 @@
 #import "TabBarViewController.h"
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
-@interface LoginViewController () <FBSDKLoginButtonDelegate>
+@interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *buttonLoginFB;
 
 
 @end
@@ -22,46 +24,63 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-//    loginButton.center = self.view.center;
-//    loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-//
-//    [self.view addSubview:loginButton];
-//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-//    [login logInWithReadPermissions:@[@"public_profile"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-//        
-//    }];
-//    [login
-//     logInWithReadPermissions: @[@"public_profile"]
-//     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-//         if (error) {
-//             NSLog(@"Process error");
-//         } else if (result.isCancelled) {
-//             NSLog(@"Cancelled");
-//         } else {
-//             NSLog(@"Logged in");
-//         }
-//     }];
+    [self.buttonLoginFB setHidden:YES];
+    NSLog(@"%@", [PFUser currentUser]);
+    if ([FBSDKAccessToken currentAccessToken]) {
+        FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken]; // Use existing access token.
+        
+        // Log In (create/update currentUser) with FBSDKAccessToken
+        [PFFacebookUtils logInInBackgroundWithAccessToken:accessToken
+                                                    block:^(PFUser *user, NSError *error) {
+                                                        
+                                                        if (!user) {
+                                                            NSLog(@"Uh oh. There was an error logging in.");
+                                                        } else {
+                                                            NSLog(@"User logged in through Facebook!");
+                                                            NSLog(@"%@", [PFUser currentUser]);
+                                                            [self presentMainViewController];
+                                                        }
+                                                    }];
+    }else{
+        [self.buttonLoginFB setHidden:NO];
+    }
 }
 
--(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
-    
+-(void)showButtonLoginFB{
+    [self.buttonLoginFB setHidden:NO];
 }
 
--(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
-    
+- (IBAction)handleLogin:(id)sender {
+    NSArray *permissions = @[@"public_profile"];
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
 }
 
--(BOOL)loginButtonWillLogin:(FBSDKLoginButton *)loginButton{
-    return YES;
-}
-- (IBAction)handleTest:(id)sender {
+-(void)presentMainViewController{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     TabBarViewController *tabBarViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.window.rootViewController = tabBarViewController;
+
+    
+    [UIView transitionWithView:appDelegate.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        [appDelegate.window setRootViewController:tabBarViewController];
+                    }
+                    completion:nil];
+}
+
+- (IBAction)handleTest:(id)sender {
+    [self presentMainViewController];
 }
 
 - (void)didReceiveMemoryWarning {

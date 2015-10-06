@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <Parse/Parse.h>
 @interface AppDelegate ()
 
 @end
@@ -28,6 +29,7 @@
                   clientKey:@"LAh9piajL1lQlwJx1rWAhcmSzGS5psaDv87qhwLH"];
     
     // [Optional] Track statistics around application opens.
+    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
@@ -35,8 +37,8 @@
                                                     UIUserNotificationTypeSound);
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
                                                                              categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
+//    [application registerUserNotificationSettings:settings];
+//    [application registerForRemoteNotifications];
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }

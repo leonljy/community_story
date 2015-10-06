@@ -36,12 +36,13 @@
     newStory[@"title"] = titleTextField.text;
     newStory[@"description"] = descriptionTextView.text;
     newStory[@"prologue"] = prologueTextView.text;
-    
+    newStory[@"owner"] = [PFUser currentUser];
     [newStory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // The object has been saved.
+            
+            NSLog(@"The object has been saved.");
         } else {
-            // There was a problem, check error.description
+            NSLog(@"There was a problem, check error.description");
         }
     }];
 
