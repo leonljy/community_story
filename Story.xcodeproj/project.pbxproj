@@ -39,6 +39,7 @@
 		E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E42B1BBE2D4A00A8614F /* BookMarkViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4311BBE2D5E00A8614F /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55C219C1BBF2461002F0831 /* DetailStory.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveViewController.m; sourceTree = "<group>"; };
 		E138E4301BBE2D5E00A8614F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		E138E4311BBE2D5E00A8614F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		E55C219C1BBF2461002F0831 /* DetailStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailStory.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				91AD92111BBE0FC8000137A4 /* AppDelegate.m */,
 				91AD92131BBE0FC8000137A4 /* ViewController.h */,
 				91AD92141BBE0FC8000137A4 /* ViewController.m */,
+				E55C219C1BBF2461002F0831 /* DetailStory.storyboard */,
 				91AD92161BBE0FC8000137A4 /* Main.storyboard */,
 				91AD92191BBE0FC8000137A4 /* Assets.xcassets */,
 				91AD921B1BBE0FC8000137A4 /* LaunchScreen.storyboard */,
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91AD921D1BBE0FC8000137A4 /* LaunchScreen.storyboard in Resources */,
+				E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */,
 				91AD921A1BBE0FC8000137A4 /* Assets.xcassets in Resources */,
 				91AD92181BBE0FC8000137A4 /* Main.storyboard in Resources */,
 			);
