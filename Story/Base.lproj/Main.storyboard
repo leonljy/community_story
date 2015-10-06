@@ -33,7 +33,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="haJ-el-whD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PZB-kW-nOu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PZB-kW-nOu">
+                            <connections>
+                                <action selector="handleNewStory:" destination="LTl-sc-ySx" id="Ljq-LT-ujd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
