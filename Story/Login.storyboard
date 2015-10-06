@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YqT-vb-Yby">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="XPJ-Rd-Dqo">
+            <objects>
+                <viewController id="YqT-vb-Yby" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CV3-wA-jCn"/>
+                        <viewControllerLayoutGuide type="bottom" id="gws-ai-Ofj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IGF-zW-5bG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egw-vm-3Zi">
+                                <rect key="frame" x="139" y="629" width="97" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="jPf-H1-S8c"/>
+                                    <constraint firstAttribute="height" constant="30" id="ndf-E5-nkg"/>
+                                </constraints>
+                                <state key="normal" title="Go To MainVC"/>
+                                <connections>
+                                    <action selector="handleTest:" destination="YqT-vb-Yby" eventType="touchUpInside" id="9NK-8Z-wmH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-y8-3Hz">
+                                <rect key="frame" x="20" y="481" width="335" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="8YR-Bn-NTR"/>
+                                    <constraint firstAttribute="height" constant="30" id="AdA-RX-19L"/>
+                                </constraints>
+                                <state key="normal" title="Login with Facebook"/>
+                                <connections>
+                                    <action selector="handleLogin:" destination="YqT-vb-Yby" eventType="touchUpInside" id="y0q-pk-8eG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gws-ai-Ofj" firstAttribute="top" secondItem="egw-vm-3Zi" secondAttribute="bottom" constant="8" id="Rpu-Dt-OnS"/>
+                            <constraint firstItem="egw-vm-3Zi" firstAttribute="centerX" secondItem="IGF-zW-5bG" secondAttribute="centerX" id="Ttf-MU-Zk4"/>
+                            <constraint firstItem="egw-vm-3Zi" firstAttribute="top" secondItem="jqN-y8-3Hz" secondAttribute="bottom" constant="118" id="g5G-ym-OFh"/>
+                            <constraint firstItem="jqN-y8-3Hz" firstAttribute="centerX" secondItem="IGF-zW-5bG" secondAttribute="centerX" id="qiH-xz-bvg"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="buttonLoginFB" destination="jqN-y8-3Hz" id="2ZU-d7-CX1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHk-LS-k57" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="325.5" y="355.5"/>
+        </scene>
+    </scenes>
+</document>
