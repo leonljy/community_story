@@ -10,6 +10,7 @@
 #import "NewStoryViewController.h"
 #import <Parse/Parse.h>
 #import "FeaturedTableViewCell.h"
+#import "DetailStoryViewController.h"
 
 
 @interface MainViewController ()
@@ -65,6 +66,14 @@
     
     
     [self.navigationController pushViewController:newStoryViewController animated:YES];
+//    [self moveToDetailStory];
+}
+
+- (void)moveToDetailStory{
+    UIStoryboard *detailStoryBoard = [UIStoryboard storyboardWithName:@"DetailStory" bundle:nil];
+    DetailStoryViewController *detailStoryViewController = [detailStoryBoard instantiateViewControllerWithIdentifier:@"DETAIL_STORY"];
+    
+    [self.navigationController pushViewController:detailStoryViewController animated:YES];
 }
 
 //tableView
