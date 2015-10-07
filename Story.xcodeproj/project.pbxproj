@@ -42,6 +42,8 @@
 		E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E42B1BBE2D4A00A8614F /* BookMarkViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4311BBE2D5E00A8614F /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E1C01E0D1BC48F5600618E1A /* FeaturedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C01E0C1BC48F5600618E1A /* FeaturedTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E1C01E101BC48F6500618E1A /* StandardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C01E0F1BC48F6500618E1A /* StandardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55C219C1BBF2461002F0831 /* DetailStory.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -114,6 +116,10 @@
 		E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveViewController.m; sourceTree = "<group>"; };
 		E138E4301BBE2D5E00A8614F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		E138E4311BBE2D5E00A8614F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		E1C01E0B1BC48F5600618E1A /* FeaturedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedTableViewCell.h; sourceTree = "<group>"; };
+		E1C01E0C1BC48F5600618E1A /* FeaturedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTableViewCell.m; sourceTree = "<group>"; };
+		E1C01E0E1BC48F6500618E1A /* StandardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardTableViewCell.h; sourceTree = "<group>"; };
+		E1C01E0F1BC48F6500618E1A /* StandardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardTableViewCell.m; sourceTree = "<group>"; };
 		E55C219C1BBF2461002F0831 /* DetailStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailStory.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +293,10 @@
 				E138E4281BBE2D3E00A8614F /* NewStoryViewController.m */,
 				E138E4241BBE2D0E00A8614F /* MainViewController.h */,
 				E138E4251BBE2D0E00A8614F /* MainViewController.m */,
+				E1C01E0B1BC48F5600618E1A /* FeaturedTableViewCell.h */,
+				E1C01E0C1BC48F5600618E1A /* FeaturedTableViewCell.m */,
+				E1C01E0E1BC48F6500618E1A /* StandardTableViewCell.h */,
+				E1C01E0F1BC48F6500618E1A /* StandardTableViewCell.m */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -426,12 +436,14 @@
 				91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */,
 				E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */,
 				E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */,
+				E1C01E0D1BC48F5600618E1A /* FeaturedTableViewCell.m in Sources */,
 				E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */,
 				91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */,
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
 				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
 				E138E4291BBE2D3E00A8614F /* NewStoryViewController.m in Sources */,
+				E1C01E101BC48F6500618E1A /* StandardTableViewCell.m in Sources */,
 				E138E4261BBE2D0E00A8614F /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
