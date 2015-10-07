@@ -29,6 +29,7 @@
 		91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A8B18A1BC35AB30000178F /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
 		91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B18D1BC35AEA0000178F /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
 		91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B1911BC3A7150000178F /* TabBarViewController.m */; settings = {ASSET_TAGS = (); }; };
+		91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B1971BC4A9C80000178F /* NewUserViewController.m */; settings = {ASSET_TAGS = (); }; };
 		91AD920F1BBE0FC8000137A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD920E1BBE0FC8000137A4 /* main.m */; };
 		91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92111BBE0FC8000137A4 /* AppDelegate.m */; };
 		91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92141BBE0FC8000137A4 /* ViewController.m */; };
@@ -88,6 +89,8 @@
 		91A8B1901BC3A7150000178F /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		91A8B1911BC3A7150000178F /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		91A8B1951BC475C30000178F /* Story-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Story-Prefix.pch"; sourceTree = "<group>"; };
+		91A8B1961BC4A9C80000178F /* NewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserViewController.h; sourceTree = "<group>"; };
+		91A8B1971BC4A9C80000178F /* NewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserViewController.m; sourceTree = "<group>"; };
 		91AD920A1BBE0FC8000137A4 /* Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Story.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AD920E1BBE0FC8000137A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91AD92101BBE0FC8000137A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				91A8B18D1BC35AEA0000178F /* LoginViewController.m */,
 				91A8B1901BC3A7150000178F /* TabBarViewController.h */,
 				91A8B1911BC3A7150000178F /* TabBarViewController.m */,
+				91A8B1961BC4A9C80000178F /* NewUserViewController.h */,
+				91A8B1971BC4A9C80000178F /* NewUserViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 			files = (
 				91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */,
 				E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */,
+				91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */,
 				E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */,
 				E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */,
 				91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */,
