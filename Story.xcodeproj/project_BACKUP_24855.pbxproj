@@ -485,13 +485,16 @@
 				91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */,
 				E1CCD68B1BC4CE7900E52223 /* FeaturedTableViewCell.m in Sources */,
 				E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */,
+<<<<<<< HEAD
 				91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */,
+=======
 				E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */,
 				E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */,
 				E54EA6BF1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m in Sources */,
 				E54EA6C81BC35B6000104EF7 /* DetailVotingTableViewCell.m in Sources */,
 				E54EA6B21BC3579800104EF7 /* DetailStoryViewController.m in Sources */,
 				E54EA6C21BC35B2500104EF7 /* DetailContentsTableViewCell.m in Sources */,
+>>>>>>> 43beb3e87e1f119736a9681cfcac2373216ddfe9
 				E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */,
 				E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */,
 				91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */,

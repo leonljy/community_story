@@ -10,11 +10,12 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "TabBarViewController.h"
+#import "NewUserViewController.h"
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
-@interface LoginViewController ()
+@interface LoginViewController () 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLoginFB;
 
 
@@ -53,14 +54,32 @@
 - (IBAction)handleLogin:(id)sender {
     NSArray *permissions = @[@"public_profile"];
     [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
-        if (!user) {
+        if(error){
+            //TODO: Show Alert View "There's something problem. Try again please."
+        } else if(!user) {
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            //TODO: Show Alert View "Canceled Login."
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
+            [self presentNewUserViewController];
         } else {
             NSLog(@"User logged in through Facebook!");
+            [self presentMainViewController];
         }
     }];
+}
+
+-(void)presentNewUserViewController{
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    NewUserViewController *newUserViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserViewController"];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [UIView transitionWithView:appDelegate.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        [appDelegate.window setRootViewController:newUserViewController];
+                    }
+                    completion:nil];
 }
 
 -(void)presentMainViewController{
