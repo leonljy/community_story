@@ -32,12 +32,23 @@
 
 - (IBAction)saveNewStory:(id)sender {
    
+    
     PFObject *newStory = [PFObject objectWithClassName:@"Story"];
     newStory[@"title"] = titleTextField.text;
     newStory[@"description"] = descriptionTextView.text;
     newStory[@"prologue"] = prologueTextView.text;
+    newStory[@"currentSequence"] = [NSNumber numberWithInteger:0];
+    newStory[@"text"] = prologueTextView.text;
+    newStory[@"isEndedStory"] = [NSNumber numberWithBool:NO];
+    
+    //Date formatter
+    NSDate *today = [NSDate date];
+    today = [today dateByAddingTimeInterval:1800];
+    newStory[@"deadline"] = today;
     newStory[@"owner"] = [PFUser currentUser];
-    [newStory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    newStory[@"ownerName"] = [[PFUser currentUser] username];
+    
+          [newStory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             
             NSLog(@"The object has been saved.");
