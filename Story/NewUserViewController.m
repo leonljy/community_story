@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *textFieldUserName;
 @property (weak, nonatomic) IBOutlet UIButton *buttonCheckAvailability;
+@property (weak, nonatomic) IBOutlet UILabel *labelResultStatus;
 
 @end
 
@@ -28,36 +29,27 @@
     isAvailable = NO;
     [self.buttonCheckAvailability setEnabled:NO];
     [self.textFieldUserName setDelegate:self];
-//    self.textFieldUserName set
 }
 
 - (IBAction)handleCheckAvailability:(id)sender {
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:self.textFieldUserName.text];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        __block UIAlertView *alertView;
-        if(0<objects){
-            alertView = [[UIAlertView alloc] initWithTitle:@"Username not available" message:@"Try another username" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alertView show];
+    
+    PFUser *user = [PFUser currentUser];
+    NSString *beforeUserName = user.username;
+    user.username = self.textFieldUserName.text;
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded){
+            [self presentMainViewController];
         }else{
-            PFUser *user = [PFUser currentUser];
-            user.username = self.textFieldUserName.text;
-            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                if(error){
-                    
-                }else{
-                    alertView = [[UIAlertView alloc] initWithTitle:@"Username Available" message:@"Try another username" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];        
-                }
-            }];
-            
+            if(202==error.code){
+                user.username = beforeUserName;
+                NSString *result = [NSString stringWithFormat:@"%@ already exists", self.textFieldUserName.text];
+                [self.labelResultStatus setText:result];
+                [self.textFieldUserName setText:@""];
+            }else{
+                NSLog(@"Error: %@", error.localizedDescription);
+            }
         }
     }];
-}
-
-- (IBAction)handleStartNovelist:(id)sender {
-    if(isAvailable){
-        [self presentMainViewController];
-    }
 }
 
 - (IBAction)handleTextFieldChange:(id)sender {

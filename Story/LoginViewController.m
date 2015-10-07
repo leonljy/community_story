@@ -33,13 +33,15 @@
         // Log In (create/update currentUser) with FBSDKAccessToken
         [PFFacebookUtils logInInBackgroundWithAccessToken:accessToken
                                                     block:^(PFUser *user, NSError *error) {
-                                                        
                                                         if (!user) {
                                                             NSLog(@"Uh oh. There was an error logging in.");
                                                         } else {
                                                             NSLog(@"User logged in through Facebook!");
-                                                            NSLog(@"%@", [PFUser currentUser]);
-                                                            [self presentMainViewController];
+                                                            if([user[@"isUsernameSet"] boolValue]){
+                                                                [self presentMainViewController];
+                                                            }else{
+                                                                [self presentNewUserViewController];
+                                                            }
                                                         }
                                                     }];
     }else{
@@ -61,7 +63,15 @@
             //TODO: Show Alert View "Canceled Login."
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
-            [self presentNewUserViewController];
+            user[@"isUsernameSet"] = [NSNumber numberWithBool:NO];
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    [self presentNewUserViewController];
+                }else{
+                    NSLog(@"%@", error.localizedDescription);
+                }
+            }];
+            
         } else {
             NSLog(@"User logged in through Facebook!");
             [self presentMainViewController];
