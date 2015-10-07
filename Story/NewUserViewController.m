@@ -40,13 +40,12 @@
         if(succeeded){
             [self presentMainViewController];
         }else{
-            if(202==error.code){
+            if([error.localizedDescription isEqualToString:@"Exist"]){
                 user.username = beforeUserName;
                 NSString *result = [NSString stringWithFormat:@"%@ already exists", self.textFieldUserName.text];
                 [self.labelResultStatus setText:result];
                 [self.textFieldUserName setText:@""];
-            }else{
-                NSLog(@"Error: %@", error.localizedDescription);
+                
             }
         }
     }];

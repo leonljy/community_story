@@ -37,11 +37,7 @@
                                                             NSLog(@"Uh oh. There was an error logging in.");
                                                         } else {
                                                             NSLog(@"User logged in through Facebook!");
-                                                            if([user[@"isUsernameSet"] boolValue]){
-                                                                [self presentMainViewController];
-                                                            }else{
-                                                                [self presentNewUserViewController];
-                                                            }
+                                                            [self presentViewControllerBasedOnUsernameSet:user];
                                                         }
                                                     }];
     }else{
@@ -51,6 +47,26 @@
 
 -(void)showButtonLoginFB{
     [self.buttonLoginFB setHidden:NO];
+}
+
+-(void)presentViewControllerBasedOnUsernameSet:(PFUser *)user{
+    if([user[@"isUsernameSet"] boolValue]){
+        [self presentMainViewController];
+    }else{
+        [self presentNewUserViewController];
+    }
+}
+
+-(void)newUserLoggedIn:(PFUser *)newUser{
+    newUser[@"isUsernameSet"] = [NSNumber numberWithBool:NO];
+    [self presentNewUserViewController];
+//    [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        if(succeeded){
+//            
+//        }else{
+//            NSLog(@"%@", error.localizedDescription);
+//        }
+//    }];
 }
 
 - (IBAction)handleLogin:(id)sender {
@@ -63,18 +79,10 @@
             //TODO: Show Alert View "Canceled Login."
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
-            user[@"isUsernameSet"] = [NSNumber numberWithBool:NO];
-            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                if(succeeded){
-                    [self presentNewUserViewController];
-                }else{
-                    NSLog(@"%@", error.localizedDescription);
-                }
-            }];
-            
+            [self newUserLoggedIn:user];
         } else {
             NSLog(@"User logged in through Facebook!");
-            [self presentMainViewController];
+            [self presentViewControllerBasedOnUsernameSet:user];
         }
     }];
 }
