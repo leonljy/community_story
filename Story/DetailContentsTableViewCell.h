@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailContentsTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labelContents;
 
 @end

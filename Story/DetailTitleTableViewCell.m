@@ -19,5 +19,13 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)handleNotification:(id)sender {
+    UIButton *buttonNotification = (UIButton *)sender;
+    [buttonNotification setEnabled:NO];
+}
+- (IBAction)handleBookmark:(id)sender {
+    UIButton *buttonBookmark = (UIButton *)sender;
+    [buttonBookmark setEnabled:NO];
+}
 
 @end

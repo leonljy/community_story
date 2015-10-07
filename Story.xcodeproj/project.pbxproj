@@ -48,7 +48,6 @@
 		E54EA6BC1BC35ABB00104EF7 /* DetailTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6BB1BC35ABB00104EF7 /* DetailTimeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6BF1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6BE1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6C21BC35B2500104EF7 /* DetailContentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6C11BC35B2500104EF7 /* DetailContentsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		E54EA6C51BC35B5400104EF7 /* DetailNextSentenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6C41BC35B5400104EF7 /* DetailNextSentenceTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6C81BC35B6000104EF7 /* DetailVotingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55C219C1BBF2461002F0831 /* DetailStory.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -134,8 +133,6 @@
 		E54EA6BE1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		E54EA6C01BC35B2500104EF7 /* DetailContentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailContentsTableViewCell.h; sourceTree = "<group>"; };
 		E54EA6C11BC35B2500104EF7 /* DetailContentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailContentsTableViewCell.m; sourceTree = "<group>"; };
-		E54EA6C31BC35B5400104EF7 /* DetailNextSentenceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNextSentenceTableViewCell.h; sourceTree = "<group>"; };
-		E54EA6C41BC35B5400104EF7 /* DetailNextSentenceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNextSentenceTableViewCell.m; sourceTree = "<group>"; };
 		E54EA6C61BC35B6000104EF7 /* DetailVotingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVotingTableViewCell.h; sourceTree = "<group>"; };
 		E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVotingTableViewCell.m; sourceTree = "<group>"; };
 		E55C219C1BBF2461002F0831 /* DetailStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailStory.storyboard; sourceTree = "<group>"; };
@@ -331,8 +328,6 @@
 				E54EA6BE1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m */,
 				E54EA6C01BC35B2500104EF7 /* DetailContentsTableViewCell.h */,
 				E54EA6C11BC35B2500104EF7 /* DetailContentsTableViewCell.m */,
-				E54EA6C31BC35B5400104EF7 /* DetailNextSentenceTableViewCell.h */,
-				E54EA6C41BC35B5400104EF7 /* DetailNextSentenceTableViewCell.m */,
 				E54EA6C61BC35B6000104EF7 /* DetailVotingTableViewCell.h */,
 				E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */,
 			);
@@ -406,6 +401,7 @@
 				TargetAttributes = {
 					91AD92091BBE0FC8000137A4 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 4H9RQ2CYAT;
 					};
 					91AD92221BBE0FC8000137A4 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -487,7 +483,6 @@
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
 				E54EA6BC1BC35ABB00104EF7 /* DetailTimeTableViewCell.m in Sources */,
 				E138E4291BBE2D3E00A8614F /* NewStoryViewController.m in Sources */,
-				E54EA6C51BC35B5400104EF7 /* DetailNextSentenceTableViewCell.m in Sources */,
 				E138E4261BBE2D0E00A8614F /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,6 +624,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -638,7 +635,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Favorie-John.Story";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "734201ba-cb54-4417-b37e-da6b2b6ce871";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -646,6 +643,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -655,7 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Favorie-John.Story";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "734201ba-cb54-4417-b37e-da6b2b6ce871";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

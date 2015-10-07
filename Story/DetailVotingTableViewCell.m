@@ -19,5 +19,11 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)handleUp:(id)sender {
+    
+}
+- (IBAction)handleDown:(id)sender {
+    
+}
 
 @end

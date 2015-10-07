@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailTimeTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labelTime;
 
 @end

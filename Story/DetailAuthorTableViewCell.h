@@ -10,4 +10,6 @@
 
 @interface DetailAuthorTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *labelAuthor;
+
 @end
