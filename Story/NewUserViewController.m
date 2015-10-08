@@ -45,7 +45,7 @@ static NSString *errorUsernameExist = @"Exist";
     } failureBlock:^(NSError *error) {
         if([error.localizedDescription isEqualToString:errorUsernameExist]){
             user.username = beforeUserName;
-            NSString *result = [NSString stringWithFormat:@"%@ already exists", newUserName];
+            NSString *result = [NSString stringWithFormat:@"* %@ already exists *", newUserName];
             [self.labelResultStatus setText:result];
             [self.textFieldUserName setText:@""];
         }
