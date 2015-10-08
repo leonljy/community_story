@@ -15,6 +15,8 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
+#import "SentenceHelper.h"
+
 @interface LoginViewController () 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLoginFB;
 
@@ -37,7 +39,17 @@
                                                             NSLog(@"Uh oh. There was an error logging in.");
                                                         } else {
                                                             NSLog(@"User logged in through Facebook!");
-                                                            [self presentViewControllerBasedOnUsernameSet:user];
+                                                            //TODO: Remove Comment
+//                                                            [self presentViewControllerBasedOnUsernameSet:user];
+                                                            
+                                                            //TODO: Remove Testin Code
+                                                            SentenceHelper *sentence = [SentenceHelper sharedInstance];
+                                                            [sentence createNewSentence:nil successBlock:^(id responseObject) {
+                                                                NSLog(@"Success");
+                                                            } failureBlock:^(NSError *error) {
+                                                                NSLog(@"Failure");
+                                                            }];
+                                                            
                                                         }
                                                     }];
     }else{
@@ -60,13 +72,6 @@
 -(void)newUserLoggedIn:(PFUser *)newUser{
     newUser[@"isUsernameSet"] = [NSNumber numberWithBool:NO];
     [self presentNewUserViewController];
-//    [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        if(succeeded){
-//            
-//        }else{
-//            NSLog(@"%@", error.localizedDescription);
-//        }
-//    }];
 }
 
 - (IBAction)handleLogin:(id)sender {

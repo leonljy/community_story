@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9103370C1BC5E95C00A4CC43 /* NovelistConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103370B1BC5E95C00A4CC43 /* NovelistConstants.m */; settings = {ASSET_TAGS = (); }; };
 		9162E4751BBE10E7002A8B92 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4711BBE10E7002A8B92 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		9162E4761BBE10E7002A8B92 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4721BBE10E7002A8B92 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		9162E4771BBE10E7002A8B92 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4731BBE10E7002A8B92 /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
@@ -76,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9103370A1BC5E95C00A4CC43 /* NovelistConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelistConstants.h; sourceTree = "<group>"; };
+		9103370B1BC5E95C00A4CC43 /* NovelistConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NovelistConstants.m; sourceTree = "<group>"; };
 		9162E4711BBE10E7002A8B92 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		9162E4721BBE10E7002A8B92 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9162E4731BBE10E7002A8B92 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 		91A8B19C1BC5C1AB0000178F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9103370A1BC5E95C00A4CC43 /* NovelistConstants.h */,
+				9103370B1BC5E95C00A4CC43 /* NovelistConstants.m */,
 				91A8B1991BC5C1A40000178F /* StoryHelper.h */,
 				91A8B19A1BC5C1A40000178F /* StoryHelper.m */,
 				91A8B1A01BC5C1D80000178F /* UserHelper.h */,
@@ -512,6 +517,7 @@
 				91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */,
 				E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */,
 				E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */,
+				9103370C1BC5E95C00A4CC43 /* NovelistConstants.m in Sources */,
 				E54EA6BF1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m in Sources */,
 				E54EA6C81BC35B6000104EF7 /* DetailVotingTableViewCell.m in Sources */,
 				E54EA6B21BC3579800104EF7 /* DetailStoryViewController.m in Sources */,
