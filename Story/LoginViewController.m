@@ -14,8 +14,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
-
-#import "SentenceHelper.h"
+#import "PFObject+Sentence.h"
 
 @interface LoginViewController () 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLoginFB;
@@ -39,23 +38,46 @@
                                                             NSLog(@"Uh oh. There was an error logging in.");
                                                         } else {
                                                             NSLog(@"User logged in through Facebook!");
-                                                            //TODO: Remove Comment
-//                                                            [self presentViewControllerBasedOnUsernameSet:user];
+//                                                            TODO: Remove Comment
+                                                            [self presentViewControllerBasedOnUsernameSet:user];
                                                             
-                                                            //TODO: Remove Testin Code
-                                                            SentenceHelper *sentence = [SentenceHelper sharedInstance];
-                                                            [sentence createNewSentence:nil successBlock:^(id responseObject) {
-                                                                NSLog(@"Success");
-                                                            } failureBlock:^(NSError *error) {
-                                                                NSLog(@"Failure");
-                                                            }];
-                                                            
+                                                            //TODO: Remove Testing Code
+//                                                            [PFObject currentUpVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
+//                                                                NSLog(@"%@", responseObject);
+//                                                            } failureBlock:^(NSError *error) {
+//                                                                NSLog(@"%@", error);
+//                                                            }];
+//                                                            [PFObject currentDownVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
+//                                                                NSLog(@"%@", responseObject);
+//                                                            } failureBlock:^(NSError *error) {
+//                                                                NSLog(@"%@", error);
+//                                                            }];
                                                         }
                                                     }];
     }else{
         [self.buttonLoginFB setHidden:NO];
     }
 }
+
+
+-(PFObject *)testUnUpvote{
+//    ObjectId: LoPLMGMD53
+    PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
+    PFObject *object = [query getObjectWithId:@"LoPLMGMD53"];
+    return object;
+}
+
+-(PFObject *)testNewSentence{
+    PFObject *sentence = [PFObject objectWithClassName:SENTENCE_CLASSNAME];
+    sentence[SENTENCE_KEY_WRITER] = [PFUser currentUser];
+    sentence[SENTENCE_KEY_UPVOTED_COUNT] = [NSNumber numberWithInteger:0];
+    sentence[SENTENCE_KEY_DOWNVOTED_COUNT] = [NSNumber numberWithInteger:0];
+    sentence[SENTENCE_KEY_TEXT] = @"TestText";
+    sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:NO];
+    sentence[SENTENCE_KEY_SEQUENCE] = [NSNumber numberWithInteger:0];
+    return sentence;
+}
+
 
 -(void)showButtonLoginFB{
     [self.buttonLoginFB setHidden:NO];

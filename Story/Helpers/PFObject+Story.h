@@ -1,13 +1,14 @@
 //
-//  StoryHelper.h
+//  PFObject+Story.h
 //  Story
 //
 //  Created by Leonljy on 2015. 10. 7..
 //  Copyright © 2015년 Favorie&John. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
+#define STORY_CLASSNAME @"Story"
 #define STORY_KEY_DESCRIPTION @"description"
 #define STORY_KEY_TITLE @"title"
 #define STORY_KEY_FIRST_SENTENCE @"prologue"
@@ -22,6 +23,12 @@
 #define STORY_KEY_ARCHIEVEDAT @"archievedAt"
 #define STORY_KEY_IMAGE @"image"
 
-@interface StoryHelper : NSObject
+@interface PFObject (Story)
 
+typedef void (^ArrayBlock)(NSArray *objects);
+typedef void (^SuccessBlock)(id responseObject);
+typedef void (^FailureBlock)(NSError *error);
+
+
+-(void)saveNewStoryWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 @end
