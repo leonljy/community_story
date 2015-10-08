@@ -104,7 +104,8 @@
     cell.featuredStoryText.text = story[@"text"];
     cell.featuredName.text = story[@"ownerName"];
     
-//    
+    cell.currentUsersCount.text = story[@"currentSequence"];
+    
 //    PFUser *owner = story[@"owner"];
 //    PFQuery *query = [PFUser query];
 //    [query whereKey:@"objectId" equalTo:owner.objectId];

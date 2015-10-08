@@ -15,4 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *featuredStoryText;
 @property (weak, nonatomic) IBOutlet UILabel *featuredName;
 
+@property (weak, nonatomic) IBOutlet UILabel *currentUsersCount;
+
+@property (weak, nonatomic) IBOutlet UILabel *currentSequenceCount;
+
+
 @end
