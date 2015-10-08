@@ -7,18 +7,18 @@
 //
 
 #import <Parse/Parse.h>
-#define SENTENCE_CLASSNAME @"Sentence"
-#define SENTENCE_KEY_WRITER @"writer"
-#define SENTENCE_KEY_UPVOTED_COUNT @"upVotedCount"
-#define SENTENCE_KEY_UPVOTED_USERS @"upVotedUsers"
-#define SENTENCE_KEY_DOWNVOTED_COUNT @"downVotedCount"
-#define SENTENCE_KEY_DOWNVOTED_USERS @"downVotedUsers"
-#define SENTENCE_KEY_STORY @"story"
-#define SENTENCE_KEY_SEQUENCE @"sequence"
-#define SENTENCE_KEY_TEXT @"text"
-#define SENTENCE_KEY_END_SENTENCE @"isEndSentence"
-#define SENTENCE_KEY_VOTE_POINT @"votePoint"
-#define SENTENCE_KEY_ISSELECTED @"isSelected"
+#define SENTENCE_CLASSNAME              @"Sentence"
+#define SENTENCE_KEY_WRITER             @"writer"
+#define SENTENCE_KEY_UPVOTED_COUNT      @"upVotedCount"
+#define SENTENCE_KEY_UPVOTED_USERS      @"upVotedUsers"
+#define SENTENCE_KEY_DOWNVOTED_COUNT    @"downVotedCount"
+#define SENTENCE_KEY_DOWNVOTED_USERS    @"downVotedUsers"
+#define SENTENCE_KEY_STORY              @"story"
+#define SENTENCE_KEY_SEQUENCE           @"sequence"
+#define SENTENCE_KEY_TEXT               @"text"
+#define SENTENCE_KEY_END_SENTENCE       @"isEndSentence"
+#define SENTENCE_KEY_VOTE_POINT         @"votePoint"
+#define SENTENCE_KEY_ISSELECTED         @"isSelected"
 
 @interface PFObject (Sentence)
 typedef void (^ArrayBlock)(NSArray *objects);
