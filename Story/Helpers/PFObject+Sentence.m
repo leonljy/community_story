@@ -34,25 +34,17 @@
     }];
 }
 
-+(void)currentUpVotedSentencesForStory:(PFObject *)story successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
++(void)currentUpVotedSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     NSInteger currentSequence = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
-    [self upVotedSentencesForStory:story sequence:currentSequence successBlock:^(id responseObject) {
-        successBlock(responseObject);
-    } failureBlock:^(NSError *error) {
-        failureBlock(error);
-    }];
+    [self upVotedSentencesForStory:story sequence:currentSequence successBlock:successBlock failureBlock:failureBlock];
 }
 
-+(void)currentDownVotedSentencesForStory:(PFObject *)story successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
++(void)currentDownVotedSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     NSInteger currentSequence = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
-    [self downVotedSentencesForStory:story sequence:currentSequence successBlock:^(id responseObject) {
-        successBlock(responseObject);
-    } failureBlock:^(NSError *error) {
-        failureBlock(error);
-    }];
+    [self downVotedSentencesForStory:story sequence:currentSequence successBlock:successBlock failureBlock:failureBlock];
 }
 
-+(void)upVotedSentencesForStory:(PFObject *)story sequence:(NSInteger)sequence successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
++(void)upVotedSentencesForStory:(PFObject *)story sequence:(NSInteger)sequence successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
     [query whereKey:SENTENCE_KEY_STORY equalTo:story];
     [query whereKey:SENTENCE_KEY_SEQUENCE equalTo:[NSNumber numberWithInteger:sequence]];
@@ -68,7 +60,7 @@
     }];
 }
 
-+(void)downVotedSentencesForStory:(PFObject *)story sequence:(NSInteger)sequence successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
++(void)downVotedSentencesForStory:(PFObject *)story sequence:(NSInteger)sequence successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
     [query whereKey:SENTENCE_KEY_STORY equalTo:story];
     [query whereKey:SENTENCE_KEY_SEQUENCE equalTo:[NSNumber numberWithInteger:sequence]];
@@ -97,7 +89,7 @@
 //    PFObject *story = [PFObject testStory];
 //    self[SENTENCE_KEY_STORY] = story;
     /////////////////////
-    
+    self[SENTENCE_KEY_ISSELECTED] = [NSNumber numberWithBool:NO];
     PFObject *story = self[SENTENCE_KEY_STORY];
     if(nil==story){
         NSError *error = [NSError errorWithDomain:@"Nil Story" code:0 userInfo:nil];
