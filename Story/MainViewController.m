@@ -42,11 +42,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)handleNewStory:(id)sender {
-    NewStoryViewController *newStoryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MAIN"];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]];
+    NewStoryViewController *newStoryViewController = [storyboard instantiateViewControllerWithIdentifier:@"NewStoryViewController"];
     
-    
+    [newStoryViewController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:newStoryViewController animated:YES];
-//    [self moveToDetailStory];
 }
 
 - (void)moveToDetailStory{

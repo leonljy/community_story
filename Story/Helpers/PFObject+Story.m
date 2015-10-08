@@ -54,6 +54,7 @@
 -(void)printAllProperties{
     NSLog(@"\nObjectId: %@\nTitle: %@\nDescription: %@\nOwnerName: %@\bFirstSentence: %@", self.objectId, self[STORY_KEY_TITLE], self[STORY_KEY_DESCRIPTION], self[STORY_KEY_OWNER_NAME], self[STORY_KEY_FIRST_SENTENCE]);
 }
+
 -(void)bookmarkWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     PFUser *user = [PFUser currentUser];
     if([user[USER_KEY_BOOKMARKED_STORIES] containsObject:self]){

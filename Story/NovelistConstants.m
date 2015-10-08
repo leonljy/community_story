@@ -10,4 +10,7 @@
 
 @implementation NovelistConstants
 
++(NSInteger)lengthLimit{
+    return 140;
+}
 @end

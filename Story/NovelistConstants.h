@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-
-
-
-
 @interface NovelistConstants : NSObject
+
++(NSInteger)lengthLimit;
 
 @end

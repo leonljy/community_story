@@ -18,6 +18,8 @@
 #define SENTENCE_KEY_TEXT @"text"
 #define SENTENCE_KEY_END_SENTENCE @"isEndSentence"
 #define SENTENCE_KEY_VOTE_POINT @"votePoint"
+#define SENTENCE_KEY_ISSELECTED @"isSelected"
+
 @interface PFObject (Sentence)
 typedef void (^ArrayBlock)(NSArray *objects);
 typedef void (^SuccessBlock)(id responseObject);
@@ -26,8 +28,8 @@ typedef void (^FailureBlock)(NSError *error);
 #pragma mark Voted Sentences
 +(PFObject *)testStory;//Test Code
 +(void)currentSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
-+(void)currentUpVotedSentencesForStory:(PFObject *)story successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
-+(void)currentDownVotedSentencesForStory:(PFObject *)story successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
++(void)currentUpVotedSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
++(void)currentDownVotedSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 //+(void)sentencesForStory:(PFObject *)story sequence:(NSInteger)sequence successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 //+(void)upVotedSentencesForStory:(PFObject *)story sequence:(NSInteger)sequence successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
