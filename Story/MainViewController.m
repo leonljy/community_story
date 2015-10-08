@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "FeaturedTableViewCell.h"
 #import "DetailStoryViewController.h"
+#import "PFObject+Story.h"
+#import "standardTableViewCell.h"
 
 
 @interface MainViewController ()
@@ -27,34 +29,12 @@
     [super viewDidLoad];
     
   /* Using NSPredicate. Checks if story isEnded and the sorts by writersCount. In case of tie further sort by sentence count and in case of tie futher sort by created time. */
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isEndedStory = NO"];
-    PFQuery *query = [PFQuery queryWithClassName:@"Story" predicate:predicate];
-    [query orderByDescending:@"writersCount"];
-    [query addDescendingOrder:@"currentSequence"];
-    [query addAscendingOrder:@"createdAt"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            //            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            self.storyArray = objects;
-            for(PFObject *story in self.storyArray){
-                
-             /*   NSLog(@"WC: %ld, CS: %ld, Created: %@", [story[@"writersCount"] integerValue], [story[@"currentSequence"] integerValue], story.createdAt); */
-            }
-            [self.tableView reloadData];
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
+    [PFObject storiesPopularWithSuccessBlock:^(NSArray *objects) {
+        self.storyArray = objects;
+        [self.tableView reloadData];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
     }];
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,41 +68,55 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *FeaturedCellIdentifier = @"FEATURED_STORY_CELL";
-//    static NSString *StandardCellIdentifier = @"STANDARD_STORY_CELL";
+    static NSString *StandardCellIdentifier = @"STANDARD_STORY_CELL";
  
     //TODO need to change resuable cell identifier if section is greater than 1
+    
     PFObject *story = [self.storyArray objectAtIndex:indexPath.row];
-    FeaturedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FeaturedCellIdentifier];
     
-    if (cell == nil) {
-        cell = [[FeaturedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FeaturedCellIdentifier];
-    }
-    
-    
-    cell.featuredCellTitle.text = story[@"title"];
-    cell.featuredCellDescription.text = story[@"description"];
-    cell.featuredStoryText.text = story[@"text"];
-    cell.featuredName.text = story[@"ownerName"];
-    
-    cell.currentUsersCount.text = story[@"currentSequence"];
-    
-//    PFUser *owner = story[@"owner"];
-//    PFQuery *query = [PFUser query];
-//    [query whereKey:@"objectId" equalTo:owner.objectId];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//        if(error){
-//            
-//        }else{
-//            if(0<[objects count]){
-//                PFUser *user = [objects firstObject];
-//                cell.featuredName.text = user.username;
-//            }else{
-//                
-//            }
-//        }
-//    }];
+    if (indexPath.section == 0) {
+      FeaturedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FeaturedCellIdentifier];
 
-    return cell;
+        if (cell == nil) {
+            cell = [[FeaturedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FeaturedCellIdentifier];
+        }
+        
+        cell.featuredCellTitle.text = story[STORY_KEY_TITLE];
+        cell.featuredCellDescription.text = story[STORY_KEY_DESCRIPTION];
+        cell.featuredStoryText.text = story[STORY_KEY_TEXT];
+        cell.featuredName.text = story[STORY_KEY_OWNER_NAME];
+        
+        NSInteger currentSequece = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
+        NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequece];
+        cell.currentSequenceCount.text = stringSequence;
+        
+        NSInteger writersCount = [story[STORY_KEY_WRITERS_COUNT] integerValue];
+        NSString *writersCountString = [NSString stringWithFormat:@"%ld", (long)writersCount];
+        cell.currentUsersCount.text = writersCountString;
+        
+        return cell;
+        
+
+    } else {
+      StandardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StandardCellIdentifier];
+       
+        if (cell == nil) {
+            cell = [[StandardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StandardCellIdentifier];
+        }
+        
+        cell.standardTitle.text = story[STORY_KEY_TITLE];
+        cell.standardDescription.text = story[STORY_KEY_DESCRIPTION];
+        
+        NSInteger currentSequence = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
+        NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequence];
+        cell.currentSequenceCount.text = stringSequence;
+       
+        NSInteger writersCount = [story[STORY_KEY_WRITERS_COUNT] integerValue];
+        NSString *writerCountString =[NSString stringWithFormat:@"%ld", (long)writersCount];
+        cell.currentUsersCount.text =writerCountString;
+        
+        return cell;
+    }
     
 }
 

@@ -11,7 +11,7 @@
 @implementation PFObject (Story)
 
 +(void)storiesArchievedWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ = YES", STORY_KEY_ISENDED_STORY];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isEndedStory = YES"];
     PFQuery *query = [PFQuery queryWithClassName:STORY_CLASSNAME predicate:predicate];
     [query orderByDescending:STORY_KEY_ARCHIEVED_TIME];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -24,7 +24,7 @@
 }
 
 +(void)storiesPopularWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ = NO", STORY_KEY_ISENDED_STORY];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isEndedStory = NO"];
     PFQuery *query = [PFQuery queryWithClassName:STORY_CLASSNAME predicate:predicate];
     [query orderByDescending:STORY_KEY_WRITERS_COUNT];
     [query addDescendingOrder:STORY_KEY_CURRENTSEQUENCE];
