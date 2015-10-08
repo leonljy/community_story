@@ -14,10 +14,10 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
-
+#import "PFUser+User.h"
 // Testing Codes
-#import "PFObject+Sentence.h"
-#import "PFObject+Story.h"
+//#import "PFObject+Sentence.h"
+//#import "PFObject+Story.h"
 
 @interface LoginViewController () 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLoginFB;
@@ -35,34 +35,33 @@
         FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken]; // Use existing access token.
         
         // Log In (create/update currentUser) with FBSDKAccessToken
-        [PFFacebookUtils logInInBackgroundWithAccessToken:accessToken
-                                                    block:^(PFUser *user, NSError *error) {
-                                                        if (!user) {
-                                                            NSLog(@"Uh oh. There was an error logging in.");
-                                                        } else {
-                                                            NSLog(@"User logged in through Facebook!");
-                                                            [self presentViewControllerBasedOnUsernameSet:user];
-                                                            
-                                                            //TODO: Remove Testing Code
-//                                                            [PFObject storiesBookmarkedWithSuccessBlock:^(NSArray *objects) {
-//                                                                for(PFObject *story in objects){
-//                                                                    [story printAllProperties];
-//                                                                }
-//                                                            } failureBlock:^(NSError *error) {
-//                                                                
-//                                                            }];
-                                                             //                                                            [PFObject currentUpVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
-//                                                                NSLog(@"%@", responseObject);
-//                                                            } failureBlock:^(NSError *error) {
-//                                                                NSLog(@"%@", error);
-//                                                            }];
-//                                                            [PFObject currentDownVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
-//                                                                NSLog(@"%@", responseObject);
-//                                                            } failureBlock:^(NSError *error) {
-//                                                                NSLog(@"%@", error);
-//                                                            }];
-                                                        }
-                                                    }];
+        [PFFacebookUtils logInInBackgroundWithAccessToken:accessToken block:^(PFUser *user, NSError *error) {
+            if (!user) {
+                NSLog(@"Uh oh. There was an error logging in.");
+            } else {
+                NSLog(@"User logged in through Facebook!");
+                [self presentViewControllerBasedOnUsernameSet:user];
+                
+                //TODO: Remove Testing Code
+//                [PFObject storiesBookmarkedWithSuccessBlock:^(NSArray *objects) {
+//                    for(PFObject *story in objects){
+//                        [story printAllProperties];
+//                    }
+//                } failureBlock:^(NSError *error) {
+//                    
+//                }];
+//                 [PFObject currentUpVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
+//                        NSLog(@"%@", responseObject);
+//                    } failureBlock:^(NSError *error) {
+//                        NSLog(@"%@", error);
+//                    }];
+//                    [PFObject currentDownVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
+//                        NSLog(@"%@", responseObject);
+//                    } failureBlock:^(NSError *error) {
+//                        NSLog(@"%@", error);
+//                    }];
+            }
+        }];
     }else{
         [self.buttonLoginFB setHidden:NO];
     }
@@ -93,16 +92,11 @@
 }
 
 -(void)presentViewControllerBasedOnUsernameSet:(PFUser *)user{
-    if([user[@"isUsernameSet"] boolValue]){
+    if([user[USER_KEY_ISUSERNAME_SET] boolValue]){
         [self presentMainViewController];
     }else{
         [self presentNewUserViewController];
     }
-}
-
--(void)newUserLoggedIn:(PFUser *)newUser{
-    newUser[@"isUsernameSet"] = [NSNumber numberWithBool:NO];
-    [self presentNewUserViewController];
 }
 
 - (IBAction)handleLogin:(id)sender {
@@ -115,7 +109,7 @@
             //TODO: Show Alert View "Canceled Login."
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
-            [self newUserLoggedIn:user];
+            [self presentNewUserViewController];
         } else {
             NSLog(@"User logged in through Facebook!");
             [self presentViewControllerBasedOnUsernameSet:user];
@@ -124,7 +118,6 @@
 }
 
 -(void)presentNewUserViewController{
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     NewUserViewController *newUserViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserViewController"];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [UIView transitionWithView:appDelegate.window

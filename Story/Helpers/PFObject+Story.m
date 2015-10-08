@@ -7,7 +7,7 @@
 //
 
 #import "PFObject+Story.h"
-#import "PFObject+User.h"
+#import "PFUser+User.h"
 @implementation PFObject (Story)
 
 +(void)storiesArchievedWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
