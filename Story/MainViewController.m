@@ -47,22 +47,23 @@
     
     
     [self.navigationController pushViewController:newStoryViewController animated:YES];
-//    [self moveToDetailStory];
 }
 
-- (void)moveToDetailStory{
+- (void)moveToDetailStory:(PFObject *)story{
     UIStoryboard *detailStoryBoard = [UIStoryboard storyboardWithName:@"DetailStory" bundle:nil];
-    DetailStoryViewController *detailStoryViewController = [detailStoryBoard instantiateViewControllerWithIdentifier:@"DETAIL_STORY"];
-    
+//    DetailStoryViewController *detailStoryViewController = [detailStoryBoard instantiateViewControllerWithIdentifier:@"DETAIL_STORY"];
 //    [self.navigationController pushViewController:detailStoryViewController animated:YES];
     
     DetailStoryTextViewController *detailStoryTextViewController = [DetailStoryTextViewController new];
     [detailStoryTextViewController setHidesBottomBarWhenPushed:YES];
+    detailStoryTextViewController.story = story;
     
     [self.navigationController pushViewController:detailStoryTextViewController animated:YES];
 }
 
 //tableView
+
+# pragma mark - UITableView data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -136,6 +137,13 @@
     }
     
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    PFObject *story = [self.storyArray objectAtIndex:indexPath.row];
+    [self moveToDetailStory:story];
+}
+
+#pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
