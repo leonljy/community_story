@@ -20,8 +20,9 @@
 #define STORY_KEY_CURRENTSEQUENCE @"currentSequence"
 #define STORY_KEY_WRITERS_COUNT @"writersCount"
 #define STORY_KEY_WRITERS @"writers"
-#define STORY_KEY_ARCHIEVEDAT @"archievedAt"
+#define STORY_KEY_ARCHIEVED_TIME @"archievedAt"
 #define STORY_KEY_IMAGE @"image"
+#define STORY_KEY_CREATED_TIME @"createdAt"
 
 @interface PFObject (Story)
 
@@ -29,6 +30,17 @@ typedef void (^ArrayBlock)(NSArray *objects);
 typedef void (^SuccessBlock)(id responseObject);
 typedef void (^FailureBlock)(NSError *error);
 
+#pragma mark - Class Functions
+
++(void)storiesBookmarkedWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
++(void)storiesPopularWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
++(void)storiesArchievedWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+#pragma mark - Instance Functions
+-(void)printAllProperties;
 
 -(void)saveNewStoryWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+-(void)bookmarkWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+-(void)cancelBookmarkWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 @end

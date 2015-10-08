@@ -10,6 +10,7 @@
 		9103370C1BC5E95C00A4CC43 /* NovelistConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103370B1BC5E95C00A4CC43 /* NovelistConstants.m */; settings = {ASSET_TAGS = (); }; };
 		9103370F1BC5F78E00A4CC43 /* PFObject+Sentence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103370E1BC5F78E00A4CC43 /* PFObject+Sentence.m */; settings = {ASSET_TAGS = (); }; };
 		910337121BC5F83200A4CC43 /* PFObject+Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 910337111BC5F83200A4CC43 /* PFObject+Story.m */; settings = {ASSET_TAGS = (); }; };
+		910337151BC623E200A4CC43 /* PFObject+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 910337141BC623E200A4CC43 /* PFObject+User.m */; settings = {ASSET_TAGS = (); }; };
 		9162E4751BBE10E7002A8B92 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4711BBE10E7002A8B92 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		9162E4761BBE10E7002A8B92 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4721BBE10E7002A8B92 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		9162E4771BBE10E7002A8B92 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4731BBE10E7002A8B92 /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
@@ -82,6 +83,8 @@
 		9103370E1BC5F78E00A4CC43 /* PFObject+Sentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFObject+Sentence.m"; path = "Helpers/PFObject+Sentence.m"; sourceTree = "<group>"; };
 		910337101BC5F83200A4CC43 /* PFObject+Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFObject+Story.h"; path = "Helpers/PFObject+Story.h"; sourceTree = "<group>"; };
 		910337111BC5F83200A4CC43 /* PFObject+Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFObject+Story.m"; path = "Helpers/PFObject+Story.m"; sourceTree = "<group>"; };
+		910337131BC623E200A4CC43 /* PFObject+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFObject+User.h"; path = "Helpers/PFObject+User.h"; sourceTree = "<group>"; };
+		910337141BC623E200A4CC43 /* PFObject+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFObject+User.m"; path = "Helpers/PFObject+User.m"; sourceTree = "<group>"; };
 		9162E4711BBE10E7002A8B92 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		9162E4721BBE10E7002A8B92 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9162E4731BBE10E7002A8B92 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				9103370E1BC5F78E00A4CC43 /* PFObject+Sentence.m */,
 				910337101BC5F83200A4CC43 /* PFObject+Story.h */,
 				910337111BC5F83200A4CC43 /* PFObject+Story.m */,
+				910337131BC623E200A4CC43 /* PFObject+User.h */,
+				910337141BC623E200A4CC43 /* PFObject+User.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */,
 				E54EA6B91BC35AAA00104EF7 /* DetailAuthorTableViewCell.m in Sources */,
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
+				910337151BC623E200A4CC43 /* PFObject+User.m in Sources */,
 				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
 				E54EA6BC1BC35ABB00104EF7 /* DetailTimeTableViewCell.m in Sources */,

@@ -14,7 +14,10 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+
+// Testing Codes
 #import "PFObject+Sentence.h"
+#import "PFObject+Story.h"
 
 @interface LoginViewController () 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLoginFB;
@@ -39,10 +42,17 @@
                                                         } else {
                                                             NSLog(@"User logged in through Facebook!");
 //                                                            TODO: Remove Comment
-                                                            [self presentViewControllerBasedOnUsernameSet:user];
+//                                                            [self presentViewControllerBasedOnUsernameSet:user];
                                                             
                                                             //TODO: Remove Testing Code
-//                                                            [PFObject currentUpVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
+//                                                            [PFObject storiesBookmarkedWithSuccessBlock:^(NSArray *objects) {
+//                                                                for(PFObject *story in objects){
+//                                                                    [story printAllProperties];
+//                                                                }
+//                                                            } failureBlock:^(NSError *error) {
+//                                                                
+//                                                            }];
+                                                             //                                                            [PFObject currentUpVotedSentencesForStory:[PFObject testStory] successBlock:^(id responseObject) {
 //                                                                NSLog(@"%@", responseObject);
 //                                                            } failureBlock:^(NSError *error) {
 //                                                                NSLog(@"%@", error);
