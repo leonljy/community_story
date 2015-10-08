@@ -9,9 +9,17 @@
 #import "StandardTableViewCell.h"
 
 @implementation StandardTableViewCell
+@synthesize standardTitle;
+@synthesize standardDescription;
+@synthesize currentUsersCount;
+@synthesize currentSequenceCount;
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    standardDescription.lineBreakMode = NSLineBreakByWordWrapping;
+    standardDescription.numberOfLines = 0;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
