@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
 #import <Parse/Parse.h>
+#import "PFUser+User.h"
 
 @interface NewUserViewController ()<UITextFieldDelegate>
 
@@ -19,8 +20,11 @@
 
 @end
 
+static NSString *errorUsernameExist = @"Exist";
+
 @implementation NewUserViewController{
     BOOL isAvailable;
+    
 }
 
 - (void)viewDidLoad {
@@ -32,23 +36,25 @@
 }
 
 - (IBAction)handleCheckAvailability:(id)sender {
-    
     PFUser *user = [PFUser currentUser];
     NSString *beforeUserName = user.username;
-    user.username = self.textFieldUserName.text;
-    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if(succeeded){
-            [self presentMainViewController];
-        }else{
-            if([error.localizedDescription isEqualToString:@"Exist"]){
-                user.username = beforeUserName;
-                NSString *result = [NSString stringWithFormat:@"%@ already exists", self.textFieldUserName.text];
-                [self.labelResultStatus setText:result];
-                [self.textFieldUserName setText:@""];
-                
-            }
+    NSString *newUserName = self.textFieldUserName.text;
+    
+    [user updateUsername:newUserName successBlock:^(id responseObject) {
+        [self presentMainViewController];
+    } failureBlock:^(NSError *error) {
+        if([error.localizedDescription isEqualToString:errorUsernameExist]){
+            user.username = beforeUserName;
+            NSString *result = [NSString stringWithFormat:@"%@ already exists", newUserName];
+            [self.labelResultStatus setText:result];
+            [self.textFieldUserName setText:@""];
         }
     }];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.textFieldUserName resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)handleTextFieldChange:(id)sender {
@@ -69,7 +75,7 @@
     
     [UIView transitionWithView:appDelegate.window
                       duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                       options:UIViewAnimationOptionTransitionFlipFromRight
                     animations:^{
                         [appDelegate.window setRootViewController:tabBarViewController];
                     }
