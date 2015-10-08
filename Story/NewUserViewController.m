@@ -10,16 +10,21 @@
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
 #import <Parse/Parse.h>
+#import "PFUser+User.h"
 
 @interface NewUserViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textFieldUserName;
 @property (weak, nonatomic) IBOutlet UIButton *buttonCheckAvailability;
+@property (weak, nonatomic) IBOutlet UILabel *labelResultStatus;
 
 @end
 
+static NSString *errorUsernameExist = @"Exist";
+
 @implementation NewUserViewController{
     BOOL isAvailable;
+    
 }
 
 - (void)viewDidLoad {
@@ -28,36 +33,28 @@
     isAvailable = NO;
     [self.buttonCheckAvailability setEnabled:NO];
     [self.textFieldUserName setDelegate:self];
-//    self.textFieldUserName set
 }
 
 - (IBAction)handleCheckAvailability:(id)sender {
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:self.textFieldUserName.text];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        __block UIAlertView *alertView;
-        if(0<objects){
-            alertView = [[UIAlertView alloc] initWithTitle:@"Username not available" message:@"Try another username" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alertView show];
-        }else{
-            PFUser *user = [PFUser currentUser];
-            user.username = self.textFieldUserName.text;
-            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                if(error){
-                    
-                }else{
-                    alertView = [[UIAlertView alloc] initWithTitle:@"Username Available" message:@"Try another username" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];        
-                }
-            }];
-            
+    PFUser *user = [PFUser currentUser];
+    NSString *beforeUserName = user.username;
+    NSString *newUserName = self.textFieldUserName.text;
+    
+    [user updateUsername:newUserName successBlock:^(id responseObject) {
+        [self presentMainViewController];
+    } failureBlock:^(NSError *error) {
+        if([error.localizedDescription isEqualToString:errorUsernameExist]){
+            user.username = beforeUserName;
+            NSString *result = [NSString stringWithFormat:@"* %@ already exists *", newUserName];
+            [self.labelResultStatus setText:result];
+            [self.textFieldUserName setText:@""];
         }
     }];
 }
 
-- (IBAction)handleStartNovelist:(id)sender {
-    if(isAvailable){
-        [self presentMainViewController];
-    }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.textFieldUserName resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)handleTextFieldChange:(id)sender {
@@ -78,7 +75,7 @@
     
     [UIView transitionWithView:appDelegate.window
                       duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                       options:UIViewAnimationOptionTransitionFlipFromRight
                     animations:^{
                         [appDelegate.window setRootViewController:tabBarViewController];
                     }

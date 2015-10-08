@@ -8,6 +8,7 @@
 
 #import "NewStoryViewController.h"
 #import <Parse/Parse.h>
+#import "PFObject+Story.h"
 
 @interface NewStoryViewController () 
 
@@ -31,21 +32,16 @@
 }
 
 - (IBAction)saveNewStory:(id)sender {
-   
-    PFObject *newStory = [PFObject objectWithClassName:@"Story"];
-    newStory[@"title"] = titleTextField.text;
-    newStory[@"description"] = descriptionTextView.text;
-    newStory[@"prologue"] = prologueTextView.text;
-    newStory[@"owner"] = [PFUser currentUser];
-    [newStory saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            
-            NSLog(@"The object has been saved.");
-        } else {
-            NSLog(@"There was a problem, check error.description");
-        }
+    PFObject *newStory = [PFObject objectWithClassName:STORY_CLASSNAME];
+    newStory[STORY_KEY_TITLE] = titleTextField.text;
+    newStory[STORY_KEY_DESCRIPTION] = descriptionTextView.text;
+    newStory[STORY_KEY_FIRST_SENTENCE] = prologueTextView.text;
+    newStory[STORY_KEY_TEXT] = prologueTextView.text;
+    [newStory saveNewStoryWithSuccessBlock:^(id responseObject) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } failureBlock:^(NSError *error) {
+        
     }];
-
 }
 
 

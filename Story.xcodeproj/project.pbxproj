@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9103370C1BC5E95C00A4CC43 /* NovelistConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103370B1BC5E95C00A4CC43 /* NovelistConstants.m */; settings = {ASSET_TAGS = (); }; };
+		9103370F1BC5F78E00A4CC43 /* PFObject+Sentence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103370E1BC5F78E00A4CC43 /* PFObject+Sentence.m */; settings = {ASSET_TAGS = (); }; };
+		910337121BC5F83200A4CC43 /* PFObject+Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 910337111BC5F83200A4CC43 /* PFObject+Story.m */; settings = {ASSET_TAGS = (); }; };
+		910337181BC62F9500A4CC43 /* PFUser+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 910337171BC62F9500A4CC43 /* PFUser+User.m */; settings = {ASSET_TAGS = (); }; };
 		9162E4751BBE10E7002A8B92 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4711BBE10E7002A8B92 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		9162E4761BBE10E7002A8B92 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4721BBE10E7002A8B92 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		9162E4771BBE10E7002A8B92 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4731BBE10E7002A8B92 /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
@@ -45,13 +49,22 @@
 		E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4311BBE2D5E00A8614F /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E1CCD68B1BC4CE7900E52223 /* FeaturedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD6881BC4CE7900E52223 /* FeaturedTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD68A1BC4CE7900E52223 /* StandardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		E50281CE1BC4E25300FD5383 /* DetailStoryTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50281CD1BC4E25300FD5383 /* DetailStoryTextViewController.m */; settings = {ASSET_TAGS = (); }; };
-		E52B45811BC5E55900452BD5 /* DetailTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B45801BC5E55900452BD5 /* DetailTitleTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		E52B45831BC5E8E200452BD5 /* DetailAuthorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B45821BC5E8E200452BD5 /* DetailAuthorTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		E52B45851BC5E90400452BD5 /* DetailTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B45841BC5E90400452BD5 /* DetailTimeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		E52B45871BC5E90F00452BD5 /* DetailDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B45861BC5E90F00452BD5 /* DetailDescriptionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		E52B45891BC5E91B00452BD5 /* DetailContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B45881BC5E91B00452BD5 /* DetailContentsTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		E52B458B1BC5E92500452BD5 /* DetailVotingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458A1BC5E92500452BD5 /* DetailVotingTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52B45921BC71BB800452BD5 /* DetailAuthorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458C1BC71BB800452BD5 /* DetailAuthorTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52B45931BC71BB800452BD5 /* DetailContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458D1BC71BB800452BD5 /* DetailContentsTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52B45941BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458E1BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52B45951BC71BB800452BD5 /* DetailTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458F1BC71BB800452BD5 /* DetailTimeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52B45961BC71BB800452BD5 /* DetailTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B45901BC71BB800452BD5 /* DetailTitleTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52B45971BC71BB800452BD5 /* DetailVotingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B45911BC71BB800452BD5 /* DetailVotingTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52B459A1BC71BFC00452BD5 /* DetailStoryTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45991BC71BFC00452BD5 /* DetailStoryTextViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45B31BC71C7C00452BD5 /* SLKTextView+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B459F1BC71C7C00452BD5 /* SLKTextView+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45B41BC71C7C00452BD5 /* UIResponder+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45A21BC71C7C00452BD5 /* UIResponder+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45B51BC71C7C00452BD5 /* UIScrollView+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45A41BC71C7C00452BD5 /* UIScrollView+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45B61BC71C7C00452BD5 /* UIView+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45A61BC71C7C00452BD5 /* UIView+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45B71BC71C7C00452BD5 /* SLKInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45A91BC71C7C00452BD5 /* SLKInputAccessoryView.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45B81BC71C7C00452BD5 /* SLKTextInputbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45AB1BC71C7C00452BD5 /* SLKTextInputbar.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45B91BC71C7C00452BD5 /* SLKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45AD1BC71C7C00452BD5 /* SLKTextView.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45BA1BC71C7C00452BD5 /* SLKTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45AF1BC71C7C00452BD5 /* SLKTextViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E52B45BB1BC71C7C00452BD5 /* SLKTypingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45B21BC71C7C00452BD5 /* SLKTypingIndicatorView.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6B21BC3579800104EF7 /* DetailStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6B51BC35A8B00104EF7 /* DetailTitleTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6B91BC35AAA00104EF7 /* DetailAuthorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6B81BC35AAA00104EF7 /* DetailAuthorTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -60,15 +73,6 @@
 		E54EA6C21BC35B2500104EF7 /* DetailContentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6C11BC35B2500104EF7 /* DetailContentsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6C81BC35B6000104EF7 /* DetailVotingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55C219C1BBF2461002F0831 /* DetailStory.storyboard */; settings = {ASSET_TAGS = (); }; };
-		E5C638BE1BC4DB1D00092A46 /* SLKTextView+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638AA1BC4DB1D00092A46 /* SLKTextView+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638BF1BC4DB1D00092A46 /* UIResponder+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638AD1BC4DB1D00092A46 /* UIResponder+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638C01BC4DB1D00092A46 /* UIScrollView+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638AF1BC4DB1D00092A46 /* UIScrollView+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638C11BC4DB1D00092A46 /* UIView+SLKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638B11BC4DB1D00092A46 /* UIView+SLKAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638C21BC4DB1D00092A46 /* SLKInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638B41BC4DB1D00092A46 /* SLKInputAccessoryView.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638C31BC4DB1D00092A46 /* SLKTextInputbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638B61BC4DB1D00092A46 /* SLKTextInputbar.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638C41BC4DB1D00092A46 /* SLKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638B81BC4DB1D00092A46 /* SLKTextView.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638C51BC4DB1D00092A46 /* SLKTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638BA1BC4DB1D00092A46 /* SLKTextViewController.m */; settings = {ASSET_TAGS = (); }; };
-		E5C638C61BC4DB1D00092A46 /* SLKTypingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C638BD1BC4DB1D00092A46 /* SLKTypingIndicatorView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9103370A1BC5E95C00A4CC43 /* NovelistConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelistConstants.h; sourceTree = "<group>"; };
+		9103370B1BC5E95C00A4CC43 /* NovelistConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NovelistConstants.m; sourceTree = "<group>"; };
+		9103370D1BC5F78E00A4CC43 /* PFObject+Sentence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFObject+Sentence.h"; path = "Helpers/PFObject+Sentence.h"; sourceTree = "<group>"; };
+		9103370E1BC5F78E00A4CC43 /* PFObject+Sentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFObject+Sentence.m"; path = "Helpers/PFObject+Sentence.m"; sourceTree = "<group>"; };
+		910337101BC5F83200A4CC43 /* PFObject+Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFObject+Story.h"; path = "Helpers/PFObject+Story.h"; sourceTree = "<group>"; };
+		910337111BC5F83200A4CC43 /* PFObject+Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFObject+Story.m"; path = "Helpers/PFObject+Story.m"; sourceTree = "<group>"; };
+		910337161BC62F9500A4CC43 /* PFUser+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFUser+User.h"; path = "Helpers/PFUser+User.h"; sourceTree = "<group>"; };
+		910337171BC62F9500A4CC43 /* PFUser+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFUser+User.m"; path = "Helpers/PFUser+User.m"; sourceTree = "<group>"; };
 		9162E4711BBE10E7002A8B92 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		9162E4721BBE10E7002A8B92 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9162E4731BBE10E7002A8B92 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -146,14 +158,34 @@
 		E1CCD6881BC4CE7900E52223 /* FeaturedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTableViewCell.m; sourceTree = "<group>"; };
 		E1CCD6891BC4CE7900E52223 /* StandardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardTableViewCell.h; sourceTree = "<group>"; };
 		E1CCD68A1BC4CE7900E52223 /* StandardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardTableViewCell.m; sourceTree = "<group>"; };
-		E50281CC1BC4E25300FD5383 /* DetailStoryTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStoryTextViewController.h; sourceTree = "<group>"; };
-		E50281CD1BC4E25300FD5383 /* DetailStoryTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStoryTextViewController.m; sourceTree = "<group>"; };
-		E52B45801BC5E55900452BD5 /* DetailTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTitleTableViewCell.xib; sourceTree = "<group>"; };
-		E52B45821BC5E8E200452BD5 /* DetailAuthorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailAuthorTableViewCell.xib; sourceTree = "<group>"; };
-		E52B45841BC5E90400452BD5 /* DetailTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTimeTableViewCell.xib; sourceTree = "<group>"; };
-		E52B45861BC5E90F00452BD5 /* DetailDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDescriptionTableViewCell.xib; sourceTree = "<group>"; };
-		E52B45881BC5E91B00452BD5 /* DetailContentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailContentsTableViewCell.xib; sourceTree = "<group>"; };
-		E52B458A1BC5E92500452BD5 /* DetailVotingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVotingTableViewCell.xib; sourceTree = "<group>"; };
+		E52B458C1BC71BB800452BD5 /* DetailAuthorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailAuthorTableViewCell.xib; sourceTree = "<group>"; };
+		E52B458D1BC71BB800452BD5 /* DetailContentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailContentsTableViewCell.xib; sourceTree = "<group>"; };
+		E52B458E1BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		E52B458F1BC71BB800452BD5 /* DetailTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTimeTableViewCell.xib; sourceTree = "<group>"; };
+		E52B45901BC71BB800452BD5 /* DetailTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTitleTableViewCell.xib; sourceTree = "<group>"; };
+		E52B45911BC71BB800452BD5 /* DetailVotingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVotingTableViewCell.xib; sourceTree = "<group>"; };
+		E52B45981BC71BFC00452BD5 /* DetailStoryTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStoryTextViewController.h; sourceTree = "<group>"; };
+		E52B45991BC71BFC00452BD5 /* DetailStoryTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStoryTextViewController.m; sourceTree = "<group>"; };
+		E52B459E1BC71C7C00452BD5 /* SLKTextView+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLKTextView+SLKAdditions.h"; sourceTree = "<group>"; };
+		E52B459F1BC71C7C00452BD5 /* SLKTextView+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLKTextView+SLKAdditions.m"; sourceTree = "<group>"; };
+		E52B45A01BC71C7C00452BD5 /* SLKUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUIConstants.h; sourceTree = "<group>"; };
+		E52B45A11BC71C7C00452BD5 /* UIResponder+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+SLKAdditions.h"; sourceTree = "<group>"; };
+		E52B45A21BC71C7C00452BD5 /* UIResponder+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+SLKAdditions.m"; sourceTree = "<group>"; };
+		E52B45A31BC71C7C00452BD5 /* UIScrollView+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SLKAdditions.h"; sourceTree = "<group>"; };
+		E52B45A41BC71C7C00452BD5 /* UIScrollView+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SLKAdditions.m"; sourceTree = "<group>"; };
+		E52B45A51BC71C7C00452BD5 /* UIView+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SLKAdditions.h"; sourceTree = "<group>"; };
+		E52B45A61BC71C7C00452BD5 /* UIView+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SLKAdditions.m"; sourceTree = "<group>"; };
+		E52B45A81BC71C7C00452BD5 /* SLKInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKInputAccessoryView.h; sourceTree = "<group>"; };
+		E52B45A91BC71C7C00452BD5 /* SLKInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKInputAccessoryView.m; sourceTree = "<group>"; };
+		E52B45AA1BC71C7C00452BD5 /* SLKTextInputbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTextInputbar.h; sourceTree = "<group>"; };
+		E52B45AB1BC71C7C00452BD5 /* SLKTextInputbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTextInputbar.m; sourceTree = "<group>"; };
+		E52B45AC1BC71C7C00452BD5 /* SLKTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTextView.h; sourceTree = "<group>"; };
+		E52B45AD1BC71C7C00452BD5 /* SLKTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTextView.m; sourceTree = "<group>"; };
+		E52B45AE1BC71C7C00452BD5 /* SLKTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTextViewController.h; sourceTree = "<group>"; };
+		E52B45AF1BC71C7C00452BD5 /* SLKTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTextViewController.m; sourceTree = "<group>"; };
+		E52B45B01BC71C7C00452BD5 /* SLKTypingIndicatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTypingIndicatorProtocol.h; sourceTree = "<group>"; };
+		E52B45B11BC71C7C00452BD5 /* SLKTypingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTypingIndicatorView.h; sourceTree = "<group>"; };
+		E52B45B21BC71C7C00452BD5 /* SLKTypingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTypingIndicatorView.m; sourceTree = "<group>"; };
 		E54EA6B01BC3579800104EF7 /* DetailStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStoryViewController.h; sourceTree = "<group>"; };
 		E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStoryViewController.m; sourceTree = "<group>"; };
 		E54EA6B41BC35A8B00104EF7 /* DetailTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTitleTableViewCell.h; sourceTree = "<group>"; };
@@ -169,26 +201,6 @@
 		E54EA6C61BC35B6000104EF7 /* DetailVotingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVotingTableViewCell.h; sourceTree = "<group>"; };
 		E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVotingTableViewCell.m; sourceTree = "<group>"; };
 		E55C219C1BBF2461002F0831 /* DetailStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailStory.storyboard; sourceTree = "<group>"; };
-		E5C638A91BC4DB1D00092A46 /* SLKTextView+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLKTextView+SLKAdditions.h"; sourceTree = "<group>"; };
-		E5C638AA1BC4DB1D00092A46 /* SLKTextView+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLKTextView+SLKAdditions.m"; sourceTree = "<group>"; };
-		E5C638AB1BC4DB1D00092A46 /* SLKUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUIConstants.h; sourceTree = "<group>"; };
-		E5C638AC1BC4DB1D00092A46 /* UIResponder+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+SLKAdditions.h"; sourceTree = "<group>"; };
-		E5C638AD1BC4DB1D00092A46 /* UIResponder+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+SLKAdditions.m"; sourceTree = "<group>"; };
-		E5C638AE1BC4DB1D00092A46 /* UIScrollView+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SLKAdditions.h"; sourceTree = "<group>"; };
-		E5C638AF1BC4DB1D00092A46 /* UIScrollView+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SLKAdditions.m"; sourceTree = "<group>"; };
-		E5C638B01BC4DB1D00092A46 /* UIView+SLKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SLKAdditions.h"; sourceTree = "<group>"; };
-		E5C638B11BC4DB1D00092A46 /* UIView+SLKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SLKAdditions.m"; sourceTree = "<group>"; };
-		E5C638B31BC4DB1D00092A46 /* SLKInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKInputAccessoryView.h; sourceTree = "<group>"; };
-		E5C638B41BC4DB1D00092A46 /* SLKInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKInputAccessoryView.m; sourceTree = "<group>"; };
-		E5C638B51BC4DB1D00092A46 /* SLKTextInputbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTextInputbar.h; sourceTree = "<group>"; };
-		E5C638B61BC4DB1D00092A46 /* SLKTextInputbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTextInputbar.m; sourceTree = "<group>"; };
-		E5C638B71BC4DB1D00092A46 /* SLKTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTextView.h; sourceTree = "<group>"; };
-		E5C638B81BC4DB1D00092A46 /* SLKTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTextView.m; sourceTree = "<group>"; };
-		E5C638B91BC4DB1D00092A46 /* SLKTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTextViewController.h; sourceTree = "<group>"; };
-		E5C638BA1BC4DB1D00092A46 /* SLKTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTextViewController.m; sourceTree = "<group>"; };
-		E5C638BB1BC4DB1D00092A46 /* SLKTypingIndicatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTypingIndicatorProtocol.h; sourceTree = "<group>"; };
-		E5C638BC1BC4DB1D00092A46 /* SLKTypingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTypingIndicatorView.h; sourceTree = "<group>"; };
-		E5C638BD1BC4DB1D00092A46 /* SLKTypingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTypingIndicatorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +286,21 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		91A8B19C1BC5C1AB0000178F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9103370A1BC5E95C00A4CC43 /* NovelistConstants.h */,
+				9103370B1BC5E95C00A4CC43 /* NovelistConstants.m */,
+				9103370D1BC5F78E00A4CC43 /* PFObject+Sentence.h */,
+				9103370E1BC5F78E00A4CC43 /* PFObject+Sentence.m */,
+				910337101BC5F83200A4CC43 /* PFObject+Story.h */,
+				910337111BC5F83200A4CC43 /* PFObject+Story.m */,
+				910337161BC62F9500A4CC43 /* PFUser+User.h */,
+				910337171BC62F9500A4CC43 /* PFUser+User.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		91AD92011BBE0FC8000137A4 = {
 			isa = PBXGroup;
 			children = (
@@ -298,7 +325,8 @@
 		91AD920C1BBE0FC8000137A4 /* Story */ = {
 			isa = PBXGroup;
 			children = (
-				E5C638C71BC4DB2800092A46 /* Libraries */,
+				E52B459B1BC71C6700452BD5 /* Libraries */,
+				91A8B19C1BC5C1AB0000178F /* Helpers */,
 				E54EA6B31BC359CC00104EF7 /* Cells */,
 				E138E4331BBE2D6300A8614F /* View Controllers */,
 				91AD92101BBE0FC8000137A4 /* AppDelegate.h */,
@@ -350,8 +378,8 @@
 				E13F5A261BBE39BD00F7264B /* MainView */,
 				E54EA6B01BC3579800104EF7 /* DetailStoryViewController.h */,
 				E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */,
-				E50281CC1BC4E25300FD5383 /* DetailStoryTextViewController.h */,
-				E50281CD1BC4E25300FD5383 /* DetailStoryTextViewController.m */,
+				E52B45981BC71BFC00452BD5 /* DetailStoryTextViewController.h */,
+				E52B45991BC71BFC00452BD5 /* DetailStoryTextViewController.m */,
 				E138E4301BBE2D5E00A8614F /* ProfileViewController.h */,
 				E138E4311BBE2D5E00A8614F /* ProfileViewController.m */,
 				E138E42D1BBE2D5500A8614F /* ArchiveViewController.h */,
@@ -377,81 +405,81 @@
 			name = MainView;
 			sourceTree = "<group>";
 		};
-		E54EA6B31BC359CC00104EF7 /* Cells */ = {
+		E52B459B1BC71C6700452BD5 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				E54EA6B41BC35A8B00104EF7 /* DetailTitleTableViewCell.h */,
-				E54EA6B51BC35A8B00104EF7 /* DetailTitleTableViewCell.m */,
-				E52B45801BC5E55900452BD5 /* DetailTitleTableViewCell.xib */,
-				E54EA6B71BC35AAA00104EF7 /* DetailAuthorTableViewCell.h */,
-				E54EA6B81BC35AAA00104EF7 /* DetailAuthorTableViewCell.m */,
-				E52B45821BC5E8E200452BD5 /* DetailAuthorTableViewCell.xib */,
-				E54EA6BA1BC35ABB00104EF7 /* DetailTimeTableViewCell.h */,
-				E54EA6BB1BC35ABB00104EF7 /* DetailTimeTableViewCell.m */,
-				E52B45841BC5E90400452BD5 /* DetailTimeTableViewCell.xib */,
-				E54EA6BD1BC35AD100104EF7 /* DetailDescriptionTableViewCell.h */,
-				E54EA6BE1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m */,
-				E52B45861BC5E90F00452BD5 /* DetailDescriptionTableViewCell.xib */,
-				E54EA6C01BC35B2500104EF7 /* DetailContentsTableViewCell.h */,
-				E54EA6C11BC35B2500104EF7 /* DetailContentsTableViewCell.m */,
-				E52B45881BC5E91B00452BD5 /* DetailContentsTableViewCell.xib */,
-				E54EA6C61BC35B6000104EF7 /* DetailVotingTableViewCell.h */,
-				E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */,
-				E52B458A1BC5E92500452BD5 /* DetailVotingTableViewCell.xib */,
+				E52B459C1BC71C7C00452BD5 /* SlackTextView */,
 			);
-			name = Cells;
+			name = Libraries;
 			sourceTree = "<group>";
 		};
-		E5C638A71BC4DB1D00092A46 /* SlackTextView */ = {
+		E52B459C1BC71C7C00452BD5 /* SlackTextView */ = {
 			isa = PBXGroup;
 			children = (
-				E5C638A81BC4DB1D00092A46 /* Additions */,
-				E5C638B21BC4DB1D00092A46 /* Classes */,
+				E52B459D1BC71C7C00452BD5 /* Additions */,
+				E52B45A71BC71C7C00452BD5 /* Classes */,
 			);
 			name = SlackTextView;
 			path = Libraries/SlackTextView;
 			sourceTree = "<group>";
 		};
-		E5C638A81BC4DB1D00092A46 /* Additions */ = {
+		E52B459D1BC71C7C00452BD5 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				E5C638A91BC4DB1D00092A46 /* SLKTextView+SLKAdditions.h */,
-				E5C638AA1BC4DB1D00092A46 /* SLKTextView+SLKAdditions.m */,
-				E5C638AB1BC4DB1D00092A46 /* SLKUIConstants.h */,
-				E5C638AC1BC4DB1D00092A46 /* UIResponder+SLKAdditions.h */,
-				E5C638AD1BC4DB1D00092A46 /* UIResponder+SLKAdditions.m */,
-				E5C638AE1BC4DB1D00092A46 /* UIScrollView+SLKAdditions.h */,
-				E5C638AF1BC4DB1D00092A46 /* UIScrollView+SLKAdditions.m */,
-				E5C638B01BC4DB1D00092A46 /* UIView+SLKAdditions.h */,
-				E5C638B11BC4DB1D00092A46 /* UIView+SLKAdditions.m */,
+				E52B459E1BC71C7C00452BD5 /* SLKTextView+SLKAdditions.h */,
+				E52B459F1BC71C7C00452BD5 /* SLKTextView+SLKAdditions.m */,
+				E52B45A01BC71C7C00452BD5 /* SLKUIConstants.h */,
+				E52B45A11BC71C7C00452BD5 /* UIResponder+SLKAdditions.h */,
+				E52B45A21BC71C7C00452BD5 /* UIResponder+SLKAdditions.m */,
+				E52B45A31BC71C7C00452BD5 /* UIScrollView+SLKAdditions.h */,
+				E52B45A41BC71C7C00452BD5 /* UIScrollView+SLKAdditions.m */,
+				E52B45A51BC71C7C00452BD5 /* UIView+SLKAdditions.h */,
+				E52B45A61BC71C7C00452BD5 /* UIView+SLKAdditions.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
 		};
-		E5C638B21BC4DB1D00092A46 /* Classes */ = {
+		E52B45A71BC71C7C00452BD5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E5C638B31BC4DB1D00092A46 /* SLKInputAccessoryView.h */,
-				E5C638B41BC4DB1D00092A46 /* SLKInputAccessoryView.m */,
-				E5C638B51BC4DB1D00092A46 /* SLKTextInputbar.h */,
-				E5C638B61BC4DB1D00092A46 /* SLKTextInputbar.m */,
-				E5C638B71BC4DB1D00092A46 /* SLKTextView.h */,
-				E5C638B81BC4DB1D00092A46 /* SLKTextView.m */,
-				E5C638B91BC4DB1D00092A46 /* SLKTextViewController.h */,
-				E5C638BA1BC4DB1D00092A46 /* SLKTextViewController.m */,
-				E5C638BB1BC4DB1D00092A46 /* SLKTypingIndicatorProtocol.h */,
-				E5C638BC1BC4DB1D00092A46 /* SLKTypingIndicatorView.h */,
-				E5C638BD1BC4DB1D00092A46 /* SLKTypingIndicatorView.m */,
+				E52B45A81BC71C7C00452BD5 /* SLKInputAccessoryView.h */,
+				E52B45A91BC71C7C00452BD5 /* SLKInputAccessoryView.m */,
+				E52B45AA1BC71C7C00452BD5 /* SLKTextInputbar.h */,
+				E52B45AB1BC71C7C00452BD5 /* SLKTextInputbar.m */,
+				E52B45AC1BC71C7C00452BD5 /* SLKTextView.h */,
+				E52B45AD1BC71C7C00452BD5 /* SLKTextView.m */,
+				E52B45AE1BC71C7C00452BD5 /* SLKTextViewController.h */,
+				E52B45AF1BC71C7C00452BD5 /* SLKTextViewController.m */,
+				E52B45B01BC71C7C00452BD5 /* SLKTypingIndicatorProtocol.h */,
+				E52B45B11BC71C7C00452BD5 /* SLKTypingIndicatorView.h */,
+				E52B45B21BC71C7C00452BD5 /* SLKTypingIndicatorView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		E5C638C71BC4DB2800092A46 /* Libraries */ = {
+		E54EA6B31BC359CC00104EF7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				E5C638A71BC4DB1D00092A46 /* SlackTextView */,
+				E54EA6B41BC35A8B00104EF7 /* DetailTitleTableViewCell.h */,
+				E52B45901BC71BB800452BD5 /* DetailTitleTableViewCell.xib */,
+				E54EA6B51BC35A8B00104EF7 /* DetailTitleTableViewCell.m */,
+				E54EA6B71BC35AAA00104EF7 /* DetailAuthorTableViewCell.h */,
+				E54EA6B81BC35AAA00104EF7 /* DetailAuthorTableViewCell.m */,
+				E52B458C1BC71BB800452BD5 /* DetailAuthorTableViewCell.xib */,
+				E54EA6BA1BC35ABB00104EF7 /* DetailTimeTableViewCell.h */,
+				E54EA6BB1BC35ABB00104EF7 /* DetailTimeTableViewCell.m */,
+				E52B458F1BC71BB800452BD5 /* DetailTimeTableViewCell.xib */,
+				E54EA6BD1BC35AD100104EF7 /* DetailDescriptionTableViewCell.h */,
+				E54EA6BE1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m */,
+				E52B458E1BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib */,
+				E54EA6C01BC35B2500104EF7 /* DetailContentsTableViewCell.h */,
+				E54EA6C11BC35B2500104EF7 /* DetailContentsTableViewCell.m */,
+				E52B458D1BC71BB800452BD5 /* DetailContentsTableViewCell.xib */,
+				E54EA6C61BC35B6000104EF7 /* DetailVotingTableViewCell.h */,
+				E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */,
+				E52B45911BC71BB800452BD5 /* DetailVotingTableViewCell.xib */,
 			);
-			name = Libraries;
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -558,17 +586,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E52B45831BC5E8E200452BD5 /* DetailAuthorTableViewCell.xib in Resources */,
-				E52B45851BC5E90400452BD5 /* DetailTimeTableViewCell.xib in Resources */,
-				E52B45891BC5E91B00452BD5 /* DetailContentsTableViewCell.xib in Resources */,
-				E52B458B1BC5E92500452BD5 /* DetailVotingTableViewCell.xib in Resources */,
+				E52B45931BC71BB800452BD5 /* DetailContentsTableViewCell.xib in Resources */,
+				E52B45941BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib in Resources */,
 				91AD921D1BBE0FC8000137A4 /* LaunchScreen.storyboard in Resources */,
+				E52B45971BC71BB800452BD5 /* DetailVotingTableViewCell.xib in Resources */,
+				E52B45961BC71BB800452BD5 /* DetailTitleTableViewCell.xib in Resources */,
 				E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */,
-				E52B45871BC5E90F00452BD5 /* DetailDescriptionTableViewCell.xib in Resources */,
 				91AD921A1BBE0FC8000137A4 /* Assets.xcassets in Resources */,
+				E52B45921BC71BB800452BD5 /* DetailAuthorTableViewCell.xib in Resources */,
+				E52B45951BC71BB800452BD5 /* DetailTimeTableViewCell.xib in Resources */,
 				91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */,
 				91AD92181BBE0FC8000137A4 /* Main.storyboard in Resources */,
-				E52B45811BC5E55900452BD5 /* DetailTitleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,36 +621,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52B45B61BC71C7C00452BD5 /* UIView+SLKAdditions.m in Sources */,
 				91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */,
-				E5C638BF1BC4DB1D00092A46 /* UIResponder+SLKAdditions.m in Sources */,
 				E1CCD68B1BC4CE7900E52223 /* FeaturedTableViewCell.m in Sources */,
 				E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */,
 				91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */,
 				E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */,
-				E5C638C61BC4DB1D00092A46 /* SLKTypingIndicatorView.m in Sources */,
 				E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */,
+				E52B45B51BC71C7C00452BD5 /* UIScrollView+SLKAdditions.m in Sources */,
+				9103370C1BC5E95C00A4CC43 /* NovelistConstants.m in Sources */,
+				E52B45B41BC71C7C00452BD5 /* UIResponder+SLKAdditions.m in Sources */,
+				E52B45B81BC71C7C00452BD5 /* SLKTextInputbar.m in Sources */,
+				910337181BC62F9500A4CC43 /* PFUser+User.m in Sources */,
+				E52B45BB1BC71C7C00452BD5 /* SLKTypingIndicatorView.m in Sources */,
+				E52B45B71BC71C7C00452BD5 /* SLKInputAccessoryView.m in Sources */,
 				E54EA6BF1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m in Sources */,
 				E54EA6C81BC35B6000104EF7 /* DetailVotingTableViewCell.m in Sources */,
-				E50281CE1BC4E25300FD5383 /* DetailStoryTextViewController.m in Sources */,
-				E5C638BE1BC4DB1D00092A46 /* SLKTextView+SLKAdditions.m in Sources */,
+				910337121BC5F83200A4CC43 /* PFObject+Story.m in Sources */,
 				E54EA6B21BC3579800104EF7 /* DetailStoryViewController.m in Sources */,
-				E5C638C21BC4DB1D00092A46 /* SLKInputAccessoryView.m in Sources */,
-				E5C638C31BC4DB1D00092A46 /* SLKTextInputbar.m in Sources */,
 				E54EA6C21BC35B2500104EF7 /* DetailContentsTableViewCell.m in Sources */,
-				E5C638C41BC4DB1D00092A46 /* SLKTextView.m in Sources */,
+				E52B45B91BC71C7C00452BD5 /* SLKTextView.m in Sources */,
 				E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */,
-				E5C638C51BC4DB1D00092A46 /* SLKTextViewController.m in Sources */,
-				E5C638C11BC4DB1D00092A46 /* UIView+SLKAdditions.m in Sources */,
 				E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */,
 				91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */,
 				E54EA6B91BC35AAA00104EF7 /* DetailAuthorTableViewCell.m in Sources */,
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
 				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
-				E5C638C01BC4DB1D00092A46 /* UIScrollView+SLKAdditions.m in Sources */,
+				E52B459A1BC71BFC00452BD5 /* DetailStoryTextViewController.m in Sources */,
 				E54EA6BC1BC35ABB00104EF7 /* DetailTimeTableViewCell.m in Sources */,
+				E52B45BA1BC71C7C00452BD5 /* SLKTextViewController.m in Sources */,
 				E138E4291BBE2D3E00A8614F /* NewStoryViewController.m in Sources */,
 				E138E4261BBE2D0E00A8614F /* MainViewController.m in Sources */,
+				9103370F1BC5F78E00A4CC43 /* PFObject+Sentence.m in Sources */,
+				E52B45B31BC71C7C00452BD5 /* SLKTextView+SLKAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

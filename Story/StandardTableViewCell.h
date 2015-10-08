@@ -10,4 +10,9 @@
 
 @interface StandardTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *standardTitle;
+@property (weak, nonatomic) IBOutlet UILabel *standardDescription;
+@property (weak, nonatomic) IBOutlet UILabel *currentUsersCount;
+@property (weak, nonatomic) IBOutlet UILabel *currentSequenceCount;
+
 @end

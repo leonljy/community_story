@@ -13,12 +13,13 @@
 @synthesize featuredCellDescription;
 @synthesize featuredStoryText;
 @synthesize featuredName;
+@synthesize currentUsersCount;
+@synthesize currentSequenceCount;
+
 
 - (void)awakeFromNib {
     // Initialization code
-    
-    
-    
+
     featuredCellDescription.lineBreakMode = NSLineBreakByWordWrapping;
     featuredCellDescription.numberOfLines = 0;
     featuredStoryText.lineBreakMode = NSLineBreakByWordWrapping;
