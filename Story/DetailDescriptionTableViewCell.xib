@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DETAIL_DESCRIPTION_CELL" rowHeight="128" id="w1N-FT-WGv" customClass="DetailDescriptionTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="128"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w1N-FT-WGv" id="umH-E1-tTr">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="127.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghr-9T-b3h">
+                        <rect key="frame" x="8" y="11" width="584" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="t7o-0q-Jnk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfW-G1-NqN">
+                        <rect key="frame" x="8" y="40" width="584" height="79.5"/>
+                        <animations/>
+                        <string key="text">This sentence consists of 140 characters. This sentence consists of 140 characters. This sentence consists of 140 characters. This sentences</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="NfW-G1-NqN" firstAttribute="top" secondItem="Ghr-9T-b3h" secondAttribute="bottom" constant="8" id="BRX-cc-qjm"/>
+                    <constraint firstItem="Ghr-9T-b3h" firstAttribute="top" secondItem="umH-E1-tTr" secondAttribute="top" constant="11" id="C5s-v2-vR9"/>
+                    <constraint firstAttribute="bottom" secondItem="NfW-G1-NqN" secondAttribute="bottom" constant="8" id="Lwl-2h-Za9"/>
+                    <constraint firstItem="Ghr-9T-b3h" firstAttribute="leading" secondItem="umH-E1-tTr" secondAttribute="leading" constant="8" id="aOd-rk-dE9"/>
+                    <constraint firstAttribute="trailing" secondItem="Ghr-9T-b3h" secondAttribute="trailing" constant="8" id="meY-XO-pii"/>
+                    <constraint firstAttribute="trailing" secondItem="NfW-G1-NqN" secondAttribute="trailing" constant="8" id="o53-cC-ZmW"/>
+                    <constraint firstItem="NfW-G1-NqN" firstAttribute="leading" secondItem="umH-E1-tTr" secondAttribute="leading" constant="8" id="stc-Pl-4hP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="labelDescription" destination="NfW-G1-NqN" id="c7B-YK-f6A"/>
+            </connections>
+            <point key="canvasLocation" x="552" y="168"/>
+        </tableViewCell>
+    </objects>
+</document>

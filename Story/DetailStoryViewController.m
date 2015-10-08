@@ -15,7 +15,6 @@
 #import "DetailVotingTableViewCell.h"
 
 @interface DetailStoryViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end

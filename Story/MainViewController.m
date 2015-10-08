@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "FeaturedTableViewCell.h"
 #import "DetailStoryViewController.h"
+#import "DetailStoryTextViewController.h"
 
 
 @interface MainViewController ()
@@ -73,7 +74,12 @@
     UIStoryboard *detailStoryBoard = [UIStoryboard storyboardWithName:@"DetailStory" bundle:nil];
     DetailStoryViewController *detailStoryViewController = [detailStoryBoard instantiateViewControllerWithIdentifier:@"DETAIL_STORY"];
     
-    [self.navigationController pushViewController:detailStoryViewController animated:YES];
+//    [self.navigationController pushViewController:detailStoryViewController animated:YES];
+    
+    DetailStoryTextViewController *detailStoryTextViewController = [DetailStoryTextViewController new];
+    [detailStoryTextViewController setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController pushViewController:detailStoryTextViewController animated:YES];
 }
 
 //tableView

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DETAIL_VOTING_CELL" rowHeight="100" id="VAV-HY-hR0" customClass="DetailVotingTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VAV-HY-hR0" id="psf-Hh-Dqd">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnR-uZ-Ijq">
+                        <rect key="frame" x="8" y="8" width="526" height="83.5"/>
+                        <animations/>
+                        <string key="text">New sentence for voting. New sentence for voting. New sentence for voting.  New sentence for voting.  New sentence for voting.  New sentenc </string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZd-cJ-RMU">
+                        <rect key="frame" x="542" y="8" width="50" height="83.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-n7-aXg">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dvb-kr-OJr"/>
+                                </constraints>
+                                <state key="normal" title="UP"/>
+                                <connections>
+                                    <action selector="handleUp:" destination="VAV-HY-hR0" eventType="touchUpInside" id="heP-66-3vy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsx-Z6-IUx">
+                                <rect key="frame" x="0.0" y="53" width="50" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Uwk-ZL-XbP"/>
+                                </constraints>
+                                <state key="normal" title="DOWN"/>
+                                <connections>
+                                    <action selector="handleDown:" destination="VAV-HY-hR0" eventType="touchUpInside" id="2Pi-06-UIr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hE-z6-hKW">
+                                <rect key="frame" x="0.0" y="31" width="50" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LNY-n7-aXg" firstAttribute="leading" secondItem="YZd-cJ-RMU" secondAttribute="leading" id="6eo-c0-u3P"/>
+                            <constraint firstAttribute="trailing" secondItem="LNY-n7-aXg" secondAttribute="trailing" id="HpR-LF-YXC"/>
+                            <constraint firstItem="Bsx-Z6-IUx" firstAttribute="top" secondItem="6hE-z6-hKW" secondAttribute="bottom" constant="1" id="LO3-a7-3bX"/>
+                            <constraint firstAttribute="width" constant="50" id="M4f-6X-QJT"/>
+                            <constraint firstAttribute="trailing" secondItem="6hE-z6-hKW" secondAttribute="trailing" id="MAa-bG-TJ5"/>
+                            <constraint firstItem="Bsx-Z6-IUx" firstAttribute="leading" secondItem="YZd-cJ-RMU" secondAttribute="leading" id="Qtp-oR-fAy"/>
+                            <constraint firstItem="6hE-z6-hKW" firstAttribute="leading" secondItem="YZd-cJ-RMU" secondAttribute="leading" id="Ueq-9p-H7E"/>
+                            <constraint firstAttribute="trailing" secondItem="Bsx-Z6-IUx" secondAttribute="trailing" id="ckZ-tc-ieb"/>
+                            <constraint firstAttribute="bottom" secondItem="Bsx-Z6-IUx" secondAttribute="bottom" id="ctY-RK-aBz"/>
+                            <constraint firstItem="6hE-z6-hKW" firstAttribute="top" secondItem="LNY-n7-aXg" secondAttribute="bottom" constant="1" id="t4g-Do-Tdk"/>
+                            <constraint firstItem="LNY-n7-aXg" firstAttribute="top" secondItem="YZd-cJ-RMU" secondAttribute="top" id="x1n-dB-6wo"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="YZd-cJ-RMU" secondAttribute="trailing" constant="8" id="1cq-X7-QQC"/>
+                    <constraint firstItem="YZd-cJ-RMU" firstAttribute="leading" secondItem="gnR-uZ-Ijq" secondAttribute="trailing" constant="8" id="WcG-KJ-gVm"/>
+                    <constraint firstItem="gnR-uZ-Ijq" firstAttribute="top" secondItem="psf-Hh-Dqd" secondAttribute="top" constant="8" id="XaG-hY-WOJ"/>
+                    <constraint firstItem="gnR-uZ-Ijq" firstAttribute="leading" secondItem="psf-Hh-Dqd" secondAttribute="leading" constant="8" id="arA-gO-dHC"/>
+                    <constraint firstAttribute="bottom" secondItem="YZd-cJ-RMU" secondAttribute="bottom" constant="8" id="dkb-lw-MlA"/>
+                    <constraint firstItem="YZd-cJ-RMU" firstAttribute="top" secondItem="psf-Hh-Dqd" secondAttribute="top" constant="8" id="jIg-FH-exi"/>
+                    <constraint firstItem="YZd-cJ-RMU" firstAttribute="leading" secondItem="gnR-uZ-Ijq" secondAttribute="trailing" constant="8" id="lar-MT-S62"/>
+                    <constraint firstAttribute="bottom" secondItem="gnR-uZ-Ijq" secondAttribute="bottom" constant="8" id="wmZ-kY-dHg"/>
+                    <constraint firstAttribute="trailing" secondItem="gnR-uZ-Ijq" secondAttribute="trailing" constant="8" id="yyx-fq-fY9"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="yyx-fq-fY9"/>
+                        <exclude reference="WcG-KJ-gVm"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="buttonDown" destination="Bsx-Z6-IUx" id="9PR-8x-oXs"/>
+                <outlet property="buttonUp" destination="LNY-n7-aXg" id="1zx-Oi-uDr"/>
+                <outlet property="labelNewSentence" destination="gnR-uZ-Ijq" id="uRN-Lq-bDK"/>
+                <outlet property="labelVoteCount" destination="6hE-z6-hKW" id="4YP-pG-suS"/>
+            </connections>
+            <point key="canvasLocation" x="552" y="542"/>
+        </tableViewCell>
+    </objects>
+</document>
