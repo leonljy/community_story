@@ -89,11 +89,11 @@
 -(void)saveNewSentenceWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     // TODO: Testing Code
     
-    PFObject *story = [PFObject testStory];
-    self[SENTENCE_KEY_STORY] = story;
+//    PFObject *story = [PFObject testStory];
+//    self[SENTENCE_KEY_STORY] = story;
     /////////////////////
     
-    //PFObject *story = sentence[SENTENCE_KEY_STORY];
+    PFObject *story = self[SENTENCE_KEY_STORY];
     if(nil==story){
         NSError *error = [NSError errorWithDomain:@"Nil Story" code:0 userInfo:nil];
         failureBlock(error);
