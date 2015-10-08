@@ -63,18 +63,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.storyArray count];
+    if ([self.storyArray count] > 5) {
+        section = 0;
+        return 5;
+    } else {
+        section = 1;
+        return ([self.storyArray count] - 5);
+    }
+
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *FeaturedCellIdentifier = @"FEATURED_STORY_CELL";
     static NSString *StandardCellIdentifier = @"STANDARD_STORY_CELL";
+
  
-    //TODO need to change resuable cell identifier if section is greater than 1
+    //TODO need to figure how to start the standard cells from a later indexpath in Parse
     
     PFObject *story = [self.storyArray objectAtIndex:indexPath.row];
     
     if (indexPath.section == 0) {
+
+
       FeaturedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FeaturedCellIdentifier];
 
         if (cell == nil) {
@@ -95,34 +105,39 @@
         cell.currentUsersCount.text = writersCountString;
         
         return cell;
-        
 
     } else {
-      StandardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StandardCellIdentifier];
+
+ 
+      StandardTableViewCell *cells = [tableView dequeueReusableCellWithIdentifier:StandardCellIdentifier];
        
-        if (cell == nil) {
-            cell = [[StandardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StandardCellIdentifier];
+        if (cells == nil) {
+            cells = [[StandardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StandardCellIdentifier];
         }
         
-        cell.standardTitle.text = story[STORY_KEY_TITLE];
-        cell.standardDescription.text = story[STORY_KEY_DESCRIPTION];
+        cells.standardTitle.text = story[STORY_KEY_TITLE];
+        cells.standardDescription.text = story[STORY_KEY_DESCRIPTION];
         
         NSInteger currentSequence = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
         NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequence];
-        cell.currentSequenceCount.text = stringSequence;
+        cells.currentSequenceCount.text = stringSequence;
        
         NSInteger writersCount = [story[STORY_KEY_WRITERS_COUNT] integerValue];
         NSString *writerCountString =[NSString stringWithFormat:@"%ld", (long)writersCount];
-        cell.currentUsersCount.text =writerCountString;
+        cells.currentUsersCount.text =writerCountString;
         
-        return cell;
+        return cells;
     }
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
     return self.tableView.frame.size.height - 20;
+    } else {
+        return 150;
+    }
 }
 
 @end
