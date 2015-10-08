@@ -13,6 +13,9 @@
 @synthesize featuredCellDescription;
 @synthesize featuredStoryText;
 @synthesize featuredName;
+@synthesize currentUsersCount;
+@synthesize currentSequenceCount;
+
 
 - (void)awakeFromNib {
     // Initialization code
