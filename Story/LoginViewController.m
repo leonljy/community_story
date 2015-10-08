@@ -41,8 +41,7 @@
                                                             NSLog(@"Uh oh. There was an error logging in.");
                                                         } else {
                                                             NSLog(@"User logged in through Facebook!");
-//                                                            TODO: Remove Comment
-//                                                            [self presentViewControllerBasedOnUsernameSet:user];
+                                                            [self presentViewControllerBasedOnUsernameSet:user];
                                                             
                                                             //TODO: Remove Testing Code
 //                                                            [PFObject storiesBookmarkedWithSuccessBlock:^(NSArray *objects) {
@@ -69,24 +68,24 @@
     }
 }
 
-
--(PFObject *)testUnUpvote{
-//    ObjectId: LoPLMGMD53
-    PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
-    PFObject *object = [query getObjectWithId:@"LoPLMGMD53"];
-    return object;
-}
-
--(PFObject *)testNewSentence{
-    PFObject *sentence = [PFObject objectWithClassName:SENTENCE_CLASSNAME];
-    sentence[SENTENCE_KEY_WRITER] = [PFUser currentUser];
-    sentence[SENTENCE_KEY_UPVOTED_COUNT] = [NSNumber numberWithInteger:0];
-    sentence[SENTENCE_KEY_DOWNVOTED_COUNT] = [NSNumber numberWithInteger:0];
-    sentence[SENTENCE_KEY_TEXT] = @"TestText";
-    sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:NO];
-    sentence[SENTENCE_KEY_SEQUENCE] = [NSNumber numberWithInteger:0];
-    return sentence;
-}
+//
+//-(PFObject *)testUnUpvote{
+////    ObjectId: LoPLMGMD53
+//    PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
+//    PFObject *object = [query getObjectWithId:@"LoPLMGMD53"];
+//    return object;
+//}
+//
+//-(PFObject *)testNewSentence{
+//    PFObject *sentence = [PFObject objectWithClassName:SENTENCE_CLASSNAME];
+//    sentence[SENTENCE_KEY_WRITER] = [PFUser currentUser];
+//    sentence[SENTENCE_KEY_UPVOTED_COUNT] = [NSNumber numberWithInteger:0];
+//    sentence[SENTENCE_KEY_DOWNVOTED_COUNT] = [NSNumber numberWithInteger:0];
+//    sentence[SENTENCE_KEY_TEXT] = @"TestText";
+//    sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:NO];
+//    sentence[SENTENCE_KEY_SEQUENCE] = [NSNumber numberWithInteger:0];
+//    return sentence;
+//}
 
 
 -(void)showButtonLoginFB{
