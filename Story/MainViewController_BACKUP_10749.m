@@ -128,11 +128,18 @@ typedef enum {
             cell = [[FeaturedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FeaturedCellIdentifier];
         }
         
+<<<<<<< HEAD
         cell.featuredCellTitle.text = popularStory[STORY_KEY_TITLE];
         cell.featuredCellDescription.text = popularStory[STORY_KEY_DESCRIPTION];
         NSString *storyText;
         NSString *prolougeText = popularStory[STORY_KEY_FIRST_SENTENCE];
   
+=======
+        cell.featuredCellTitle.text = story[STORY_KEY_TITLE];
+        cell.featuredCellDescription.text = story[STORY_KEY_DESCRIPTION];
+//        cell.featuredStoryText.text = story[STORY_KEY_TEXT];
+        cell.featuredName.text = story[STORY_KEY_OWNER_NAME];
+>>>>>>> 7eac7cfb06073860332cb8853f69733ea466e154
         
         cell.featuredStoryText.text = storyText;
         cell.featuredName.text = popularStory[STORY_KEY_OWNER_NAME];
