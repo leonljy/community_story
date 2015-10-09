@@ -99,7 +99,7 @@
         
         cell.featuredCellTitle.text = story[STORY_KEY_TITLE];
         cell.featuredCellDescription.text = story[STORY_KEY_DESCRIPTION];
-        cell.featuredStoryText.text = story[STORY_KEY_TEXT];
+//        cell.featuredStoryText.text = story[STORY_KEY_TEXT];
         cell.featuredName.text = story[STORY_KEY_OWNER_NAME];
         
         NSInteger currentSequece = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
