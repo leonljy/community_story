@@ -43,7 +43,6 @@ typedef enum {
     newStory[STORY_KEY_TITLE] = titleTextField.text;
     newStory[STORY_KEY_DESCRIPTION] = descriptionTextView.text;
     newStory[STORY_KEY_FIRST_SENTENCE] = prologueTextView.text;
-    newStory[STORY_KEY_TEXT] = prologueTextView.text;
     [newStory saveNewStoryWithSuccessBlock:^(id responseObject) {
         [self.navigationController popViewControllerAnimated:YES];
     } failureBlock:^(NSError *error) {
