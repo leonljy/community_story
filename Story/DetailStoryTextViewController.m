@@ -80,6 +80,7 @@
     
     [PFObject currentSentencesForStory:self.story successBlock:^(NSArray *objects) {
         self.sentences = [NSMutableArray arrayWithArray:objects];
+        [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }];
@@ -113,6 +114,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%ld %ld", indexPath.section, indexPath.row);
     if (0 == indexPath.section) {
         if (0==indexPath.row) {
             DetailTitleTableViewCell *cell = (DetailTitleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_TITLE_CELL"];
@@ -156,6 +158,10 @@
             [tableView registerNib:[UINib nibWithNibName:@"DetailVotingTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_VOTING_CELL"];
             cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_VOTING_CELL"];
         }
+        PFObject *sentence = [self.sentences objectAtIndex:indexPath.row];
+        cell.labelNewSentence.text = sentence[SENTENCE_KEY_TEXT];
+        NSNumber *voteCount = sentence[SENTENCE_KEY_VOTE_POINT];
+        cell.labelVoteCount.text = voteCount.stringValue;
         return cell;
     }
 }
@@ -164,16 +170,18 @@
 #pragma mark - UITableViewDelegate Methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (0 == indexPath.row) {
-        return 44;
-    } else if (1==indexPath.row){
-        return 44;
-    } else if (2==indexPath.row){
-        return 44;
-    } else if (3==indexPath.row){
-        return 150;
-    } else if (4==indexPath.row){
-        return 150;
+    if (0 == indexPath.section) {
+        if (0 == indexPath.row) {
+            return 44;
+        } else if (1==indexPath.row){
+            return 44;
+        } else if (2==indexPath.row){
+            return 44;
+        } else if (3==indexPath.row){
+            return 150;
+        } else {
+            return 150;
+        }
     } else {
         return 100;
     }
@@ -220,6 +228,8 @@
     
     PFObject *sentence = [PFObject objectWithClassName:SENTENCE_CLASSNAME];
     sentence[SENTENCE_KEY_STORY] = self.story;
+    sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:NO];
+    sentence[SENTENCE_KEY_TEXT] = self.textView.text;
     
     [sentence saveNewSentenceWithSuccessBlock:^(id responseObject) {
         
@@ -229,10 +239,12 @@
     
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.sentences.count inSection:1];
-    UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
-    UITableViewScrollPosition scrollPosition = self.inverted ? UITableViewScrollPositionBottom : UITableViewScrollPositionTop;
-    
+    UITableViewRowAnimation rowAnimation = UITableViewRowAnimationBottom;
+    UITableViewScrollPosition scrollPosition = UITableViewScrollPositionBottom;
     [self.tableView beginUpdates];
+    if (0==self.sentences.count) {
+        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:rowAnimation];
+    }
     [self.sentences addObject:sentence];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
     [self.tableView endUpdates];
