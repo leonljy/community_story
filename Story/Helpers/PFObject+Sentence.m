@@ -79,18 +79,13 @@
 
 #pragma mark CRUD Sentence
 -(void)saveNewSentenceWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
-    
-    
     self[SENTENCE_KEY_WRITER] = [PFUser currentUser];
     self[SENTENCE_KEY_UPVOTED_COUNT] = [NSNumber numberWithInt:0];
     self[SENTENCE_KEY_DOWNVOTED_COUNT] = [NSNumber numberWithInt:0];
-    // TODO: Testing Code
-    
-//    PFObject *story = [PFObject testStory];
-//    self[SENTENCE_KEY_STORY] = story;
-    /////////////////////
     self[SENTENCE_KEY_ISSELECTED] = [NSNumber numberWithBool:NO];
     PFObject *story = self[SENTENCE_KEY_STORY];
+    self[SENTENCE_KEY_SEQUENCE] = story[STORY_KEY_CURRENTSEQUENCE];
+    
     if(nil==story){
         NSError *error = [NSError errorWithDomain:@"Nil Story" code:0 userInfo:nil];
         failureBlock(error);
