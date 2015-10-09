@@ -128,22 +128,7 @@ typedef enum {
             cell = [[FeaturedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FeaturedCellIdentifier];
         }
         
-        cell.featuredCellTitle.text = popularStory[STORY_KEY_TITLE];
-        cell.featuredCellDescription.text = popularStory[STORY_KEY_DESCRIPTION];
-        NSString *storyText;
-        NSString *prolougeText = popularStory[STORY_KEY_FIRST_SENTENCE];
-  
-        
-        cell.featuredStoryText.text = storyText;
-        cell.featuredName.text = popularStory[STORY_KEY_OWNER_NAME];
-        
-        NSInteger currentSequece = [popularStory[STORY_KEY_CURRENTSEQUENCE] integerValue];
-        NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequece];
-        cell.currentSequenceCount.text = stringSequence;
-        
-        NSInteger writersCount = [popularStory[STORY_KEY_WRITERS_COUNT] integerValue];
-        NSString *writersCountString = [NSString stringWithFormat:@"%ld", (long)writersCount];
-        cell.currentUsersCount.text = writersCountString;
+        [cell setStoryDatasToUI:popularStory];
         
         return cell;
 
@@ -157,25 +142,28 @@ typedef enum {
             cells = [[StandardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StandardCellIdentifier];
         }
         
-        cells.standardTitle.text = nonpopularStory[STORY_KEY_TITLE];
-        cells.standardDescription.text = nonpopularStory[STORY_KEY_DESCRIPTION];
-        
-        NSInteger currentSequence = [nonpopularStory[STORY_KEY_CURRENTSEQUENCE] integerValue];
-        NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequence];
-        cells.currentSequenceCount.text = stringSequence;
-       
-        NSInteger writersCount = [nonpopularStory[STORY_KEY_WRITERS_COUNT] integerValue];
-        NSString *writerCountString =[NSString stringWithFormat:@"%ld", (long)writersCount];
-        cells.currentUsersCount.text =writerCountString;
-        
+        [cells setStandardStoryDatasToUI:nonpopularStory];
+               
         return cells;
     }
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    PFObject *story = [self.storyArray objectAtIndex:indexPath.row];
+    PFObject *story;
+    switch (indexPath.section) {
+        case SECTION_POPULAR_STORY:
+            story = [self.populars objectAtIndex:indexPath.row];
+            break;
+        case SECTION_NON_POPULAR_STORY:
+            story = [self.nonPopulars objectAtIndex:indexPath.row];
+            break;
+            
+        default:
+            break;
+    }
     [self moveToDetailStory:story];
+
 }
 
 #pragma mark - UITableView delegate

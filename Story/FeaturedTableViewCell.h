@@ -7,14 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PFObject+Story.h"
 @interface FeaturedTableViewCell : UITableViewCell
-
-@property (weak, nonatomic) IBOutlet UILabel *featuredCellTitle;
-@property (weak, nonatomic) IBOutlet UILabel *featuredCellDescription;
-@property (weak, nonatomic) IBOutlet UILabel *featuredStoryText;
-@property (weak, nonatomic) IBOutlet UILabel *featuredName;
-@property (weak, nonatomic) IBOutlet UILabel *currentUsersCount;
-@property (weak, nonatomic) IBOutlet UILabel *currentSequenceCount;
-
+-(void)setStoryDatasToUI:(PFObject *)story;
 @end
