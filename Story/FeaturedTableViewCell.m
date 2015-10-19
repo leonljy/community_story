@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *featuredName;
 @property (weak, nonatomic) IBOutlet UILabel *currentUsersCount;
 @property (weak, nonatomic) IBOutlet UILabel *currentSequenceCount;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewRepresent;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelTitleUnderline;
 
 @end
 
@@ -39,6 +42,28 @@
 }
 
 -(void)setStoryDatasToUI:(PFObject *)story{
+    [self setStoryTitle:story];
+    
+    [self setStoryText:story];
+    
+    NSInteger currentSequece = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
+    NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequece];
+//    self.currentSequenceCount.text = stringSequence;
+    
+    NSInteger writersCount = [story[STORY_KEY_WRITERS_COUNT] integerValue];
+    NSString *writersCountString = [NSString stringWithFormat:@"%ld", (long)writersCount];
+    self.currentUsersCount.text = [NSString stringWithFormat:@"%@ Join %@ Comments", writersCountString, stringSequence];
+}
+
+-(void)setStoryTitle:(PFObject *)story{
+    NSString *storyTitle = story[STORY_KEY_TITLE];
+    self.featuredCellTitle.text = storyTitle;
+    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle), NSUnderlineColorAttributeName:[UIColor blackColor]};
+    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:storyTitle  attributes:underlineAttribute];
+    self.labelTitleUnderline.attributedText = attrString;
+}
+
+-(void)setStoryText:(PFObject *)story{
     NSString *storyText;
     NSString *prolougeText = story[STORY_KEY_FIRST_SENTENCE];
     NSArray *text = story[STORY_KEY_SELECTED_TEXTS];
@@ -53,18 +78,8 @@
     }
     
     storyText = [NSString stringWithFormat:@"%@ %@", prolougeText, selectedStrings];
-    self.featuredCellTitle.text = story[STORY_KEY_TITLE];
-    self.featuredCellDescription.text = story[STORY_KEY_DESCRIPTION];
     self.featuredStoryText.text = storyText ;
-    self.featuredName.text = story[STORY_KEY_OWNER_NAME];
-    
-    NSInteger currentSequece = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
-    NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequece];
-    self.currentSequenceCount.text = stringSequence;
-    
-    NSInteger writersCount = [story[STORY_KEY_WRITERS_COUNT] integerValue];
-    NSString *writersCountString = [NSString stringWithFormat:@"%ld", (long)writersCount];
-    self.currentUsersCount.text = writersCountString;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

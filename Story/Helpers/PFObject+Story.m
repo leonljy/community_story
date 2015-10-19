@@ -8,6 +8,8 @@
 
 #import "PFObject+Story.h"
 #import "PFUser+User.h"
+#import "NSDate+Tool.h"
+
 @implementation PFObject (Story)
 
 +(void)storiesArchievedWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
@@ -94,8 +96,9 @@
     self[STORY_KEY_ISENDED_STORY] = [NSNumber numberWithBool:NO];
     
     NSTimeInterval thirtyMinutes = 1800;
-    NSDate *today = [NSDate date];
-    self[STORY_KEY_DEADLINE] = [today dateByAddingTimeInterval:thirtyMinutes];
+    NSDate *deadline = [[NSDate date] dateWithZeroSecond];
+    
+    self[STORY_KEY_DEADLINE] = [deadline dateByAddingTimeInterval:thirtyMinutes];
     self[STORY_KEY_OWNER] = [PFUser currentUser];
     self[STORY_KEY_OWNER_NAME] = [[PFUser currentUser] username];
     

@@ -7,13 +7,13 @@
 //
 
 #import "MainViewController.h"
-#import "NewStoryViewController.h"
 #import <Parse/Parse.h>
 #import "FeaturedTableViewCell.h"
 #import "DetailStoryViewController.h"
 #import "DetailStoryTextViewController.h"
 #import "PFObject+Story.h"
 #import "standardTableViewCell.h"
+#import "NewStoryNavigationController.h"
 
 
 @interface MainViewController ()
@@ -37,6 +37,7 @@ typedef enum {
     [super viewDidLoad];
     
   /* Using NSPredicate. Checks if story isEnded and the sorts by writersCount. In case of tie further sort by sentence count and in case of tie futher sort by created time. */
+
     
     [PFObject storiesPopularWithSuccessBlock:^(NSArray *objects) {
 //        self.storyArray = objects;
@@ -67,10 +68,13 @@ typedef enum {
 }
 - (IBAction)handleNewStory:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]];
-    NewStoryViewController *newStoryViewController = [storyboard instantiateViewControllerWithIdentifier:@"NewStoryViewController"];
+    NewStoryNavigationController *newStoryNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"NewStoryNavigationController"];
+//    NewStoryViewController *newStoryViewController = [storyboard instantiateViewControllerWithIdentifier:@"NewStoryViewController"];
     
-    [newStoryViewController setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:newStoryViewController animated:YES];
+//    [newStoryViewController setHidesBottomBarWhenPushed:YES];
+//    [self.navigationController pushViewController:newStoryViewController animated:YES];
+    [self presentViewController:newStoryNavigationController animated:YES completion:^{
+    }];
 }
 
 - (void)moveToDetailStory:(PFObject *)story{
@@ -170,8 +174,11 @@ typedef enum {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat heightStatusBar = 20.0;
+//    CGFloat heightNavigationBar = 44.0;
+    CGFloat heightTabBar = 44.0;
     if (indexPath.section == 0) {
-    return self.tableView.frame.size.height - 20;
+    return self.tableView.frame.size.height - heightTabBar - heightStatusBar;
     } else {
         return 150;
     }
