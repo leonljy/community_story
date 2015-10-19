@@ -7,6 +7,8 @@
 //
 
 #import "FeaturedTableViewCell.h"
+#import <Parse/Parse.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface FeaturedTableViewCell ()
 
@@ -41,14 +43,36 @@
 
 }
 
--(void)setStoryDatasToUI:(PFObject *)story{
+-(void)setStoryStandardDatasToUI:(PFObject *)story{
+    [self setStoryTitle:story];
+    
+    [self setStoryText:story];
+    [self setStoryPopularLabel:story];
+}
+
+-(void)setFeaturedStoryDatasToUI:(PFObject *)story{
     [self setStoryTitle:story];
     
     [self setStoryText:story];
     
+    [self setStoryPhoto:story];
+    [self setStoryPopularLabel:story];
+    
+}
+
+-(void)setStoryPhoto:(PFObject *)story{
+    PFFile *image = story[STORY_KEY_IMAGE];
+    [self.imageViewRepresent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.imageViewRepresent setImage:image];
+        [self.imageViewRepresent setClipsToBounds:YES];
+        [self.imageViewRepresent setContentMode:UIViewContentModeScaleAspectFill];
+    }];
+}
+
+-(void)setStoryPopularLabel:(PFObject *)story{
     NSInteger currentSequece = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
     NSString *stringSequence = [NSString stringWithFormat:@"%ld", (long)currentSequece];
-//    self.currentSequenceCount.text = stringSequence;
+    //    self.currentSequenceCount.text = stringSequence;
     
     NSInteger writersCount = [story[STORY_KEY_WRITERS_COUNT] integerValue];
     NSString *writersCountString = [NSString stringWithFormat:@"%ld", (long)writersCount];

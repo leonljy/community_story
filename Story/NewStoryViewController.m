@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "PFObject+Story.h"
 #import "NovelistConstants.h"
-#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @interface NewStoryViewController () <UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate>
 
@@ -27,6 +27,7 @@ typedef enum {
 
 @implementation NewStoryViewController{
     BOOL isKeyboardOpened;
+    BOOL isImageSet;
     UIImagePickerController *imagePickerViewController;
 }
 @synthesize titleTextField;
@@ -41,6 +42,7 @@ typedef enum {
     [descriptionTextView setTag:TAG_TEXTVIEW_DESCRIPTION];
     [prologueTextView setTag:TAG_TEXTVIEW_FIRST_SENTENCE];
     isKeyboardOpened = NO;
+    isImageSet = NO;
     [self.imageViewPhoto setContentMode:UIViewContentModeScaleAspectFill];
     [self.imageViewPhoto setClipsToBounds:YES];
 }
@@ -50,8 +52,15 @@ typedef enum {
     newStory[STORY_KEY_TITLE] = titleTextField.text;
     newStory[STORY_KEY_DESCRIPTION] = descriptionTextView.text;
     newStory[STORY_KEY_FIRST_SENTENCE] = prologueTextView.text;
+    
+    if(isImageSet){
+        NSData *imageData = UIImagePNGRepresentation(self.imageViewPhoto.image);
+        PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+        newStory[STORY_KEY_IMAGE] = imageFile;
+    }
+    
     [newStory saveNewStoryWithSuccessBlock:^(id responseObject) {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     } failureBlock:^(NSError *error) {
         
     }];
@@ -163,18 +172,24 @@ typedef enum {
     NSURL *picURL = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
     NSString *stringUrl = picURL.absoluteString;
     NSURL *asssetURL = [NSURL URLWithString:stringUrl];
-    
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    __block UIImage *returnValue = nil;
-    [library assetForURL:asssetURL resultBlock:^(ALAsset *asset) {
-        returnValue = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
-        [self.imageViewPhoto setImage:returnValue];
-        [imagePickerViewController dismissViewControllerAnimated:YES completion:^{
-            
+    PHFetchOptions *fetchOptions = [PHFetchOptions new];
+    [fetchOptions setFetchLimit:1];
+    [fetchOptions setIncludeAssetSourceTypes:PHAssetSourceTypeNone];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithALAssetURLs:@[asssetURL] options:fetchOptions];
+    PHImageManager *imageManager = [PHImageManager defaultManager];
+    [fetchResult enumerateObjectsUsingBlock:^(PHAsset *phAsset, NSUInteger idx, BOOL * _Nonnull stop) {
+        PHImageRequestOptions *requestOptions = [PHImageRequestOptions new];
+        [requestOptions setDeliveryMode:PHImageRequestOptionsDeliveryModeOpportunistic];
+        [requestOptions setNetworkAccessAllowed:YES];
+        [requestOptions setSynchronous:NO];
+        [imageManager requestImageForAsset:phAsset targetSize:CGSizeMake(320, 480) contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            [self.imageViewPhoto setImage:result];
+            isImageSet = YES;
+            [picker dismissViewControllerAnimated:YES completion:^{
+                
+            }];
         }];
-    } failureBlock:^(NSError *error) {
     }];
-    
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
