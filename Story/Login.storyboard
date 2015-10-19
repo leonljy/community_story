@@ -37,6 +37,7 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="335" id="8YR-Bn-NTR"/>
+                                    <constraint firstAttribute="width" constant="180" id="8lM-QG-JQ7"/>
                                     <constraint firstAttribute="height" constant="25" id="AdA-RX-19L"/>
                                 </constraints>
                                 <state key="normal" image="buttonFBLogin"/>
@@ -71,6 +72,12 @@
                             <constraint firstItem="jqN-y8-3Hz" firstAttribute="centerX" secondItem="IGF-zW-5bG" secondAttribute="centerX" id="qiH-xz-bvg"/>
                             <constraint firstItem="iSa-f9-oxW" firstAttribute="leading" secondItem="IGF-zW-5bG" secondAttribute="leading" id="vRi-1C-zgY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2yV-Ub-Czr"/>
+                                <exclude reference="cja-3e-aJQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
