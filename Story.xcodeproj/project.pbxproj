@@ -58,6 +58,8 @@
 		E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4311BBE2D5E00A8614F /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E1CCD68B1BC4CE7900E52223 /* FeaturedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD6881BC4CE7900E52223 /* FeaturedTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD68A1BC4CE7900E52223 /* StandardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E50B91B41BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B91B31BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E50B91B61BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50B91B51BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E52B45921BC71BB800452BD5 /* DetailAuthorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458C1BC71BB800452BD5 /* DetailAuthorTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E52B45931BC71BB800452BD5 /* DetailContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458D1BC71BB800452BD5 /* DetailContentsTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E52B45941BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458E1BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -181,6 +183,9 @@
 		E1CCD6881BC4CE7900E52223 /* FeaturedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTableViewCell.m; sourceTree = "<group>"; };
 		E1CCD6891BC4CE7900E52223 /* StandardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardTableViewCell.h; sourceTree = "<group>"; };
 		E1CCD68A1BC4CE7900E52223 /* StandardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardTableViewCell.m; sourceTree = "<group>"; };
+		E50B91B21BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFirstSentenceTableViewCell.h; sourceTree = "<group>"; };
+		E50B91B31BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFirstSentenceTableViewCell.m; sourceTree = "<group>"; };
+		E50B91B51BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFirstSentenceTableViewCell.xib; sourceTree = "<group>"; };
 		E52B458C1BC71BB800452BD5 /* DetailAuthorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailAuthorTableViewCell.xib; sourceTree = "<group>"; };
 		E52B458D1BC71BB800452BD5 /* DetailContentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailContentsTableViewCell.xib; sourceTree = "<group>"; };
 		E52B458E1BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDescriptionTableViewCell.xib; sourceTree = "<group>"; };
@@ -518,6 +523,9 @@
 				E54EA6BD1BC35AD100104EF7 /* DetailDescriptionTableViewCell.h */,
 				E54EA6BE1BC35AD100104EF7 /* DetailDescriptionTableViewCell.m */,
 				E52B458E1BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib */,
+				E50B91B21BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.h */,
+				E50B91B31BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m */,
+				E50B91B51BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib */,
 				E54EA6C01BC35B2500104EF7 /* DetailContentsTableViewCell.h */,
 				E54EA6C11BC35B2500104EF7 /* DetailContentsTableViewCell.m */,
 				E52B458D1BC71BB800452BD5 /* DetailContentsTableViewCell.xib */,
@@ -642,6 +650,7 @@
 				E55C219D1BBF2461002F0831 /* DetailStory.storyboard in Resources */,
 				91AD921A1BBE0FC8000137A4 /* Assets.xcassets in Resources */,
 				E52B45921BC71BB800452BD5 /* DetailAuthorTableViewCell.xib in Resources */,
+				E50B91B61BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib in Resources */,
 				E52B45951BC71BB800452BD5 /* DetailTimeTableViewCell.xib in Resources */,
 				91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */,
 				91AD92181BBE0FC8000137A4 /* Main.storyboard in Resources */,
@@ -675,6 +684,7 @@
 				91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */,
 				E1CCD68B1BC4CE7900E52223 /* FeaturedTableViewCell.m in Sources */,
 				E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */,
+				E50B91B41BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m in Sources */,
 				91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */,
 				E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */,
 				E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */,

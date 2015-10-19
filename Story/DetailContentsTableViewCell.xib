@@ -7,25 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DETAIL_CONTENTS_CELL" rowHeight="158" id="Mhc-9N-KsH" customClass="DetailContentsTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DETAIL_CONTENTS_CELL" rowHeight="100" id="Mhc-9N-KsH" customClass="DetailContentsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mhc-9N-KsH" id="ikm-zi-tpg">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="157.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDU-1L-3fK">
-                        <rect key="frame" x="8" y="11" width="584" height="21"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Yot-xq-Adz"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oO9-gD-eu4">
-                        <rect key="frame" x="8" y="40.5" width="584" height="109"/>
+                        <rect key="frame" x="8" y="8" width="584" height="83"/>
                         <animations/>
                         <string key="text">This sentence consists of 140 characters. This sentence consists of 140 characters. This sentence consists of 140 characters. This sentences</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,22 +25,11 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="aDU-1L-3fK" secondAttribute="trailing" constant="8" id="74b-Id-UZP"/>
-                    <constraint firstItem="aDU-1L-3fK" firstAttribute="top" secondItem="ikm-zi-tpg" secondAttribute="top" constant="11" id="EH7-44-7Ww"/>
+                    <constraint firstItem="oO9-gD-eu4" firstAttribute="top" secondItem="ikm-zi-tpg" secondAttribute="top" constant="8" id="F21-uB-hgS"/>
                     <constraint firstAttribute="bottom" secondItem="oO9-gD-eu4" secondAttribute="bottom" constant="8" id="Gpv-eB-mB3"/>
                     <constraint firstAttribute="trailing" secondItem="oO9-gD-eu4" secondAttribute="trailing" constant="8" id="GzC-xh-a6X"/>
-                    <constraint firstItem="aDU-1L-3fK" firstAttribute="centerY" secondItem="ikm-zi-tpg" secondAttribute="centerY" id="S5n-2X-a6w"/>
-                    <constraint firstItem="aDU-1L-3fK" firstAttribute="leading" secondItem="ikm-zi-tpg" secondAttribute="leading" constant="8" id="bSz-V1-GMF"/>
-                    <constraint firstItem="aDU-1L-3fK" firstAttribute="centerX" secondItem="ikm-zi-tpg" secondAttribute="centerX" id="cdE-Iw-vfV"/>
                     <constraint firstItem="oO9-gD-eu4" firstAttribute="leading" secondItem="ikm-zi-tpg" secondAttribute="leading" constant="8" id="ldV-cn-ygh"/>
-                    <constraint firstItem="oO9-gD-eu4" firstAttribute="top" secondItem="aDU-1L-3fK" secondAttribute="bottom" constant="8" id="xhk-Qr-IeC"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="cdE-Iw-vfV"/>
-                        <exclude reference="S5n-2X-a6w"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>

@@ -13,7 +13,7 @@
 #import "DetailDescriptionTableViewCell.h"
 #import "DetailContentsTableViewCell.h"
 #import "DetailVotingTableViewCell.h"
-
+#import "DetailFirstSentenceTableViewCell.h"
 #import "PFUser+User.h"
 
 @interface DetailStoryTextViewController ()
@@ -107,7 +107,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (0 == section) {
-        return 5;
+        NSArray *selectedTexts = self.story[STORY_KEY_SELECTED_TEXTS];
+        return 5 + selectedTexts.count;
     } else {
         return self.sentences.count;
     }
@@ -122,6 +123,7 @@
                 [tableView registerNib:[UINib nibWithNibName:@"DetailTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_TITLE_CELL"];
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_TITLE_CELL"];
             }
+            cell.labelTitle.text = self.story[STORY_KEY_TITLE];
             return cell;
         } else if (1==indexPath.row) {
             DetailAuthorTableViewCell *cell = (DetailAuthorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_AUTHOR_CELL"];
@@ -129,6 +131,7 @@
                 [tableView registerNib:[UINib nibWithNibName:@"DetailAuthorTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_AUTHOR_CELL"];
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_AUTHOR_CELL"];
             }
+            cell.labelAuthor.text = self.story[STORY_KEY_OWNER_NAME];
             return cell;
         } else if (2==indexPath.row) {
             DetailTimeTableViewCell *cell = (DetailTimeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_TIME_CELL"];
@@ -143,6 +146,15 @@
                 [tableView registerNib:[UINib nibWithNibName:@"DetailDescriptionTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_DESCRIPTION_CELL"];
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_DESCRIPTION_CELL"];
             }
+            cell.labelDescription.text = self.story[STORY_KEY_DESCRIPTION];
+            return cell;
+        } else if (4==indexPath.row){
+            DetailFirstSentenceTableViewCell *cell = (DetailFirstSentenceTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
+            if (!cell) {
+                [tableView registerNib:[UINib nibWithNibName:@"DetailFirstSentenceTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
+                cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
+            }
+            cell.labelContents.text = self.story[STORY_KEY_FIRST_SENTENCE];
             return cell;
         } else {
             DetailContentsTableViewCell *cell = (DetailContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_CONTENTS_CELL"];
@@ -150,6 +162,8 @@
                 [tableView registerNib:[UINib nibWithNibName:@"DetailContentsTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_CONTENTS_CELL"];
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_CONTENTS_CELL"];
             }
+            NSArray *sentenceTexts = self.story[STORY_KEY_SELECTED_TEXTS];
+            cell.labelContents.text = [sentenceTexts objectAtIndex:indexPath.row - 5];
             return cell;
         }
     } else {
