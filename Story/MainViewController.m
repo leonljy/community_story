@@ -12,7 +12,7 @@
 #import "DetailStoryTextViewController.h"
 #import "PFObject+Story.h"
 #import "NewStoryNavigationController.h"
-#import "FeaturedStoryCell.h"
+#import "StoryCollectionViewCell.h"
 //#import "standardTableViewCell.h"
 //#import "FeaturedTableViewCell.h"
 
@@ -171,7 +171,7 @@ typedef enum {
         
         PFObject *popularStory = [self.populars objectAtIndex:indexPath.row];
         
-        FeaturedStoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeaturedCellIdentifier forIndexPath:indexPath];
+        StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeaturedCellIdentifier forIndexPath:indexPath];
         
         [cell setFeaturedStoryDatasToUI:popularStory];
         
@@ -181,7 +181,7 @@ typedef enum {
         
         PFObject *nonpopularStory = [self.nonPopulars objectAtIndex:indexPath.row];
         
-        FeaturedStoryCell *cells = [collectionView dequeueReusableCellWithReuseIdentifier:StandardCellIdentifier forIndexPath:indexPath];
+        StoryCollectionViewCell *cells = [collectionView dequeueReusableCellWithReuseIdentifier:StandardCellIdentifier forIndexPath:indexPath];
         
         [cells setStandardStoryDatasToUI:nonpopularStory];
         return cells;

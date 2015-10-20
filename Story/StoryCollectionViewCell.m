@@ -6,12 +6,12 @@
 //  Copyright © 2015년 Favorie&John. All rights reserved.
 //
 
-#import "FeaturedStoryCell.h"
+#import "StoryCollectionViewCell.h"
 #import "PFObject+Story.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 
-@implementation FeaturedStoryCell
+@implementation StoryCollectionViewCell
 
 
 -(void)setStandardStoryDatasToUI:(PFObject *)story{

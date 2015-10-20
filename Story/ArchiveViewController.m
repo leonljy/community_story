@@ -7,7 +7,7 @@
 //
 
 #import "ArchiveViewController.h"
-#import "FeaturedStoryCell.h"
+#import "StoryCollectionViewCell.h"
 #import "PFObject+Story.h"
 #import "PFUser+User.h"
 
@@ -74,7 +74,7 @@
     
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    FeaturedStoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ACHIEVED_STORY" forIndexPath:indexPath];
+    StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ACHIEVED_STORY" forIndexPath:indexPath];
     PFObject *story = [self.stories objectAtIndex:indexPath.row];
     [cell setAchievedStoryDatasToUI:story];
     

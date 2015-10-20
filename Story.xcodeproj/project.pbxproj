@@ -26,7 +26,8 @@
 		9162E4901BBE1403002A8B92 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E48F1BBE1403002A8B92 /* Social.framework */; };
 		91667AE31BD4D0F300FD6F23 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91667AE21BD4D0F300FD6F23 /* ImageIO.framework */; };
 		91667AE51BD4DDD600FD6F23 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91667AE41BD4DDD600FD6F23 /* Photos.framework */; };
-		91667AE81BD4E34F00FD6F23 /* FeaturedStoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91667AE71BD4E34F00FD6F23 /* FeaturedStoryCell.m */; settings = {ASSET_TAGS = (); }; };
+		91667AE81BD4E34F00FD6F23 /* StoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91667AE71BD4E34F00FD6F23 /* StoryCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		91667AEE1BD6087700FD6F23 /* ProfileUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91667AED1BD6087700FD6F23 /* ProfileUserCell.m */; settings = {ASSET_TAGS = (); }; };
 		91A8B1891BC3571C0000178F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A8B1861BC3571C0000178F /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
 		91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91A8B18A1BC35AB30000178F /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
 		91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B18D1BC35AEA0000178F /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -34,7 +35,6 @@
 		91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A8B1971BC4A9C80000178F /* NewUserViewController.m */; settings = {ASSET_TAGS = (); }; };
 		91AD920F1BBE0FC8000137A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD920E1BBE0FC8000137A4 /* main.m */; };
 		91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92111BBE0FC8000137A4 /* AppDelegate.m */; };
-		91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AD92141BBE0FC8000137A4 /* ViewController.m */; };
 		91AD92181BBE0FC8000137A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AD92161BBE0FC8000137A4 /* Main.storyboard */; };
 		91AD921A1BBE0FC8000137A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91AD92191BBE0FC8000137A4 /* Assets.xcassets */; };
 		91AD921D1BBE0FC8000137A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91AD921B1BBE0FC8000137A4 /* LaunchScreen.storyboard */; };
@@ -53,8 +53,6 @@
 		E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E42B1BBE2D4A00A8614F /* BookMarkViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4311BBE2D5E00A8614F /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
-		E1CCD68B1BC4CE7900E52223 /* FeaturedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD6881BC4CE7900E52223 /* FeaturedTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD68A1BC4CE7900E52223 /* StandardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E50B91B41BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B91B31BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E50B91B61BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50B91B51BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E52B45921BC71BB800452BD5 /* DetailAuthorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52B458C1BC71BB800452BD5 /* DetailAuthorTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -125,8 +123,10 @@
 		9162E48F1BBE1403002A8B92 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		91667AE21BD4D0F300FD6F23 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		91667AE41BD4DDD600FD6F23 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		91667AE61BD4E34F00FD6F23 /* FeaturedStoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedStoryCell.h; sourceTree = "<group>"; };
-		91667AE71BD4E34F00FD6F23 /* FeaturedStoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedStoryCell.m; sourceTree = "<group>"; };
+		91667AE61BD4E34F00FD6F23 /* StoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryCollectionViewCell.h; sourceTree = "<group>"; };
+		91667AE71BD4E34F00FD6F23 /* StoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryCollectionViewCell.m; sourceTree = "<group>"; };
+		91667AEC1BD6087700FD6F23 /* ProfileUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileUserCell.h; path = views/ProfileUserCell.h; sourceTree = "<group>"; };
+		91667AED1BD6087700FD6F23 /* ProfileUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileUserCell.m; path = views/ProfileUserCell.m; sourceTree = "<group>"; };
 		91A8B1861BC3571C0000178F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		91A8B18A1BC35AB30000178F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		91A8B18C1BC35AEA0000178F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -140,8 +140,6 @@
 		91AD920E1BBE0FC8000137A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91AD92101BBE0FC8000137A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		91AD92111BBE0FC8000137A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		91AD92131BBE0FC8000137A4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		91AD92141BBE0FC8000137A4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		91AD92171BBE0FC8000137A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91AD92191BBE0FC8000137A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91AD921C1BBE0FC8000137A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -176,10 +174,6 @@
 		E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveViewController.m; sourceTree = "<group>"; };
 		E138E4301BBE2D5E00A8614F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		E138E4311BBE2D5E00A8614F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		E1CCD6871BC4CE7900E52223 /* FeaturedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedTableViewCell.h; sourceTree = "<group>"; };
-		E1CCD6881BC4CE7900E52223 /* FeaturedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedTableViewCell.m; sourceTree = "<group>"; };
-		E1CCD6891BC4CE7900E52223 /* StandardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardTableViewCell.h; sourceTree = "<group>"; };
-		E1CCD68A1BC4CE7900E52223 /* StandardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardTableViewCell.m; sourceTree = "<group>"; };
 		E50B91B21BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFirstSentenceTableViewCell.h; sourceTree = "<group>"; };
 		E50B91B31BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFirstSentenceTableViewCell.m; sourceTree = "<group>"; };
 		E50B91B51BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFirstSentenceTableViewCell.xib; sourceTree = "<group>"; };
@@ -303,6 +297,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		91667AE91BD607FD00FD6F23 /* TabBarVC */ = {
+			isa = PBXGroup;
+			children = (
+				E138E4301BBE2D5E00A8614F /* ProfileViewController.h */,
+				E138E4311BBE2D5E00A8614F /* ProfileViewController.m */,
+				91667AEC1BD6087700FD6F23 /* ProfileUserCell.h */,
+				91667AED1BD6087700FD6F23 /* ProfileUserCell.m */,
+				E138E42D1BBE2D5500A8614F /* ArchiveViewController.h */,
+				E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */,
+				E138E42A1BBE2D4A00A8614F /* BookMarkViewController.h */,
+				E138E42B1BBE2D4A00A8614F /* BookMarkViewController.m */,
+			);
+			name = TabBarVC;
+			sourceTree = "<group>";
+		};
+		91667AEA1BD6081900FD6F23 /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				E54EA6B01BC3579800104EF7 /* DetailStoryViewController.h */,
+				E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */,
+				E52B45981BC71BFC00452BD5 /* DetailStoryTextViewController.h */,
+				E52B45991BC71BFC00452BD5 /* DetailStoryTextViewController.m */,
+			);
+			name = DetailVC;
+			sourceTree = "<group>";
+		};
+		91667AEB1BD6083400FD6F23 /* AppScope */ = {
+			isa = PBXGroup;
+			children = (
+				91AD92101BBE0FC8000137A4 /* AppDelegate.h */,
+				91AD92111BBE0FC8000137A4 /* AppDelegate.m */,
+				91B0A8A81BD48A9F00ECC89A /* AppDelegate+CustomUI.h */,
+				91B0A8A91BD48A9F00ECC89A /* AppDelegate+CustomUI.m */,
+			);
+			name = AppScope;
+			sourceTree = "<group>";
+		};
 		91A8B18F1BC3A67C0000178F /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,13 +397,8 @@
 				E52B459B1BC71C6700452BD5 /* Libraries */,
 				91A8B19C1BC5C1AB0000178F /* Helpers */,
 				E54EA6B31BC359CC00104EF7 /* Cells */,
+				91667AEB1BD6083400FD6F23 /* AppScope */,
 				E138E4331BBE2D6300A8614F /* View Controllers */,
-				91AD92101BBE0FC8000137A4 /* AppDelegate.h */,
-				91AD92111BBE0FC8000137A4 /* AppDelegate.m */,
-				91B0A8A81BD48A9F00ECC89A /* AppDelegate+CustomUI.h */,
-				91B0A8A91BD48A9F00ECC89A /* AppDelegate+CustomUI.m */,
-				91AD92131BBE0FC8000137A4 /* ViewController.h */,
-				91AD92141BBE0FC8000137A4 /* ViewController.m */,
 				E55C219C1BBF2461002F0831 /* DetailStory.storyboard */,
 				91AD92161BBE0FC8000137A4 /* Main.storyboard */,
 				91A8B18A1BC35AB30000178F /* Login.storyboard */,
@@ -424,39 +450,27 @@
 		E138E4331BBE2D6300A8614F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				91667AEA1BD6081900FD6F23 /* DetailVC */,
+				91667AE91BD607FD00FD6F23 /* TabBarVC */,
 				91A8B18F1BC3A67C0000178F /* Login */,
-				E13F5A261BBE39BD00F7264B /* MainView */,
-				E54EA6B01BC3579800104EF7 /* DetailStoryViewController.h */,
-				E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */,
-				E52B45981BC71BFC00452BD5 /* DetailStoryTextViewController.h */,
-				E52B45991BC71BFC00452BD5 /* DetailStoryTextViewController.m */,
-				E138E4301BBE2D5E00A8614F /* ProfileViewController.h */,
-				E138E4311BBE2D5E00A8614F /* ProfileViewController.m */,
-				E138E42D1BBE2D5500A8614F /* ArchiveViewController.h */,
-				E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */,
-				E138E42A1BBE2D4A00A8614F /* BookMarkViewController.h */,
-				E138E42B1BBE2D4A00A8614F /* BookMarkViewController.m */,
+				E13F5A261BBE39BD00F7264B /* HomeVC */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		E13F5A261BBE39BD00F7264B /* MainView */ = {
+		E13F5A261BBE39BD00F7264B /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				E1CCD6871BC4CE7900E52223 /* FeaturedTableViewCell.h */,
-				E1CCD6881BC4CE7900E52223 /* FeaturedTableViewCell.m */,
-				E1CCD6891BC4CE7900E52223 /* StandardTableViewCell.h */,
-				E1CCD68A1BC4CE7900E52223 /* StandardTableViewCell.m */,
 				E138E4271BBE2D3E00A8614F /* NewStoryViewController.h */,
 				E138E4281BBE2D3E00A8614F /* NewStoryViewController.m */,
 				E138E4241BBE2D0E00A8614F /* MainViewController.h */,
 				E138E4251BBE2D0E00A8614F /* MainViewController.m */,
 				91B0A8A51BD489AD00ECC89A /* NewStoryNavigationController.h */,
 				91B0A8A61BD489AD00ECC89A /* NewStoryNavigationController.m */,
-				91667AE61BD4E34F00FD6F23 /* FeaturedStoryCell.h */,
-				91667AE71BD4E34F00FD6F23 /* FeaturedStoryCell.m */,
+				91667AE61BD4E34F00FD6F23 /* StoryCollectionViewCell.h */,
+				91667AE71BD4E34F00FD6F23 /* StoryCollectionViewCell.m */,
 			);
-			name = MainView;
+			name = HomeVC;
 			sourceTree = "<group>";
 		};
 		E52B459B1BC71C6700452BD5 /* Libraries */ = {
@@ -736,16 +750,14 @@
 				E52B45B61BC71C7C00452BD5 /* UIView+SLKAdditions.m in Sources */,
 				91B0A8AA1BD48A9F00ECC89A /* AppDelegate+CustomUI.m in Sources */,
 				91A8B1921BC3A7150000178F /* TabBarViewController.m in Sources */,
-				E1CCD68B1BC4CE7900E52223 /* FeaturedTableViewCell.m in Sources */,
 				E138E42C1BBE2D4A00A8614F /* BookMarkViewController.m in Sources */,
 				E50B91B41BCFA1540006BA11 /* DetailFirstSentenceTableViewCell.m in Sources */,
 				91A8B1981BC4A9C80000178F /* NewUserViewController.m in Sources */,
 				E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */,
-				E1CCD68C1BC4CE7900E52223 /* StandardTableViewCell.m in Sources */,
 				E52B45B51BC71C7C00452BD5 /* UIScrollView+SLKAdditions.m in Sources */,
 				9103370C1BC5E95C00A4CC43 /* NovelistConstants.m in Sources */,
 				E52B45B41BC71C7C00452BD5 /* UIResponder+SLKAdditions.m in Sources */,
-				91667AE81BD4E34F00FD6F23 /* FeaturedStoryCell.m in Sources */,
+				91667AE81BD4E34F00FD6F23 /* StoryCollectionViewCell.m in Sources */,
 				E52B45B81BC71C7C00452BD5 /* SLKTextInputbar.m in Sources */,
 				910337181BC62F9500A4CC43 /* PFUser+User.m in Sources */,
 				E52B45BB1BC71C7C00452BD5 /* SLKTypingIndicatorView.m in Sources */,
@@ -760,13 +772,13 @@
 				E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */,
 				E138E4321BBE2D5E00A8614F /* ProfileViewController.m in Sources */,
 				91B0A8A71BD489AD00ECC89A /* NewStoryNavigationController.m in Sources */,
-				91AD92151BBE0FC8000137A4 /* ViewController.m in Sources */,
 				91B0A8AD1BD48AE000ECC89A /* UIColor+Tool.m in Sources */,
 				E54EA6B91BC35AAA00104EF7 /* DetailAuthorTableViewCell.m in Sources */,
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
 				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
 				91B0A8A41BD4885200ECC89A /* UIFont+CustomFont.m in Sources */,
+				91667AEE1BD6087700FD6F23 /* ProfileUserCell.m in Sources */,
 				E52B459A1BC71BFC00452BD5 /* DetailStoryTextViewController.m in Sources */,
 				E54EA6BC1BC35ABB00104EF7 /* DetailTimeTableViewCell.m in Sources */,
 				E52B45BA1BC71C7C00452BD5 /* SLKTextViewController.m in Sources */,

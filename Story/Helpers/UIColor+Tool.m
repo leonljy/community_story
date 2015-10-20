@@ -16,4 +16,7 @@
 +(UIColor *)colorGrayWith:(CGFloat)rgb{
     return [UIColor colorWithRed:rgb/255.f green:rgb/255.f blue:rgb/255.f alpha:1.0];
 }
++(UIColor *)colorGrayWith:(CGFloat)rgb alpha:(CGFloat)alpha{
+    return [UIColor colorWithRed:rgb/255.f green:rgb/255.f blue:rgb/255.f alpha:alpha];
+}
 @end

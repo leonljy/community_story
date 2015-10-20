@@ -12,6 +12,7 @@
 @implementation PFObject (Sentence)
 
 #pragma mark - Fetch Datas from Server
+
 +(void)currentSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     NSInteger currentSequence = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
     [self sentencesForStory:story sequence:currentSequence successBlock:^(NSArray *objects) {

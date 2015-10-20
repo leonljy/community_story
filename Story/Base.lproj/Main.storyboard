@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -29,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_STANDARD_STORY" id="bt6-ho-eXJ" customClass="FeaturedStoryCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_STANDARD_STORY" id="bt6-ho-eXJ" customClass="StoryCollectionViewCell">
                                         <rect key="frame" x="0.0" y="64" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -170,7 +169,7 @@
                                             <outlet property="labelUnderline" destination="STe-hD-skK" id="SGN-FX-aTl"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_FEATURED_STORY" id="GVQ-uj-bnd" customClass="FeaturedStoryCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_FEATURED_STORY" id="GVQ-uj-bnd" customClass="StoryCollectionViewCell">
                                         <rect key="frame" x="0.0" y="374" width="375" height="525"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -375,7 +374,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_ACHIEVED_STORY" id="NRG-7W-pmS" customClass="FeaturedStoryCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_ACHIEVED_STORY" id="NRG-7W-pmS" customClass="StoryCollectionViewCell">
                                         <rect key="frame" x="0.0" y="64" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -564,7 +563,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_BOOKMARKED_STORY" id="Z05-gr-nbo" customClass="FeaturedStoryCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CELL_BOOKMARKED_STORY" id="Z05-gr-nbo" customClass="StoryCollectionViewCell">
                                         <rect key="frame" x="0.0" y="64" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -722,6 +721,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="g0e-tD-M97"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="j4T-tx-FgQ" id="Bnc-Bl-wJC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPW-IY-291" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -739,63 +741,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0g-in-bYq">
-                                <rect key="frame" x="165" y="102" width="43" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycs-hB-K5b">
-                                <rect key="frame" x="165" y="138" width="41" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNG-9c-Zdb">
-                                <rect key="frame" x="263" y="117" width="52" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Log out"/>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="StB-BF-WCD">
-                                <rect key="frame" x="0.0" y="250" width="375" height="368"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ha6-4P-mbo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL_USER_PROFILE" id="KB9-B5-bBu" customClass="ProfileUserCell">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KB9-B5-bBu" id="qfV-13-Kce">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEG-CL-RzC">
+                                                    <rect key="frame" x="8" y="41" width="359" height="44"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-iE-cVC">
+                                                    <rect key="frame" x="8" y="89" width="359" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NC-hP-ilt">
+                                                    <rect key="frame" x="137" y="129" width="100" height="25"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="Logout" backgroundImage="buttonSignIn">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="buttonLogout" destination="2NC-hP-ilt" id="hDl-gJ-4A1"/>
+                                            <outlet property="labelUserDescription" destination="EUo-iE-cVC" id="MOj-yc-uCk"/>
+                                            <outlet property="labelUsername" destination="oEG-CL-RzC" id="8hn-BH-ao3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4i-hj-ny0">
-                                <rect key="frame" x="16" y="102" width="80" height="80"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40315061600000002" green="1" blue="0.74703620059999998" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="D2m-Ua-UEs"/>
-                                    <constraint firstAttribute="width" constant="80" id="QjF-pL-ZwA"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="StB-BF-WCD" firstAttribute="top" secondItem="p4i-hj-ny0" secondAttribute="bottom" constant="68" id="4Vb-Kd-Nph"/>
-                            <constraint firstItem="p4i-hj-ny0" firstAttribute="top" secondItem="6Am-aT-Gve" secondAttribute="bottom" constant="38" id="HPH-km-RZA"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="p4i-hj-ny0" secondAttribute="leading" id="Kge-JG-5sg"/>
-                            <constraint firstAttribute="trailing" secondItem="StB-BF-WCD" secondAttribute="trailing" id="Mhc-qV-Iiw"/>
-                            <constraint firstItem="StB-BF-WCD" firstAttribute="bottom" secondItem="T9f-Dy-RTP" secondAttribute="top" id="PEG-OJ-jEX"/>
-                            <constraint firstItem="StB-BF-WCD" firstAttribute="top" secondItem="p4i-hj-ny0" secondAttribute="bottom" constant="142" id="WkW-e7-mx6"/>
-                            <constraint firstItem="StB-BF-WCD" firstAttribute="leading" secondItem="bzg-Rq-rgl" secondAttribute="leading" id="oCQ-wh-TSg"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="WkW-e7-mx6"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="DRW-iD-Cu7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ha6-4P-mbo" id="dDt-QW-nAA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oB9-QZ-7Un" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424.5" y="-511.5"/>
+            <point key="canvasLocation" x="1424.5" y="-487.5"/>
         </scene>
         <!--Home-->
         <scene sceneID="kMV-Pn-KSr">
@@ -981,8 +985,8 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="j4z-QE-D5B"/>
                                                 <exclude reference="9yN-oU-39p"/>
+                                                <exclude reference="j4z-QE-D5B"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1221,4 +1225,7 @@
             <point key="canvasLocation" x="-134.5" y="1111.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buttonSignIn" width="165" height="40"/>
+    </resources>
 </document>

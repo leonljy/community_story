@@ -11,4 +11,5 @@
 @interface UIColor (Tool)
 +(UIColor *)colorWithR:(NSInteger)red G:(NSInteger)green B:(NSInteger)blue;
 +(UIColor *)colorGrayWith:(CGFloat)rgb;
++(UIColor *)colorGrayWith:(CGFloat)rgb alpha:(CGFloat)alpha;
 @end
