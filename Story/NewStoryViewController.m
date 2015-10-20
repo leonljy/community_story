@@ -127,6 +127,8 @@ typedef enum {
 - (IBAction)handleHideKeyboard:(id)sender {
     if(isKeyboardOpened){
         [self.prologueTextView resignFirstResponder];
+    }else{
+        [self.descriptionTextView resignFirstResponder];
     }
 }
 

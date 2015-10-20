@@ -32,7 +32,9 @@ typedef enum {
     SECTION_NON_POPULAR_STORY
 }SectionStory;
 
-@implementation MainViewController
+@implementation MainViewController{
+    UIRefreshControl *refreshControl;
+}
 
 
 - (void)viewDidLoad {
@@ -42,8 +44,15 @@ typedef enum {
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
     
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshData:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    [self refreshData:nil];
+}
+
+-(void)refreshData:(id)sender{
     [PFObject storiesPopularWithSuccessBlock:^(NSArray *objects) {
-//        self.storyArray = objects;
         self.populars = [NSMutableArray array];
         self.nonPopulars = [NSMutableArray array];
         if(5<[objects count]){
@@ -58,9 +67,8 @@ typedef enum {
         }else{
             self.populars = [NSMutableArray arrayWithArray:objects];
         }
-        
-//        [self.tableView reloadData];
         [self.collectionView reloadData];
+        [refreshControl endRefreshing];
     } failureBlock:^(NSError *error) {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }];

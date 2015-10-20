@@ -10,6 +10,7 @@
 #import "PFObject+Story.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+
 @implementation FeaturedStoryCell
 
 
@@ -21,6 +22,15 @@
     [self setStoryPopular:story];
 }
 -(void)setFeaturedStoryDatasToUI:(PFObject *)story{
+    [self setStoryTitle:story];
+    
+    [self setStoryText:story];
+    
+    [self setStoryPopular:story];
+    
+    [self setStoryPhoto:story];
+}
+-(void)setAchievedStoryDatasToUI:(PFObject *)story{
     [self setStoryTitle:story];
     
     [self setStoryText:story];

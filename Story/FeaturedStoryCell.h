@@ -14,8 +14,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelUnderline;
 @property (weak, nonatomic) IBOutlet UILabel *labelPopular;
 @property (weak, nonatomic) IBOutlet UILabel *labelStoryText;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewBookmark;
 
 
 -(void)setStandardStoryDatasToUI:(PFObject *)story;
 -(void)setFeaturedStoryDatasToUI:(PFObject *)story;
+-(void)setAchievedStoryDatasToUI:(PFObject *)story;
 @end
