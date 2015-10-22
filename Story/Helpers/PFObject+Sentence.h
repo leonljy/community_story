@@ -19,6 +19,7 @@
 #define SENTENCE_KEY_END_SENTENCE       @"isEndSentence"
 #define SENTENCE_KEY_VOTE_POINT         @"votePoint"
 #define SENTENCE_KEY_ISSELECTED         @"isSelected"
+#define SENTENCE_KEY_IMAGE              @"image"
 
 @interface PFObject (Sentence)
 typedef void (^ArrayBlock)(NSArray *objects);

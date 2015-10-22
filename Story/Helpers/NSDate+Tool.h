@@ -10,4 +10,5 @@
 
 @interface NSDate (Tool)
 -(NSDate *)dateWithZeroSecond;
+-(NSString *)remainTime;
 @end

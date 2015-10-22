@@ -15,12 +15,25 @@
 #import "DetailVotingTableViewCell.h"
 #import "DetailFirstSentenceTableViewCell.h"
 #import "PFUser+User.h"
+#import "NSDate+Tool.h"
+#import <Photos/Photos.h>
 
-@interface DetailStoryTextViewController ()
+@interface DetailStoryTextViewController () <UIAlertViewDelegate>
 @property (strong, nonatomic) NSMutableArray *sentences;
+@property (strong, nonatomic) NSTimer *timerDeadline;
+@property UILabel *labelTimer;
+@property (strong, nonatomic) UIButton *buttonEnd;
+@property BOOL isEndSentence;
+@property (nonatomic, strong) UIWindow *pipWindow;
 @end
 
-@implementation DetailStoryTextViewController
+@implementation DetailStoryTextViewController{
+    UIImagePickerController *imagePickerViewController;
+    UIImageView *imageViewComment;
+    BOOL callImagePicker;
+}
+
+static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 - (id)init {
     self = [super initWithTableViewStyle:UITableViewStylePlain];
@@ -44,7 +57,7 @@
 
 - (void)commonInit{
     [[NSNotificationCenter defaultCenter] addObserver:self.tableView selector:@selector(reloadData) name:UIContentSizeCategoryDidChangeNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputbarDidMove:) name:SLKTextInputbarDidMoveNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputbarDidMove:) name:SLKTextInputbarDid Notification object:nil];
     
     // Register a SLKTextView subclass, if you need any special appearance and/or behavior customisation.
 //    [self registerClassForTextView:[MessageTextView class]];
@@ -60,39 +73,114 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.inverted = NO;
-    self.bounces = YES;
-    self.shakeToClearEnabled = YES;
-    self.keyboardPanningEnabled = YES;
-    self.shouldScrollToBottomAfterKeyboardShows = NO;
-
-    self.textInputbar.autoHideRightButton = YES;
-    self.textInputbar.maxCharCount = 140;
-    self.textInputbar.counterStyle = SLKCounterStyleSplit;
-    self.textInputbar.counterPosition = SLKCounterPositionTop;
-    
-    [self.textInputbar.editorTitle setTextColor:[UIColor darkGrayColor]];
-    [self.textInputbar.editorLeftButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
-    [self.textInputbar.editorRightButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
-
+    NSLog(@"Now: %@", [NSDate date]);
+    NSLog(@"Parse: %@", self.story[STORY_KEY_DEADLINE]);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.isEndSentence = NO;
+    callImagePicker = NO;
+    [self initializeProperties];
+    [self initializeInputBar];
+    [self reloadSentences];
     
+    [self initializeTimer];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    if(callImagePicker){
+        [_pipWindow setHidden:YES];
+    }else{
+        [self hidePIPWindow];
+    }
+}
+
+-(void)initializeTimer{
+    NSTimeInterval oneSec = 1;
+    self.timerDeadline = [NSTimer scheduledTimerWithTimeInterval:oneSec target:self selector:@selector(handleTimerDeadline:) userInfo:nil repeats:YES];
+    [self.timerDeadline fire];
+}
+
+-(void)handleTimerDeadline:(id)sender{
+    NSDate *deadline = self.story[STORY_KEY_DEADLINE];
+    NSTimeInterval difference = [deadline timeIntervalSinceNow];
+    if(0 <= difference){
+        [self.labelTimer setText:[deadline remainTime]];
+    }else{
+        [self.labelTimer setText:@"Now processing please wait"];
+    }
+}
+-(void)reloadSentences{
     [PFObject currentSentencesForStory:self.story successBlock:^(NSArray *objects) {
         self.sentences = [NSMutableArray arrayWithArray:objects];
         [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }];
-    
 
+}
+
+-(void)initializeProperties{
+    self.inverted = NO;
+    self.bounces = YES;
+    self.shakeToClearEnabled = YES;
+    self.keyboardPanningEnabled = YES;
+    self.shouldScrollToBottomAfterKeyboardShows = NO;
+    [self.leftButton setImage:[UIImage imageNamed:@"icon_30_black"] forState:UIControlStateNormal];
+    [self.leftButton setTintColor:[UIColor grayColor]];
+    [self.rightButton setTitle:@"Send" forState:UIControlStateNormal];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputbarDidMove:) name:SLKTextInputbarDidMoveNotification object:nil];
+}
+
+-(void)initializeInputBar{
+    self.textInputbar.autoHideRightButton = NO;
+    self.textInputbar.maxCharCount = 140;
+    self.textInputbar.counterStyle = SLKCounterStyleSplit;
+    self.textInputbar.counterPosition = SLKCounterPositionTop;
+    UIEdgeInsets originInsets = self.textInputbar.textView.textContainerInset;
+    [self.textInputbar.textView setTextContainerInset:UIEdgeInsetsMake(originInsets.top, originInsets.left+40, originInsets.bottom, originInsets.right)];
+    [self initializeEndButton];
+}
+
+-(void)initializeEndButton{
+    _buttonEnd = [[UIButton alloc] initWithFrame:CGRectMake(5, 0, 40, 35)];
+    [_buttonEnd.titleLabel setFont:[UIFont systemFontOfSize:12]];
+    [_buttonEnd setTitle:@"END |" forState:UIControlStateNormal];
+    [_buttonEnd addTarget:self action:@selector(handleEnd:) forControlEvents:UIControlEventTouchUpInside];
+    [_buttonEnd setBackgroundColor:[UIColor clearColor]];
+    [_buttonEnd setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [_buttonEnd setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+//    [_buttonEnd setAlpha:0.0f];
+//    [self.textInputbar.textView setClipsToBounds:NO];
+    [self.textInputbar.textView addSubview:_buttonEnd];
+}
+
+-(void)handleEnd:(id)sender{
+    NSLog(@"HandleEnd");
+    _buttonEnd.selected = !_buttonEnd.selected;
+    
+    if(_buttonEnd.selected){
+        [self.rightButton setTitle:NSLocalizedString(@"DetailStoryTextVC.Button.Finish", @"Finish") forState:UIControlStateNormal];
+        self.isEndSentence = YES;
+        if(![[NSUserDefaults standardUserDefaults] boolForKey:KEY_FIRST_END]){
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"DetailStoryTextVC.AlertView.End.Title", @"Title") message:NSLocalizedString(@"DetailStoryTextVC.AlertView.End.Message", @"Message") delegate:self cancelButtonTitle:NSLocalizedString(@"DetailStoryTextVC.AlertView.End.CancelButton", @"Cancel") otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }else{
+        [self.rightButton setTitle:NSLocalizedString(@"DetailStoryTextVC.Button.Send", @"Send") forState:UIControlStateNormal];
+        self.isEndSentence = YES;
+    }
+}
+
+-(void)alertViewCancel:(UIAlertView *)alertView{
+    NSLog(@"AlertView Cancel");
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KEY_FIRST_END];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - UITableViewDataSource Methods
 
@@ -139,6 +227,8 @@
                 [tableView registerNib:[UINib nibWithNibName:@"DetailTimeTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_TIME_CELL"];
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_TIME_CELL"];
             }
+            self.labelTimer = cell.labelTime;
+            [self handleTimerDeadline:nil];
             return cell;
         } else if (3==indexPath.row) {
             DetailDescriptionTableViewCell *cell = (DetailDescriptionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_DESCRIPTION_CELL"];
@@ -214,6 +304,24 @@
 
 - (void)didChangeKeyboardStatus:(SLKKeyboardStatus)status{
     // Notifies the view controller that the keyboard changed status.
+    [super didChangeKeyboardStatus:status];
+    switch (status) {
+        case SLKKeyboardStatusWillShow:{
+            [UIView animateWithDuration:0.5 animations:^{
+//                [_buttonEnd setAlpha:1.0f];
+            }];
+            break;
+        }
+        case SLKKeyboardStatusWillHide:{
+            [UIView animateWithDuration:0.5 animations:^{
+//                [_buttonEnd setAlpha:0.0f];
+            }];
+            
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)textWillUpdate{
@@ -230,25 +338,131 @@
 
 - (void)didPressLeftButton:(id)sender{
     // Notifies the view controller when the left button's action has been triggered, manually.
-    
     [super didPressLeftButton:sender];
+    NSLog(@"didPressLeftButton");
+    callImagePicker = YES;
+    imagePickerViewController = [[UIImagePickerController alloc] init];
+    imagePickerViewController.delegate = (id)self;
+    [imagePickerViewController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:imagePickerViewController animated:YES completion:^{
+    }];
 }
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    NSLog(@"Info: %@", info);
+    NSURL *picURL = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
+    NSString *stringUrl = picURL.absoluteString;
+    NSURL *asssetURL = [NSURL URLWithString:stringUrl];
+    PHFetchOptions *fetchOptions = [PHFetchOptions new];
+    [fetchOptions setFetchLimit:1];
+    [fetchOptions setIncludeAssetSourceTypes:PHAssetSourceTypeNone];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithALAssetURLs:@[asssetURL] options:fetchOptions];
+    PHImageManager *imageManager = [PHImageManager defaultManager];
+    [fetchResult enumerateObjectsUsingBlock:^(PHAsset *phAsset, NSUInteger idx, BOOL * _Nonnull stop) {
+        PHImageRequestOptions *requestOptions = [PHImageRequestOptions new];
+        [requestOptions setDeliveryMode:PHImageRequestOptionsDeliveryModeOpportunistic];
+        [requestOptions setNetworkAccessAllowed:YES];
+        [requestOptions setSynchronous:NO];
+        [imageManager requestImageForAsset:phAsset targetSize:CGSizeMake(320, 480) contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            [self showPIPWindow:result];
+            callImagePicker = NO;
+            [picker dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }];
+    }];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [imagePickerViewController dismissViewControllerAnimated:YES
+                                                  completion:^{
+                                                      if(_pipWindow){
+                                                          [_pipWindow setHidden:NO];
+                                                      }
+                                                      callImagePicker = NO;
+                                                    
+                                                  }];
+}
+
+- (void)showPIPWindow:(UIImage *)image
+{
+    if(!_pipWindow){
+        CGRect frame = CGRectMake(CGRectGetWidth(self.view.frame) - 60.0, 0.0, 50.0, 50.0);
+        frame.origin.y = CGRectGetMinY(self.textInputbar.frame) - 60.0;
+        
+        _pipWindow = [[UIWindow alloc] initWithFrame:frame];
+        _pipWindow.backgroundColor = [UIColor blackColor];
+        _pipWindow.layer.cornerRadius = 10.0;
+        _pipWindow.layer.masksToBounds = YES;
+        _pipWindow.hidden = NO;
+        _pipWindow.alpha = 0.0;
+        
+        [[UIApplication sharedApplication].keyWindow addSubview:_pipWindow];
+        
+        [UIView animateWithDuration:0.25
+                         animations:^{
+                             _pipWindow.alpha = 1.0;
+                         }];
+        imageViewComment = [[UIImageView alloc] initWithFrame:_pipWindow.bounds];
+        [imageViewComment setContentMode:UIViewContentModeScaleAspectFill];
+        [imageViewComment setClipsToBounds:YES];
+        [_pipWindow addSubview:imageViewComment];
+    }
+    [imageViewComment setImage:image];
+    [_pipWindow setHidden:NO];
+}
+
+- (void)hidePIPWindow
+{
+    if(_pipWindow){
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _pipWindow.alpha = 0.0;
+                         }
+                         completion:^(BOOL finished) {
+                             _pipWindow.hidden = YES;
+                             _pipWindow = nil;
+                         }];
+    }
+}
+
+- (void)textInputbarDidMove:(NSNotification *)note
+{
+    if (!_pipWindow) {
+        return;
+    }
+    
+    CGRect frame = self.pipWindow.frame;
+    frame.origin.y = [note.userInfo[@"origin"] CGPointValue].y - 60.0;
+    
+    self.pipWindow.frame = frame;
+}
+
+
 
 - (void)didPressRightButton:(id)sender{
     // Notifies the view controller when the right button's action has been triggered, manually or by using the keyboard return key.
     
     // This little trick validates any pending auto-correction or auto-spelling just after hitting the 'Send' button
     [self.textView refreshFirstResponder];
+    [self hidePIPWindow];
     
     PFObject *sentence = [PFObject objectWithClassName:SENTENCE_CLASSNAME];
     sentence[SENTENCE_KEY_STORY] = self.story;
     sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:NO];
     sentence[SENTENCE_KEY_TEXT] = self.textView.text;
-    
+    sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:self.isEndSentence];
+    if(imageViewComment){
+        NSData *imageData = UIImagePNGRepresentation(imageViewComment.image);
+        PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+        sentence[SENTENCE_KEY_IMAGE] = imageFile;
+    }
     [sentence saveNewSentenceWithSuccessBlock:^(id responseObject) {
-        
+        imageViewComment = nil;
     } failureBlock:^(NSError *error) {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
+        // Try Again!!
     }];
     
     
@@ -274,6 +488,7 @@
 
 - (void)didPressArrowKey:(id)sender{
     [super didPressArrowKey:sender];
+    
     
 //    UIKeyCommand *keyCommand = (UIKeyCommand *)sender;
 //    

@@ -11,6 +11,7 @@
 		9103370F1BC5F78E00A4CC43 /* PFObject+Sentence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103370E1BC5F78E00A4CC43 /* PFObject+Sentence.m */; settings = {ASSET_TAGS = (); }; };
 		910337121BC5F83200A4CC43 /* PFObject+Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 910337111BC5F83200A4CC43 /* PFObject+Story.m */; settings = {ASSET_TAGS = (); }; };
 		910337181BC62F9500A4CC43 /* PFUser+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 910337171BC62F9500A4CC43 /* PFUser+User.m */; settings = {ASSET_TAGS = (); }; };
+		9136D6CF1BD8D27600CF76EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9136D6D11BD8D27600CF76EC /* Localizable.strings */; };
 		913CA8281BD0E1310051BD79 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 913CA8271BD0E1310051BD79 /* NSDate+Tool.m */; settings = {ASSET_TAGS = (); }; };
 		9162E47A1BBE13B2002A8B92 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4791BBE13B2002A8B92 /* AudioToolbox.framework */; };
 		9162E47C1BBE13B7002A8B92 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E47B1BBE13B7002A8B92 /* CFNetwork.framework */; };
@@ -107,6 +108,7 @@
 		910337111BC5F83200A4CC43 /* PFObject+Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFObject+Story.m"; path = "Helpers/PFObject+Story.m"; sourceTree = "<group>"; };
 		910337161BC62F9500A4CC43 /* PFUser+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFUser+User.h"; path = "Helpers/PFUser+User.h"; sourceTree = "<group>"; };
 		910337171BC62F9500A4CC43 /* PFUser+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PFUser+User.m"; path = "Helpers/PFUser+User.m"; sourceTree = "<group>"; };
+		9136D6D01BD8D27600CF76EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		913CA8261BD0E1310051BD79 /* NSDate+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Tool.h"; path = "Helpers/NSDate+Tool.h"; sourceTree = "<group>"; };
 		913CA8271BD0E1310051BD79 /* NSDate+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Tool.m"; path = "Helpers/NSDate+Tool.m"; sourceTree = "<group>"; };
 		9162E4791BBE13B2002A8B92 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -315,6 +317,7 @@
 		91667AEA1BD6081900FD6F23 /* DetailVC */ = {
 			isa = PBXGroup;
 			children = (
+				E54EA6B31BC359CC00104EF7 /* Cells */,
 				E54EA6B01BC3579800104EF7 /* DetailStoryViewController.h */,
 				E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */,
 				E52B45981BC71BFC00452BD5 /* DetailStoryTextViewController.h */,
@@ -396,7 +399,6 @@
 				91B0A89B1BD4881B00ECC89A /* Resources */,
 				E52B459B1BC71C6700452BD5 /* Libraries */,
 				91A8B19C1BC5C1AB0000178F /* Helpers */,
-				E54EA6B31BC359CC00104EF7 /* Cells */,
 				91667AEB1BD6083400FD6F23 /* AppScope */,
 				E138E4331BBE2D6300A8614F /* View Controllers */,
 				E55C219C1BBF2461002F0831 /* DetailStory.storyboard */,
@@ -404,6 +406,7 @@
 				91A8B18A1BC35AB30000178F /* Login.storyboard */,
 				91AD92191BBE0FC8000137A4 /* Assets.xcassets */,
 				91AD921B1BBE0FC8000137A4 /* LaunchScreen.storyboard */,
+				9136D6D11BD8D27600CF76EC /* Localizable.strings */,
 				91AD921E1BBE0FC8000137A4 /* Info.plist */,
 				91AD920D1BBE0FC8000137A4 /* Supporting Files */,
 			);
@@ -461,12 +464,12 @@
 		E13F5A261BBE39BD00F7264B /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				91B0A8A51BD489AD00ECC89A /* NewStoryNavigationController.h */,
+				91B0A8A61BD489AD00ECC89A /* NewStoryNavigationController.m */,
 				E138E4271BBE2D3E00A8614F /* NewStoryViewController.h */,
 				E138E4281BBE2D3E00A8614F /* NewStoryViewController.m */,
 				E138E4241BBE2D0E00A8614F /* MainViewController.h */,
 				E138E4251BBE2D0E00A8614F /* MainViewController.m */,
-				91B0A8A51BD489AD00ECC89A /* NewStoryNavigationController.h */,
-				91B0A8A61BD489AD00ECC89A /* NewStoryNavigationController.m */,
 				91667AE61BD4E34F00FD6F23 /* StoryCollectionViewCell.h */,
 				91667AE71BD4E34F00FD6F23 /* StoryCollectionViewCell.m */,
 			);
@@ -673,6 +676,7 @@
 				E50B91B61BCFA16C0006BA11 /* DetailFirstSentenceTableViewCell.xib in Resources */,
 				E52B45951BC71BB800452BD5 /* DetailTimeTableViewCell.xib in Resources */,
 				91A8B18B1BC35AB30000178F /* Login.storyboard in Resources */,
+				9136D6CF1BD8D27600CF76EC /* Localizable.strings in Resources */,
 				91AD92181BBE0FC8000137A4 /* Main.storyboard in Resources */,
 				91B0A89F1BD4882D00ECC89A /* Montserrat-Bold.otf in Resources */,
 			);
@@ -821,6 +825,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9136D6D11BD8D27600CF76EC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9136D6D01BD8D27600CF76EC /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		91AD92161BBE0FC8000137A4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
