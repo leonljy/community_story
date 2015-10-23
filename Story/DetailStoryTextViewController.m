@@ -17,6 +17,7 @@
 #import "PFUser+User.h"
 #import "NSDate+Tool.h"
 #import <Photos/Photos.h>
+#import "UIColor+Tool.h"
 
 @interface DetailStoryTextViewController () <UIAlertViewDelegate>
 @property (strong, nonatomic) NSMutableArray *sentences;
@@ -26,6 +27,18 @@
 @property BOOL isEndSentence;
 @property (nonatomic, strong) UIWindow *pipWindow;
 @end
+
+typedef enum {
+    CELL_TITLE = 0,
+    CELL_DESCRIPTION,
+    CELL_FIRST_SENTENCE
+}cellDetail;
+
+typedef enum{
+    SECTION_STORY_DETAIL=0,
+    SECTION_STORY_CONTENT,
+    SECTION_VOTING
+}sectionDetail;
 
 @implementation DetailStoryTextViewController{
     UIImagePickerController *imagePickerViewController;
@@ -75,6 +88,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     [super viewDidLoad];
     NSLog(@"Now: %@", [NSDate date]);
     NSLog(@"Parse: %@", self.story[STORY_KEY_DEADLINE]);
+    [self setTitle:self.story[STORY_KEY_TITLE]];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.isEndSentence = NO;
     callImagePicker = NO;
@@ -125,10 +139,22 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     self.shakeToClearEnabled = YES;
     self.keyboardPanningEnabled = YES;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
-    [self.leftButton setImage:[UIImage imageNamed:@"icon_30_black"] forState:UIControlStateNormal];
+    [self.leftButton setImage:[UIImage imageNamed:@"buttonCamera"] forState:UIControlStateNormal];
     [self.leftButton setTintColor:[UIColor grayColor]];
-    [self.rightButton setTitle:@"Send" forState:UIControlStateNormal];
+    [self initializeRightButton];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textInputbarDidMove:) name:SLKTextInputbarDidMoveNotification object:nil];
+}
+
+-(void)initializeRightButton{
+    [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+    [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rightButton setTitle:@"SEND" forState:UIControlStateNormal];
+    [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:10]];
+    [self.rightButton setBackgroundImage:[UIImage imageNamed:@"buttonSendBlue"] forState:UIControlStateNormal];
+    [self.rightButton setBackgroundImage:[UIImage imageNamed:@"buttonSendGrey"] forState:UIControlStateDisabled];
+//    [self.rightButton setBackgroundColor:[UIColor colorBlueBrand]];
+//    self.rightButton.layer.masksToBounds = YES;
+//    self.rightButton.layer.cornerRadius = 5.0;
 }
 
 -(void)initializeInputBar{
@@ -149,8 +175,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     [_buttonEnd setBackgroundColor:[UIColor clearColor]];
     [_buttonEnd setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [_buttonEnd setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-//    [_buttonEnd setAlpha:0.0f];
-//    [self.textInputbar.textView setClipsToBounds:NO];
     [self.textInputbar.textView addSubview:_buttonEnd];
 }
 
@@ -186,51 +210,44 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.sentences.count > 0) {
-        return 2;
+        return 3;
     } else {
-        return 1;
+        return 2;
     }
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (0 == section) {
+    if (SECTION_STORY_DETAIL == section) {
+        return 3;
+    } else if(SECTION_STORY_CONTENT ==  section){
         NSArray *selectedTexts = self.story[STORY_KEY_SELECTED_TEXTS];
-        return 5 + selectedTexts.count;
-    } else {
+        return selectedTexts.count;
+    }else{
         return self.sentences.count;
     }
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%ld %ld", indexPath.section, indexPath.row);
-    if (0 == indexPath.section) {
-        if (0==indexPath.row) {
+    if (SECTION_STORY_DETAIL == indexPath.section) {
+        if (CELL_TITLE==indexPath.row) {
             DetailTitleTableViewCell *cell = (DetailTitleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_TITLE_CELL"];
             if (!cell) {
                 [tableView registerNib:[UINib nibWithNibName:@"DetailTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_TITLE_CELL"];
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_TITLE_CELL"];
             }
             cell.labelTitle.text = self.story[STORY_KEY_TITLE];
-            return cell;
-        } else if (1==indexPath.row) {
-            DetailAuthorTableViewCell *cell = (DetailAuthorTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_AUTHOR_CELL"];
-            if (!cell) {
-                [tableView registerNib:[UINib nibWithNibName:@"DetailAuthorTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_AUTHOR_CELL"];
-                cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_AUTHOR_CELL"];
-            }
-            cell.labelAuthor.text = self.story[STORY_KEY_OWNER_NAME];
-            return cell;
-        } else if (2==indexPath.row) {
-            DetailTimeTableViewCell *cell = (DetailTimeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_TIME_CELL"];
-            if (!cell) {
-                [tableView registerNib:[UINib nibWithNibName:@"DetailTimeTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_TIME_CELL"];
-                cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_TIME_CELL"];
-            }
-            self.labelTimer = cell.labelTime;
+            cell.story = self.story;
+            PFUser *user = [PFUser currentUser];
+            NSArray *bookmarkedStory = user[USER_KEY_BOOKMARKED_STORIES];
+            [cell.buttonBookmark setSelected:[bookmarkedStory containsObject:self.story]];
+            [cell setStoryPhoto];
+            self.labelTimer = cell.labelTimeClock;
             [self handleTimerDeadline:nil];
             return cell;
-        } else if (3==indexPath.row) {
+        } else if (CELL_DESCRIPTION==indexPath.row) {
             DetailDescriptionTableViewCell *cell = (DetailDescriptionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_DESCRIPTION_CELL"];
             if (!cell) {
                 [tableView registerNib:[UINib nibWithNibName:@"DetailDescriptionTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_DESCRIPTION_CELL"];
@@ -238,7 +255,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             }
             cell.labelDescription.text = self.story[STORY_KEY_DESCRIPTION];
             return cell;
-        } else if (4==indexPath.row){
+        } else{
             DetailFirstSentenceTableViewCell *cell = (DetailFirstSentenceTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
             if (!cell) {
                 [tableView registerNib:[UINib nibWithNibName:@"DetailFirstSentenceTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
@@ -246,17 +263,23 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             }
             cell.labelContents.text = self.story[STORY_KEY_FIRST_SENTENCE];
             return cell;
-        } else {
-            DetailContentsTableViewCell *cell = (DetailContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_CONTENTS_CELL"];
-            if (!cell) {
-                [tableView registerNib:[UINib nibWithNibName:@"DetailContentsTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_CONTENTS_CELL"];
-                cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_CONTENTS_CELL"];
-            }
-            NSArray *sentenceTexts = self.story[STORY_KEY_SELECTED_TEXTS];
-            cell.labelContents.text = [sentenceTexts objectAtIndex:indexPath.row - 5];
-            return cell;
         }
-    } else {
+    } else if (SECTION_STORY_CONTENT == indexPath.section){
+        DetailContentsTableViewCell *cell = (DetailContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_CONTENTS_CELL"];
+        if (!cell) {
+            [tableView registerNib:[UINib nibWithNibName:@"DetailContentsTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_CONTENTS_CELL"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_CONTENTS_CELL"];
+        }
+        NSArray *sentenceTexts = self.story[STORY_KEY_SELECTED_TEXTS];
+        cell.labelContents.text = [sentenceTexts objectAtIndex:indexPath.row];
+        BOOL isLastCell = indexPath.row - (sentenceTexts.count - 1) == 0;
+        if(isLastCell){
+            [cell.viewBottomBar setHidden:NO];
+        }else{
+            [cell.viewBottomBar setHidden:YES];
+        }
+        return cell;
+    }else{
         DetailVotingTableViewCell *cell = (DetailVotingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_VOTING_CELL"];
         if (!cell) {
             [tableView registerNib:[UINib nibWithNibName:@"DetailVotingTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_VOTING_CELL"];
@@ -264,6 +287,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         }
         PFObject *sentence = [self.sentences objectAtIndex:indexPath.row];
         cell.labelNewSentence.text = sentence[SENTENCE_KEY_TEXT];
+        [cell.labelUsername setText:sentence[SENTENCE_KEY_WRITER_NAME]];
         NSNumber *voteCount = sentence[SENTENCE_KEY_VOTE_POINT];
         cell.labelVoteCount.text = voteCount.stringValue;
         return cell;
@@ -274,15 +298,9 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 #pragma mark - UITableViewDelegate Methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (0 == indexPath.section) {
-        if (0 == indexPath.row) {
-            return 44;
-        } else if (1==indexPath.row){
-            return 44;
-        } else if (2==indexPath.row){
-            return 44;
-        } else if (3==indexPath.row){
-            return 150;
+    if (SECTION_STORY_DETAIL == indexPath.section) {
+        if (CELL_TITLE == indexPath.row) {
+            return 200;
         } else {
             return 150;
         }
@@ -305,23 +323,23 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 - (void)didChangeKeyboardStatus:(SLKKeyboardStatus)status{
     // Notifies the view controller that the keyboard changed status.
     [super didChangeKeyboardStatus:status];
-    switch (status) {
-        case SLKKeyboardStatusWillShow:{
-            [UIView animateWithDuration:0.5 animations:^{
-//                [_buttonEnd setAlpha:1.0f];
-            }];
-            break;
-        }
-        case SLKKeyboardStatusWillHide:{
-            [UIView animateWithDuration:0.5 animations:^{
-//                [_buttonEnd setAlpha:0.0f];
-            }];
-            
-            break;
-        }
-        default:
-            break;
-    }
+//    switch (status) {
+//        case SLKKeyboardStatusWillShow:{
+//            [UIView animateWithDuration:0.5 animations:^{
+////                [_buttonEnd setAlpha:1.0f];
+//            }];
+//            break;
+//        }
+//        case SLKKeyboardStatusWillHide:{
+//            [UIView animateWithDuration:0.5 animations:^{
+////                [_buttonEnd setAlpha:0.0f];
+//            }];
+//            
+//            break;
+//        }
+//        default:
+//            break;
+//    }
 }
 
 - (void)textWillUpdate{
@@ -367,6 +385,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         [imageManager requestImageForAsset:phAsset targetSize:CGSizeMake(320, 480) contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             [self showPIPWindow:result];
             callImagePicker = NO;
+            [self.rightButton setEnabled:YES];
             [picker dismissViewControllerAnimated:YES completion:^{
                 
             }];

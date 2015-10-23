@@ -72,7 +72,6 @@
 		E52B45B91BC71C7C00452BD5 /* SLKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45AD1BC71C7C00452BD5 /* SLKTextView.m */; settings = {ASSET_TAGS = (); }; };
 		E52B45BA1BC71C7C00452BD5 /* SLKTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45AF1BC71C7C00452BD5 /* SLKTextViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E52B45BB1BC71C7C00452BD5 /* SLKTypingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E52B45B21BC71C7C00452BD5 /* SLKTypingIndicatorView.m */; settings = {ASSET_TAGS = (); }; };
-		E54EA6B21BC3579800104EF7 /* DetailStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6B51BC35A8B00104EF7 /* DetailTitleTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6B91BC35AAA00104EF7 /* DetailAuthorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6B81BC35AAA00104EF7 /* DetailAuthorTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54EA6BC1BC35ABB00104EF7 /* DetailTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA6BB1BC35ABB00104EF7 /* DetailTimeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -207,8 +206,6 @@
 		E52B45B01BC71C7C00452BD5 /* SLKTypingIndicatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTypingIndicatorProtocol.h; sourceTree = "<group>"; };
 		E52B45B11BC71C7C00452BD5 /* SLKTypingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTypingIndicatorView.h; sourceTree = "<group>"; };
 		E52B45B21BC71C7C00452BD5 /* SLKTypingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTypingIndicatorView.m; sourceTree = "<group>"; };
-		E54EA6B01BC3579800104EF7 /* DetailStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStoryViewController.h; sourceTree = "<group>"; };
-		E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStoryViewController.m; sourceTree = "<group>"; };
 		E54EA6B41BC35A8B00104EF7 /* DetailTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTitleTableViewCell.h; sourceTree = "<group>"; };
 		E54EA6B51BC35A8B00104EF7 /* DetailTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTitleTableViewCell.m; sourceTree = "<group>"; };
 		E54EA6B71BC35AAA00104EF7 /* DetailAuthorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailAuthorTableViewCell.h; sourceTree = "<group>"; };
@@ -318,8 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				E54EA6B31BC359CC00104EF7 /* Cells */,
-				E54EA6B01BC3579800104EF7 /* DetailStoryViewController.h */,
-				E54EA6B11BC3579800104EF7 /* DetailStoryViewController.m */,
 				E52B45981BC71BFC00452BD5 /* DetailStoryTextViewController.h */,
 				E52B45991BC71BFC00452BD5 /* DetailStoryTextViewController.m */,
 			);
@@ -532,8 +527,8 @@
 			isa = PBXGroup;
 			children = (
 				E54EA6B41BC35A8B00104EF7 /* DetailTitleTableViewCell.h */,
-				E52B45901BC71BB800452BD5 /* DetailTitleTableViewCell.xib */,
 				E54EA6B51BC35A8B00104EF7 /* DetailTitleTableViewCell.m */,
+				E52B45901BC71BB800452BD5 /* DetailTitleTableViewCell.xib */,
 				E54EA6B71BC35AAA00104EF7 /* DetailAuthorTableViewCell.h */,
 				E54EA6B81BC35AAA00104EF7 /* DetailAuthorTableViewCell.m */,
 				E52B458C1BC71BB800452BD5 /* DetailAuthorTableViewCell.xib */,
@@ -770,7 +765,6 @@
 				E54EA6C81BC35B6000104EF7 /* DetailVotingTableViewCell.m in Sources */,
 				913CA8281BD0E1310051BD79 /* NSDate+Tool.m in Sources */,
 				910337121BC5F83200A4CC43 /* PFObject+Story.m in Sources */,
-				E54EA6B21BC3579800104EF7 /* DetailStoryViewController.m in Sources */,
 				E54EA6C21BC35B2500104EF7 /* DetailContentsTableViewCell.m in Sources */,
 				E52B45B91BC71C7C00452BD5 /* SLKTextView.m in Sources */,
 				E138E42F1BBE2D5500A8614F /* ArchiveViewController.m in Sources */,

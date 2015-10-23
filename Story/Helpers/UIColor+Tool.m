@@ -19,4 +19,8 @@
 +(UIColor *)colorGrayWith:(CGFloat)rgb alpha:(CGFloat)alpha{
     return [UIColor colorWithRed:rgb/255.f green:rgb/255.f blue:rgb/255.f alpha:alpha];
 }
+
++(UIColor *)colorBlueBrand{
+    return [self colorWithR:8 G:78 B:156];
+}
 @end

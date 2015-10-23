@@ -8,14 +8,10 @@
 
 #import "MainViewController.h"
 #import <Parse/Parse.h>
-#import "DetailStoryViewController.h"
 #import "DetailStoryTextViewController.h"
 #import "PFObject+Story.h"
 #import "NewStoryNavigationController.h"
 #import "StoryCollectionViewCell.h"
-//#import "standardTableViewCell.h"
-//#import "FeaturedTableViewCell.h"
-
 
 @interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 

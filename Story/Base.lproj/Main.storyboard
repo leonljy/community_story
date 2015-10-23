@@ -414,21 +414,21 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arf-Va-UNh">
-                                                                    <rect key="frame" x="337" y="8" width="30" height="30"/>
+                                                                    <rect key="frame" x="343" y="12" width="20" height="20"/>
                                                                     <animations/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="30" id="LpF-GU-oD3"/>
-                                                                        <constraint firstAttribute="height" constant="30" id="OdN-Gw-Zoy"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="LpF-GU-oD3"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="OdN-Gw-Zoy"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
                                                             <animations/>
                                                             <constraints>
-                                                                <constraint firstItem="arf-Va-UNh" firstAttribute="top" secondItem="wlx-UW-eDY" secondAttribute="top" constant="8" id="5I2-UO-3Yr"/>
+                                                                <constraint firstItem="arf-Va-UNh" firstAttribute="top" secondItem="wlx-UW-eDY" secondAttribute="top" constant="12" id="5I2-UO-3Yr"/>
                                                                 <constraint firstAttribute="trailing" secondItem="uiO-6x-7ff" secondAttribute="trailing" constant="8" id="Gay-Ud-PaH"/>
                                                                 <constraint firstAttribute="height" constant="80" id="M8B-dy-rTU"/>
                                                                 <constraint firstItem="uiO-6x-7ff" firstAttribute="leading" secondItem="wlx-UW-eDY" secondAttribute="leading" constant="8" id="Qww-q5-hen"/>
-                                                                <constraint firstAttribute="trailing" secondItem="arf-Va-UNh" secondAttribute="trailing" constant="8" id="R2v-PZ-bMK"/>
+                                                                <constraint firstAttribute="trailing" secondItem="arf-Va-UNh" secondAttribute="trailing" constant="12" id="R2v-PZ-bMK"/>
                                                                 <constraint firstItem="uiO-6x-7ff" firstAttribute="centerX" secondItem="wlx-UW-eDY" secondAttribute="centerX" id="Xgs-ba-2V9"/>
                                                                 <constraint firstItem="uiO-6x-7ff" firstAttribute="centerY" secondItem="wlx-UW-eDY" secondAttribute="centerY" id="gQn-Ye-nnF"/>
                                                             </constraints>

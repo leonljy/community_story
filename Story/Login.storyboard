@@ -50,10 +50,10 @@
                                     <action selector="handleLogin:" destination="YqT-vb-Yby" eventType="touchUpInside" id="y0q-pk-8eG"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-f9-oxW">
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-f9-oxW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="BNC-Oe-KOf"/>
                                 </constraints>

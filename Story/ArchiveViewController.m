@@ -79,9 +79,9 @@
     [cell setAchievedStoryDatasToUI:story];
     
     if([bookmarkedIds containsObject:story.objectId]){
-        [cell.imageViewBookmark setImage:[UIImage imageNamed:@"icon_30_color"]];
+        [cell.imageViewBookmark setImage:[UIImage imageNamed:@"imgMarkLine"]];
     }else{
-        [cell.imageViewBookmark setImage:[UIImage imageNamed:@"icon_30_black"]];
+        [cell.imageViewBookmark setImage:[UIImage imageNamed:@"imgMarkBold"]];
     }
     return cell;
 }

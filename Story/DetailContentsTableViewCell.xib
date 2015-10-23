@@ -11,29 +11,41 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mhc-9N-KsH" id="ikm-zi-tpg">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oO9-gD-eu4">
-                        <rect key="frame" x="8" y="8" width="584" height="83"/>
+                        <rect key="frame" x="14" y="8" width="572" height="83"/>
                         <animations/>
                         <string key="text">This sentence consists of 140 characters. This sentence consists of 140 characters. This sentence consists of 140 characters. This sentences</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmF-lG-nip">
+                        <rect key="frame" x="210" y="98" width="180" height="2"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="5um-kY-cd5"/>
+                            <constraint firstAttribute="width" constant="180" id="uDY-FW-mtr"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <constraints>
+                    <constraint firstItem="NmF-lG-nip" firstAttribute="centerX" secondItem="ikm-zi-tpg" secondAttribute="centerX" id="9Vb-aw-EMo"/>
                     <constraint firstItem="oO9-gD-eu4" firstAttribute="top" secondItem="ikm-zi-tpg" secondAttribute="top" constant="8" id="F21-uB-hgS"/>
                     <constraint firstAttribute="bottom" secondItem="oO9-gD-eu4" secondAttribute="bottom" constant="8" id="Gpv-eB-mB3"/>
-                    <constraint firstAttribute="trailing" secondItem="oO9-gD-eu4" secondAttribute="trailing" constant="8" id="GzC-xh-a6X"/>
-                    <constraint firstItem="oO9-gD-eu4" firstAttribute="leading" secondItem="ikm-zi-tpg" secondAttribute="leading" constant="8" id="ldV-cn-ygh"/>
+                    <constraint firstAttribute="trailing" secondItem="oO9-gD-eu4" secondAttribute="trailing" constant="14" id="GzC-xh-a6X"/>
+                    <constraint firstAttribute="bottom" secondItem="NmF-lG-nip" secondAttribute="bottom" constant="-0.5" id="Qmr-Vj-Yjv"/>
+                    <constraint firstItem="oO9-gD-eu4" firstAttribute="leading" secondItem="ikm-zi-tpg" secondAttribute="leading" constant="14" id="ldV-cn-ygh"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="labelContents" destination="oO9-gD-eu4" id="sDB-K1-4uB"/>
+                <outlet property="viewBottomBar" destination="NmF-lG-nip" id="uiS-qs-lG5"/>
             </connections>
             <point key="canvasLocation" x="552" y="355"/>
         </tableViewCell>
