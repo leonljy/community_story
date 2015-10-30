@@ -33,6 +33,7 @@ static NSString *errorUsernameExist = @"Exist";
     isAvailable = NO;
     [self.buttonCheckAvailability setEnabled:NO];
     [self.textFieldUserName setDelegate:self];
+    [self.textFieldUserName becomeFirstResponder];
 }
 
 - (IBAction)handleCheckAvailability:(id)sender {
@@ -45,7 +46,7 @@ static NSString *errorUsernameExist = @"Exist";
     } failureBlock:^(NSError *error) {
         if([error.localizedDescription isEqualToString:errorUsernameExist]){
             user.username = beforeUserName;
-            NSString *result = [NSString stringWithFormat:@"* %@ already exists *", newUserName];
+            NSString *result = [NSString stringWithFormat:@"\" %@ already exists \"", newUserName];
             [self.labelResultStatus setText:result];
             [self.textFieldUserName setText:@""];
         }
@@ -53,7 +54,7 @@ static NSString *errorUsernameExist = @"Exist";
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.textFieldUserName resignFirstResponder];
+    [self handleCheckAvailability:textField];
     return YES;
 }
 

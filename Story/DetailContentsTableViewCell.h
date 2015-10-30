@@ -10,5 +10,6 @@
 
 @interface DetailContentsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelContents;
+@property (weak, nonatomic) IBOutlet UIView *viewBottomBar;
 
 @end

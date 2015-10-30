@@ -13,5 +13,5 @@
 
 @interface DetailStoryTextViewController : SLKTextViewController
 @property (strong, nonatomic) PFObject *story;
-
+@property (strong, nonatomic) UIImage *imageStory;
 @end

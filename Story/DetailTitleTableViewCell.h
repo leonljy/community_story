@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PFObject+Story.h"
 @interface DetailTitleTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UIButton *buttonBookmark;
+@property (weak, nonatomic) IBOutlet UILabel *labelTimeClock;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
+@property (strong, nonatomic) PFObject *story;
+
+-(void)setStoryPhoto;
 @end

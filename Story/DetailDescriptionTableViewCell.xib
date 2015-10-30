@@ -14,8 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="600" height="127.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghr-9T-b3h">
-                        <rect key="frame" x="8" y="11" width="584" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghr-9T-b3h">
+                        <rect key="frame" x="14" y="11" width="572" height="21"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="t7o-0q-Jnk"/>
@@ -24,11 +24,11 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfW-G1-NqN">
-                        <rect key="frame" x="8" y="40" width="584" height="79.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfW-G1-NqN">
+                        <rect key="frame" x="14" y="40" width="572" height="80"/>
                         <animations/>
                         <string key="text">This sentence consists of 140 characters. This sentence consists of 140 characters. This sentence consists of 140 characters. This sentences</string>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -38,10 +38,10 @@
                     <constraint firstItem="NfW-G1-NqN" firstAttribute="top" secondItem="Ghr-9T-b3h" secondAttribute="bottom" constant="8" id="BRX-cc-qjm"/>
                     <constraint firstItem="Ghr-9T-b3h" firstAttribute="top" secondItem="umH-E1-tTr" secondAttribute="top" constant="11" id="C5s-v2-vR9"/>
                     <constraint firstAttribute="bottom" secondItem="NfW-G1-NqN" secondAttribute="bottom" constant="8" id="Lwl-2h-Za9"/>
-                    <constraint firstItem="Ghr-9T-b3h" firstAttribute="leading" secondItem="umH-E1-tTr" secondAttribute="leading" constant="8" id="aOd-rk-dE9"/>
-                    <constraint firstAttribute="trailing" secondItem="Ghr-9T-b3h" secondAttribute="trailing" constant="8" id="meY-XO-pii"/>
-                    <constraint firstAttribute="trailing" secondItem="NfW-G1-NqN" secondAttribute="trailing" constant="8" id="o53-cC-ZmW"/>
-                    <constraint firstItem="NfW-G1-NqN" firstAttribute="leading" secondItem="umH-E1-tTr" secondAttribute="leading" constant="8" id="stc-Pl-4hP"/>
+                    <constraint firstItem="Ghr-9T-b3h" firstAttribute="leading" secondItem="umH-E1-tTr" secondAttribute="leading" constant="14" id="aOd-rk-dE9"/>
+                    <constraint firstAttribute="trailing" secondItem="Ghr-9T-b3h" secondAttribute="trailing" constant="14" id="meY-XO-pii"/>
+                    <constraint firstAttribute="trailing" secondItem="NfW-G1-NqN" secondAttribute="trailing" constant="14" id="o53-cC-ZmW"/>
+                    <constraint firstItem="NfW-G1-NqN" firstAttribute="leading" secondItem="umH-E1-tTr" secondAttribute="leading" constant="14" id="stc-Pl-4hP"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>

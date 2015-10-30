@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailVotingTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labelUsername;
 @property (weak, nonatomic) IBOutlet UILabel *labelNewSentence;
 @property (weak, nonatomic) IBOutlet UIButton *buttonUp;
 @property (weak, nonatomic) IBOutlet UIButton *buttonDown;

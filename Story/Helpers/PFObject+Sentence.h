@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #define SENTENCE_CLASSNAME              @"Sentence"
 #define SENTENCE_KEY_WRITER             @"writer"
+#define SENTENCE_KEY_WRITER_NAME        @"writerName"
 #define SENTENCE_KEY_UPVOTED_COUNT      @"upVotedCount"
 #define SENTENCE_KEY_UPVOTED_USERS      @"upVotedUsers"
 #define SENTENCE_KEY_DOWNVOTED_COUNT    @"downVotedCount"
@@ -19,6 +20,8 @@
 #define SENTENCE_KEY_END_SENTENCE       @"isEndSentence"
 #define SENTENCE_KEY_VOTE_POINT         @"votePoint"
 #define SENTENCE_KEY_ISSELECTED         @"isSelected"
+#define SENTENCE_KEY_IMAGE              @"image"
+
 
 @interface PFObject (Sentence)
 typedef void (^ArrayBlock)(NSArray *objects);

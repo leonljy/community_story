@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Story
+
+  Created by Leonljy on 2015. 10. 22..
+  Copyright © 2015년 Favorie&John. All rights reserved.
+*/
+"DetailStoryTextVC.AlertView.End.Title" = "Title end story";
+"DetailStoryTextVC.AlertView.End.Message" = "Message end story";
+"DetailStoryTextVC.AlertView.End.CancelButton" = "Cancel Button";
+"DetailStoryTextVC.Button.Send" = "Send";
+"DetailStoryTextVC.Button.Finish" = "Finish";

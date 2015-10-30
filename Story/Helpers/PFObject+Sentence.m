@@ -12,6 +12,7 @@
 @implementation PFObject (Sentence)
 
 #pragma mark - Fetch Datas from Server
+
 +(void)currentSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     NSInteger currentSequence = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
     [self sentencesForStory:story sequence:currentSequence successBlock:^(NSArray *objects) {
@@ -80,6 +81,7 @@
 #pragma mark CRUD Sentence
 -(void)saveNewSentenceWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     self[SENTENCE_KEY_WRITER] = [PFUser currentUser];
+    self[SENTENCE_KEY_WRITER_NAME] = [[PFUser currentUser] username];
     self[SENTENCE_KEY_UPVOTED_COUNT] = [NSNumber numberWithInt:0];
     self[SENTENCE_KEY_DOWNVOTED_COUNT] = [NSNumber numberWithInt:0];
     self[SENTENCE_KEY_ISSELECTED] = [NSNumber numberWithBool:NO];
