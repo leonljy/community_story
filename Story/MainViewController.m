@@ -171,7 +171,7 @@ typedef enum {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-    return self.tableView.frame.size.height - 20;
+    return self.tableView.frame.size.height - 44;
     } else {
         return 150;
     }
