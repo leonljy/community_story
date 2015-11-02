@@ -289,7 +289,11 @@ typedef enum {
 //    CGFloat heightNavigationBar = 44.0;
     CGFloat heightTabBar = 44.0;
     if (indexPath.section == 0) {
+<<<<<<< HEAD
+    return self.tableView.frame.size.height - 44;
+=======
     return self.tableView.frame.size.height - heightTabBar - heightStatusBar;
+>>>>>>> 867772b97d9d978897c905777d6f71d989bc55a9
     } else {
         return 150;
     }
