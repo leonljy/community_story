@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFObject+Sentence.h"
 
 @interface DetailContentsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelContents;
-@property (weak, nonatomic) IBOutlet UIView *viewBottomBar;
+//@property (weak, nonatomic) IBOutlet UIView *viewBottomBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintBottom;
+@property (strong ,nonatomic) UIImageView *imageViewSentence;
 
+-(void)setSentenceImageViewWithFrame:(CGRect)frame sentence:(PFObject *)sentence;
 @end

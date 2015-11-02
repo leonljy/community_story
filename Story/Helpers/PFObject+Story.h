@@ -12,7 +12,7 @@
 #define STORY_KEY_DESCRIPTION           @"description"
 #define STORY_KEY_TITLE                 @"title"
 #define STORY_KEY_FIRST_SENTENCE        @"prologue"
-#define STORY_KEY_SELECTED_TEXTS        @"selectedTexts"
+//#define STORY_KEY_SELECTED_TEXTS        @"selectedTexts"
 #define STORY_KEY_SELECTED_SENTENCES    @"selectedSentences"
 #define STORY_KEY_OWNER                 @"owner"
 #define STORY_KEY_OWNER_NAME            @"ownerName"

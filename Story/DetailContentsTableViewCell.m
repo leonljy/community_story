@@ -7,6 +7,7 @@
 //
 
 #import "DetailContentsTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation DetailContentsTableViewCell
 
@@ -18,6 +19,18 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+
+-(void)setSentenceImageViewWithFrame:(CGRect)frame sentence:(PFObject *)sentence{
+    if(nil==self.imageViewSentence){
+        self.imageViewSentence = [[UIImageView alloc] initWithFrame:frame];
+        [self.imageViewSentence setClipsToBounds:YES];
+        [self.imageViewSentence setContentMode:UIViewContentModeScaleAspectFill];
+        [self.contentView addSubview:self.imageViewSentence];
+    }
+    PFFile *image = sentence[SENTENCE_KEY_IMAGE];
+    [self.imageViewSentence sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil];
 }
 
 @end

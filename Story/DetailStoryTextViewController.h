@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SLKTextViewController.h"
 #import "PFObject+Story.h"
-#import "PFObject+Sentence.h"
 
 @interface DetailStoryTextViewController : SLKTextViewController
 @property (strong, nonatomic) PFObject *story;

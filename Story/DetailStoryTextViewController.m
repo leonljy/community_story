@@ -8,19 +8,20 @@
 
 #import "DetailStoryTextViewController.h"
 #import "DetailTitleTableViewCell.h"
-#import "DetailAuthorTableViewCell.h"
-#import "DetailTimeTableViewCell.h"
 #import "DetailDescriptionTableViewCell.h"
 #import "DetailContentsTableViewCell.h"
 #import "DetailVotingTableViewCell.h"
 #import "DetailFirstSentenceTableViewCell.h"
 #import "PFUser+User.h"
+#import "PFObject+Sentence.h"
 #import "NSDate+Tool.h"
 #import <Photos/Photos.h>
 #import "UIColor+Tool.h"
 
+
 @interface DetailStoryTextViewController () <UIAlertViewDelegate>
-@property (strong, nonatomic) NSMutableArray *sentences;
+@property (strong, nonatomic) NSArray *sentencesToShow;
+@property (strong, nonatomic) NSMutableArray *selectedSentences;
 @property (strong, nonatomic) NSTimer *timerDeadline;
 @property UILabel *labelTimer;
 @property (strong, nonatomic) UIButton *buttonEnd;
@@ -44,6 +45,15 @@ typedef enum{
     UIImagePickerController *imagePickerViewController;
     UIImageView *imageViewComment;
     BOOL callImagePicker;
+    CGFloat marginStoryLeftRight;
+    CGFloat marginTopBottom;
+    CGFloat heightUserName;
+    CGFloat marginSentence;
+    CGFloat widthViewVote;
+    NSInteger fontSizeStory;
+    CGFloat heightImage;
+    NSMutableDictionary *sentenceHeights;
+    NSMutableDictionary *storyHeights;
 }
 
 static NSString *KEY_FIRST_END = @"isFirstEnd";
@@ -86,18 +96,13 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Now: %@", [NSDate date]);
-    NSLog(@"Parse: %@", self.story[STORY_KEY_DEADLINE]);
     [self setTitle:self.story[STORY_KEY_TITLE]];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.isEndSentence = NO;
-    callImagePicker = NO;
+    [self initializeConstants];
     [self initializeProperties];
     [self initializeInputBar];
     [self reloadSentences];
     
     [self initializeTimer];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -107,6 +112,23 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         [self hidePIPWindow];
     }
 }
+
+
+-(void)initializeConstants{
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.isEndSentence = NO;
+    callImagePicker = NO;
+    
+    marginStoryLeftRight = 14.0f;
+    marginTopBottom = 8.0f;
+    fontSizeStory = 15;
+    heightUserName = 21.0f;
+    marginSentence = 8.0f;
+    widthViewVote = 53.0f;
+    heightImage = 150.0f;
+}
+
+
 
 -(void)initializeTimer{
     NSTimeInterval oneSec = 1;
@@ -124,13 +146,25 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     }
 }
 -(void)reloadSentences{
-    [PFObject currentSentencesForStory:self.story successBlock:^(NSArray *objects) {
-        self.sentences = [NSMutableArray arrayWithArray:objects];
+    [PFObject sentencesForDetailStory:self.story successBlock:^(NSArray *objects) {
+        NSMutableArray *sentences = [NSMutableArray array];
+        self.selectedSentences = [NSMutableArray array];
+        for(PFObject *sentence in objects){
+            if([self.story[STORY_KEY_CURRENTSEQUENCE] integerValue] > [sentence[SENTENCE_KEY_SEQUENCE] integerValue]){
+                [self.selectedSentences addObject:sentence];
+            }else{
+                [sentences addObject:sentence];
+            }
+        }
+        
+        NSSortDescriptor *sequenceDescr = [[NSSortDescriptor alloc] initWithKey:SENTENCE_KEY_VOTE_POINT ascending:NO];
+        NSSortDescriptor *createdAtDescr = [[NSSortDescriptor alloc] initWithKey:SENTENCE_KEY_CREATED_AT ascending:YES];
+        NSArray *sortDescriptors = @[sequenceDescr, createdAtDescr];
+        self.sentencesToShow = [NSArray arrayWithArray:[sentences sortedArrayUsingDescriptors:sortDescriptors]];
         [self.tableView reloadData];
     } failureBlock:^(NSError *error) {
-        NSLog(@"Error: %@ %@", error, [error userInfo]);
+        
     }];
-
 }
 
 -(void)initializeProperties{
@@ -209,7 +243,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 #pragma mark - UITableViewDataSource Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (self.sentences.count > 0) {
+    if (self.sentencesToShow.count > 0) {
         return 3;
     } else {
         return 2;
@@ -221,16 +255,16 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     if (SECTION_STORY_DETAIL == section) {
         return 3;
     } else if(SECTION_STORY_CONTENT ==  section){
-        NSArray *selectedTexts = self.story[STORY_KEY_SELECTED_TEXTS];
-        return selectedTexts.count;
+        storyHeights = [NSMutableDictionary dictionary];
+        return self.selectedSentences.count;
     }else{
-        return self.sentences.count;
+        sentenceHeights = [NSMutableDictionary dictionary];
+        return self.sentencesToShow.count;
     }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%ld %ld", indexPath.section, indexPath.row);
     if (SECTION_STORY_DETAIL == indexPath.section) {
         if (CELL_TITLE==indexPath.row) {
             DetailTitleTableViewCell *cell = (DetailTitleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_TITLE_CELL"];
@@ -270,14 +304,27 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             [tableView registerNib:[UINib nibWithNibName:@"DetailContentsTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_CONTENTS_CELL"];
             cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_CONTENTS_CELL"];
         }
-        NSArray *sentenceTexts = self.story[STORY_KEY_SELECTED_TEXTS];
-        cell.labelContents.text = [sentenceTexts objectAtIndex:indexPath.row];
-        BOOL isLastCell = indexPath.row - (sentenceTexts.count - 1) == 0;
-        if(isLastCell){
-            [cell.viewBottomBar setHidden:NO];
+        PFObject *selectedSentence = [self.selectedSentences objectAtIndex:indexPath.row];
+        cell.labelContents.text = selectedSentence[SENTENCE_KEY_TEXT];
+        
+        if(nil!=[selectedSentence objectForKey:SENTENCE_KEY_IMAGE]){
+            cell.constraintBottom.constant = heightImage + marginSentence + marginTopBottom;
+            CGFloat sentenceHeight = [[storyHeights objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]] floatValue];
+            CGFloat y = marginTopBottom + sentenceHeight + marginSentence;
+            CGRect frameImageView = CGRectMake(marginStoryLeftRight, y, [self getLabelWidthForStoryText], heightImage);
+            [cell setSentenceImageViewWithFrame:frameImageView sentence:selectedSentence];
         }else{
-            [cell.viewBottomBar setHidden:YES];
+            cell.constraintBottom.constant = marginTopBottom;
+            [cell.imageViewSentence removeFromSuperview];
+            cell.imageViewSentence = nil;
         }
+        
+//        BOOL isLastCell = indexPath.row - (self.selectedSentences.count - 1) == 0;
+//        if(isLastCell){
+//            [cell.viewBottomBar setHidden:NO];
+//        }else{
+//            [cell.viewBottomBar setHidden:YES];
+//        }
         return cell;
     }else{
         DetailVotingTableViewCell *cell = (DetailVotingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_VOTING_CELL"];
@@ -285,11 +332,24 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             [tableView registerNib:[UINib nibWithNibName:@"DetailVotingTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_VOTING_CELL"];
             cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_VOTING_CELL"];
         }
-        PFObject *sentence = [self.sentences objectAtIndex:indexPath.row];
+        PFObject *sentence = [self.sentencesToShow objectAtIndex:indexPath.row];
         cell.labelNewSentence.text = sentence[SENTENCE_KEY_TEXT];
         [cell.labelUsername setText:sentence[SENTENCE_KEY_WRITER_NAME]];
         NSNumber *voteCount = sentence[SENTENCE_KEY_VOTE_POINT];
         cell.labelVoteCount.text = voteCount.stringValue;
+        
+        if(nil!=[sentence objectForKey:SENTENCE_KEY_IMAGE]){
+            cell.constraintBottomMargin.constant = heightImage + marginSentence + marginTopBottom;
+            CGFloat sentenceHeight = [[sentenceHeights objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]] floatValue];
+            CGFloat y = marginTopBottom + heightUserName + marginSentence + sentenceHeight + marginSentence;
+            CGRect frameImageView = CGRectMake(marginStoryLeftRight, y, [self getLabelWidthForSentenceCell], heightImage);
+            [cell setSentenceImageViewWithFrame:frameImageView sentence:sentence];
+        }else{
+            cell.constraintBottomMargin.constant = marginTopBottom;
+            [cell.imageViewSentence removeFromSuperview];
+            cell.imageViewSentence = nil;
+        }
+        
         return cell;
     }
 }
@@ -302,13 +362,103 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         if (CELL_TITLE == indexPath.row) {
             return 200;
         } else {
-            return 150;
+            return [self heightForFirstSentenceCell];
         }
-    } else {
-        return 100;
+    } else if(SECTION_STORY_CONTENT == indexPath.section){
+        return [self heightForStoryTextCell:indexPath.row];
+    }else{
+        return [self heightForSentencesCell:indexPath.row];
     }
 }
 
+-(CGFloat)heightForFirstSentenceCell{
+    CGSize viewSize = self.view.frame.size;
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginTopBottom
+                                                                                                                                    *2));
+    UILabel *label = [self labelForHeightWithRect:rect];
+    [label setText:self.story[STORY_KEY_FIRST_SENTENCE]];
+    
+    CGFloat height = [self getLabelHeight:label];
+    
+    return height + ( 2 * marginTopBottom ) + heightUserName + marginSentence;
+}
+
+-(CGFloat)heightForStoryTextCell:(NSInteger)row{
+    CGSize viewSize = self.view.frame.size;
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginTopBottom
+                                                                                                                              *2));
+    PFObject *selectedSentence = [self.selectedSentences objectAtIndex:row];
+ 
+    UILabel *label = [self labelForHeightWithRect:rect];
+    [label setText:selectedSentence[SENTENCE_KEY_TEXT]];
+    
+    CGFloat height = [self getLabelHeight:label];
+    [storyHeights setObject:[NSNumber numberWithFloat:height] forKey:[NSString stringWithFormat:@"%ld", row]];
+    
+    
+    if(nil==[selectedSentence objectForKey:SENTENCE_KEY_IMAGE]){
+        height += ( 2 * marginTopBottom );
+    }else{
+        height += ( 2 * marginTopBottom + marginSentence + heightImage);
+    }
+    
+    return height;
+}
+
+-(UILabel *)labelForHeightWithRect:(CGRect)rect{
+    UILabel *label = [UILabel new];
+    [label setFrame:rect];
+    [label setNumberOfLines:0];
+    [label setLineBreakMode:NSLineBreakByWordWrapping];
+    [label setFont:[UIFont systemFontOfSize:fontSizeStory]];
+    return label;
+}
+
+
+-(CGFloat)heightForSentencesCell:(NSInteger)row{
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, [self getLabelWidthForSentenceCell], self.view.frame.size.height - (marginTopBottom * 2));
+    
+    UILabel *label = [self labelForHeightWithRect:rect];
+    PFObject *sentence = [self.sentencesToShow objectAtIndex:row];
+    [label setText:sentence[SENTENCE_KEY_TEXT]];
+    
+    CGFloat height = [self getLabelHeight:label];
+    [sentenceHeights setObject:[NSNumber numberWithFloat:height] forKey:[NSString stringWithFormat:@"%ld", row]];
+    
+    if(nil==[sentence objectForKey:SENTENCE_KEY_IMAGE]){
+        height += ( 2 * marginTopBottom + heightUserName + marginSentence);
+    }else{
+        height += ( 2 * marginTopBottom + heightUserName + 2 * marginSentence + heightImage);
+    }
+    
+    if(height <= 100){
+        return 100;
+    }
+    
+    return height;
+}
+-(CGFloat)getLabelWidthForStoryText{
+    return self.view.frame.size.width - (marginStoryLeftRight * 2);
+}
+
+-(CGFloat)getLabelWidthForSentenceCell{
+    return self.view.frame.size.width - marginStoryLeftRight - widthViewVote;
+}
+- (CGFloat)getLabelHeight:(UILabel*)label
+{
+    CGSize constraint = CGSizeMake(label.frame.size.width, 20000.0f);
+    CGSize size;
+    
+    NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
+    CGSize boundingBox = [label.text boundingRectWithSize:constraint
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:@{NSFontAttributeName:label.font}
+                                                  context:context].size;
+    
+    size = CGSizeMake(ceil(boundingBox.width), ceil(boundingBox.height));
+    
+    return size.height;
+}
 #pragma mark - Overriden Methods
 
 - (BOOL)ignoreTextInputbarAdjustment{
@@ -323,23 +473,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 - (void)didChangeKeyboardStatus:(SLKKeyboardStatus)status{
     // Notifies the view controller that the keyboard changed status.
     [super didChangeKeyboardStatus:status];
-//    switch (status) {
-//        case SLKKeyboardStatusWillShow:{
-//            [UIView animateWithDuration:0.5 animations:^{
-////                [_buttonEnd setAlpha:1.0f];
-//            }];
-//            break;
-//        }
-//        case SLKKeyboardStatusWillHide:{
-//            [UIView animateWithDuration:0.5 animations:^{
-////                [_buttonEnd setAlpha:0.0f];
-//            }];
-//            
-//            break;
-//        }
-//        default:
-//            break;
-//    }
 }
 
 - (void)textWillUpdate{
@@ -368,7 +501,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    NSLog(@"Info: %@", info);
+//    NSLog(@"Info: %@", info);
     NSURL *picURL = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
     NSString *stringUrl = picURL.absoluteString;
     NSURL *asssetURL = [NSURL URLWithString:stringUrl];
@@ -485,14 +618,16 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     }];
     
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.sentences.count inSection:1];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.sentencesToShow.count inSection:SECTION_VOTING];
     UITableViewRowAnimation rowAnimation = UITableViewRowAnimationBottom;
     UITableViewScrollPosition scrollPosition = UITableViewScrollPositionBottom;
     [self.tableView beginUpdates];
-    if (0==self.sentences.count) {
+    if (0==self.sentencesToShow.count) {
         [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:rowAnimation];
     }
-    [self.sentences addObject:sentence];
+    NSMutableArray *sentences = [NSMutableArray arrayWithArray:self.sentencesToShow];
+    [sentences addObject:sentence];
+    self.sentencesToShow = sentences;
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
     [self.tableView endUpdates];
     
@@ -507,13 +642,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 - (void)didPressArrowKey:(id)sender{
     [super didPressArrowKey:sender];
-    
-    
-//    UIKeyCommand *keyCommand = (UIKeyCommand *)sender;
-//    
-//    if ([keyCommand.input isEqualToString:UIKeyInputUpArrow]) {
-//        [self editLastMessage:nil];
-//    }
 }
 
 - (NSString *)keyForTextCaching{
@@ -534,7 +662,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 - (void)willRequestUndo
 {
     // Notifies the view controller when a user did shake the device to undo the typed text
-    
     [super willRequestUndo];
 }
 

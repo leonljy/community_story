@@ -66,21 +66,21 @@
 }
 
 -(void)setStoryText:(PFObject *)story{
-    NSString *storyText;
+//    NSString *storyText;
     NSString *prolougeText = story[STORY_KEY_FIRST_SENTENCE];
-    NSArray *text = story[STORY_KEY_SELECTED_TEXTS];
+//    NSArray *text = story[STORY_KEY_SELECTED_TEXTS];
     
-    NSMutableString *selectedStrings = [NSMutableString new];
-    NSInteger sentenceNum = 5;
-    for (int i=0; i < [text count]; i++) {
-        if (i == sentenceNum) {
-            break;
-        }
-        [selectedStrings appendString: [NSString stringWithFormat:@"\n\n%d %@", i, [text objectAtIndex:i]]];
-    }
+//    NSMutableString *selectedStrings = [NSMutableString new];
+//    NSInteger sentenceNum = 5;
+//    for (int i=0; i < [text count]; i++) {
+//        if (i == sentenceNum) {
+//            break;
+//        }
+//        [selectedStrings appendString: [NSString stringWithFormat:@"\n\n%d %@", i, [text objectAtIndex:i]]];
+//    }
     
-    storyText = [NSString stringWithFormat:@"%@ %@", prolougeText, selectedStrings];
-    self.labelStoryText.text = storyText ;
+//    storyText = [NSString stringWithFormat:@"%@ %@", prolougeText, selectedStrings];
+    self.labelStoryText.text = prolougeText ;
     
 }
 

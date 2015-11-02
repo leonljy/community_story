@@ -13,6 +13,40 @@
 
 #pragma mark - Fetch Datas from Server
 
++(void)sentencesForDetailStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    PFQuery *querySelected = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
+    [querySelected whereKey:SENTENCE_KEY_STORY equalTo:story];
+    [querySelected whereKey:SENTENCE_KEY_ISSELECTED equalTo:[NSNumber numberWithBool:YES]];
+    
+    PFQuery *queryCurrentSequence = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
+    [queryCurrentSequence whereKey:SENTENCE_KEY_STORY equalTo:story];
+    [queryCurrentSequence whereKey:SENTENCE_KEY_SEQUENCE equalTo:story[STORY_KEY_CURRENTSEQUENCE]];
+    
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[querySelected, queryCurrentSequence]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(error){
+            failureBlock(error);
+        }else{
+            NSSortDescriptor *sequenceDescr = [[NSSortDescriptor alloc] initWithKey:SENTENCE_KEY_SEQUENCE ascending:YES];
+            NSArray *sortDescriptors = @[sequenceDescr];
+            NSArray *sortedArray = [objects sortedArrayUsingDescriptors:sortDescriptors];
+            successBlock(sortedArray);
+        }
+    }];
+}
++(void)selectedSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
+    [query whereKey:SENTENCE_KEY_STORY equalTo:story];
+    [query whereKey:SENTENCE_KEY_ISSELECTED equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:SENTENCE_KEY_SEQUENCE];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(error){
+            failureBlock(error);
+        }else{
+            successBlock(objects);
+        }
+    }];
+}
 +(void)currentSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     NSInteger currentSequence = [story[STORY_KEY_CURRENTSEQUENCE] integerValue];
     [self sentencesForStory:story sequence:currentSequence successBlock:^(NSArray *objects) {
