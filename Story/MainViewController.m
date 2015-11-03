@@ -83,10 +83,6 @@ typedef enum {
 }
 
 - (void)moveToDetailStory:(PFObject *)story{
-    UIStoryboard *detailStoryBoard = [UIStoryboard storyboardWithName:@"DetailStory" bundle:nil];
-//    DetailStoryViewController *detailStoryViewController = [detailStoryBoard instantiateViewControllerWithIdentifier:@"DETAIL_STORY"];
-//    [self.navigationController pushViewController:detailStoryViewController animated:YES];
-    
     DetailStoryTextViewController *detailStoryTextViewController = [DetailStoryTextViewController new];
     [detailStoryTextViewController setHidesBottomBarWhenPushed:YES];
     detailStoryTextViewController.story = story;

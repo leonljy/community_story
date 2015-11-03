@@ -13,6 +13,12 @@
 		910337181BC62F9500A4CC43 /* PFUser+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 910337171BC62F9500A4CC43 /* PFUser+User.m */; };
 		9136D6CF1BD8D27600CF76EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9136D6D11BD8D27600CF76EC /* Localizable.strings */; };
 		913CA8281BD0E1310051BD79 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 913CA8271BD0E1310051BD79 /* NSDate+Tool.m */; };
+		915E9CC71BE87CBF00397E06 /* ArchiveDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915E9CC21BE87CBF00397E06 /* ArchiveDetailViewController.m */; };
+		915E9CC81BE87CBF00397E06 /* ArchiveDividerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 915E9CC41BE87CBF00397E06 /* ArchiveDividerCell.m */; };
+		915E9CC91BE87CBF00397E06 /* ArchiveTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 915E9CC61BE87CBF00397E06 /* ArchiveTitleCell.m */; };
+		915E9CCC1BE87D0500397E06 /* ArchiveDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 915E9CCB1BE87D0500397E06 /* ArchiveDescriptionCell.m */; };
+		915E9CCF1BE87D1C00397E06 /* ArchiveStoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 915E9CCE1BE87D1C00397E06 /* ArchiveStoryCell.m */; };
+		915E9CD51BE87D5100397E06 /* ArchiveContributesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 915E9CD41BE87D5100397E06 /* ArchiveContributesCell.m */; };
 		9162E47A1BBE13B2002A8B92 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E4791BBE13B2002A8B92 /* AudioToolbox.framework */; };
 		9162E47C1BBE13B7002A8B92 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E47B1BBE13B7002A8B92 /* CFNetwork.framework */; };
 		9162E47E1BBE13BC002A8B92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9162E47D1BBE13BC002A8B92 /* CoreGraphics.framework */; };
@@ -106,6 +112,18 @@
 		9136D6D01BD8D27600CF76EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		913CA8261BD0E1310051BD79 /* NSDate+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Tool.h"; path = "Helpers/NSDate+Tool.h"; sourceTree = "<group>"; };
 		913CA8271BD0E1310051BD79 /* NSDate+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Tool.m"; path = "Helpers/NSDate+Tool.m"; sourceTree = "<group>"; };
+		915E9CC11BE87CBF00397E06 /* ArchiveDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArchiveDetailViewController.h; path = ArchiveVC/ArchiveDetailViewController.h; sourceTree = "<group>"; };
+		915E9CC21BE87CBF00397E06 /* ArchiveDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArchiveDetailViewController.m; path = ArchiveVC/ArchiveDetailViewController.m; sourceTree = "<group>"; };
+		915E9CC31BE87CBF00397E06 /* ArchiveDividerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArchiveDividerCell.h; path = ArchiveVC/ArchiveDividerCell.h; sourceTree = "<group>"; };
+		915E9CC41BE87CBF00397E06 /* ArchiveDividerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArchiveDividerCell.m; path = ArchiveVC/ArchiveDividerCell.m; sourceTree = "<group>"; };
+		915E9CC51BE87CBF00397E06 /* ArchiveTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArchiveTitleCell.h; path = ArchiveVC/ArchiveTitleCell.h; sourceTree = "<group>"; };
+		915E9CC61BE87CBF00397E06 /* ArchiveTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArchiveTitleCell.m; path = ArchiveVC/ArchiveTitleCell.m; sourceTree = "<group>"; };
+		915E9CCA1BE87D0500397E06 /* ArchiveDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArchiveDescriptionCell.h; path = ArchiveVC/ArchiveDescriptionCell.h; sourceTree = "<group>"; };
+		915E9CCB1BE87D0500397E06 /* ArchiveDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArchiveDescriptionCell.m; path = ArchiveVC/ArchiveDescriptionCell.m; sourceTree = "<group>"; };
+		915E9CCD1BE87D1C00397E06 /* ArchiveStoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArchiveStoryCell.h; path = ArchiveVC/ArchiveStoryCell.h; sourceTree = "<group>"; };
+		915E9CCE1BE87D1C00397E06 /* ArchiveStoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArchiveStoryCell.m; path = ArchiveVC/ArchiveStoryCell.m; sourceTree = "<group>"; };
+		915E9CD31BE87D5100397E06 /* ArchiveContributesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArchiveContributesCell.h; path = ArchiveVC/ArchiveContributesCell.h; sourceTree = "<group>"; };
+		915E9CD41BE87D5100397E06 /* ArchiveContributesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArchiveContributesCell.m; path = ArchiveVC/ArchiveContributesCell.m; sourceTree = "<group>"; };
 		9162E4791BBE13B2002A8B92 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9162E47B1BBE13B7002A8B92 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9162E47D1BBE13BC002A8B92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -260,6 +278,25 @@
 				F538537B98EAA44DF0429984 /* Pods-Story.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		915E9CB71BE87C3400397E06 /* ArchiveVC */ = {
+			isa = PBXGroup;
+			children = (
+				915E9CC11BE87CBF00397E06 /* ArchiveDetailViewController.h */,
+				915E9CC21BE87CBF00397E06 /* ArchiveDetailViewController.m */,
+				915E9CD31BE87D5100397E06 /* ArchiveContributesCell.h */,
+				915E9CD41BE87D5100397E06 /* ArchiveContributesCell.m */,
+				915E9CC31BE87CBF00397E06 /* ArchiveDividerCell.h */,
+				915E9CC41BE87CBF00397E06 /* ArchiveDividerCell.m */,
+				915E9CC51BE87CBF00397E06 /* ArchiveTitleCell.h */,
+				915E9CC61BE87CBF00397E06 /* ArchiveTitleCell.m */,
+				915E9CCA1BE87D0500397E06 /* ArchiveDescriptionCell.h */,
+				915E9CCB1BE87D0500397E06 /* ArchiveDescriptionCell.m */,
+				915E9CCD1BE87D1C00397E06 /* ArchiveStoryCell.h */,
+				915E9CCE1BE87D1C00397E06 /* ArchiveStoryCell.m */,
+			);
+			name = ArchiveVC;
 			sourceTree = "<group>";
 		};
 		9162E4701BBE10D7002A8B92 /* Frameworks */ = {
@@ -438,6 +475,7 @@
 		E138E4331BBE2D6300A8614F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				915E9CB71BE87C3400397E06 /* ArchiveVC */,
 				91667AEA1BD6081900FD6F23 /* DetailVC */,
 				91667AE91BD607FD00FD6F23 /* TabBarVC */,
 				91A8B18F1BC3A67C0000178F /* Login */,
@@ -737,9 +775,13 @@
 				E54EA6B61BC35A8B00104EF7 /* DetailTitleTableViewCell.m in Sources */,
 				E52B45B51BC71C7C00452BD5 /* UIScrollView+SLKAdditions.m in Sources */,
 				9103370C1BC5E95C00A4CC43 /* NovelistConstants.m in Sources */,
+				915E9CCC1BE87D0500397E06 /* ArchiveDescriptionCell.m in Sources */,
 				E52B45B41BC71C7C00452BD5 /* UIResponder+SLKAdditions.m in Sources */,
 				91667AE81BD4E34F00FD6F23 /* StoryCollectionViewCell.m in Sources */,
+				915E9CCF1BE87D1C00397E06 /* ArchiveStoryCell.m in Sources */,
 				E52B45B81BC71C7C00452BD5 /* SLKTextInputbar.m in Sources */,
+				915E9CC81BE87CBF00397E06 /* ArchiveDividerCell.m in Sources */,
+				915E9CC71BE87CBF00397E06 /* ArchiveDetailViewController.m in Sources */,
 				910337181BC62F9500A4CC43 /* PFUser+User.m in Sources */,
 				E52B45BB1BC71C7C00452BD5 /* SLKTypingIndicatorView.m in Sources */,
 				E52B45B71BC71C7C00452BD5 /* SLKInputAccessoryView.m in Sources */,
@@ -755,6 +797,7 @@
 				91B0A8AD1BD48AE000ECC89A /* UIColor+Tool.m in Sources */,
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
 				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
+				915E9CD51BE87D5100397E06 /* ArchiveContributesCell.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
 				91B0A8A41BD4885200ECC89A /* UIFont+CustomFont.m in Sources */,
 				91667AEE1BD6087700FD6F23 /* ProfileUserCell.m in Sources */,
@@ -762,6 +805,7 @@
 				E52B45BA1BC71C7C00452BD5 /* SLKTextViewController.m in Sources */,
 				E138E4291BBE2D3E00A8614F /* NewStoryViewController.m in Sources */,
 				E138E4261BBE2D0E00A8614F /* MainViewController.m in Sources */,
+				915E9CC91BE87CBF00397E06 /* ArchiveTitleCell.m in Sources */,
 				9103370F1BC5F78E00A4CC43 /* PFObject+Sentence.m in Sources */,
 				E52B45B31BC71C7C00452BD5 /* SLKTextView+SLKAdditions.m in Sources */,
 			);

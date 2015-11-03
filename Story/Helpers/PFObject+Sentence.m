@@ -34,6 +34,20 @@
         }
     }];
 }
+
++(void)sentencesForArchivedStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
+    [query whereKey:SENTENCE_KEY_STORY equalTo:story];
+    [query whereKey:SENTENCE_KEY_ISSELECTED equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:SENTENCE_KEY_SEQUENCE];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(error){
+            failureBlock(error);
+        }else{
+            successBlock(objects);
+        }
+    }];
+}
 +(void)selectedSentencesForStory:(PFObject *)story successBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     PFQuery *query = [PFQuery queryWithClassName:SENTENCE_CLASSNAME];
     [query whereKey:SENTENCE_KEY_STORY equalTo:story];

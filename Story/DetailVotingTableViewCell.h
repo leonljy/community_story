@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIView *viewContentBackground;
 @property (weak, nonatomic) IBOutlet UILabel *labelVoteCount;
 @property (strong ,nonatomic) UIImageView *imageViewSentence;
+@property (strong, nonatomic) PFObject *sentence;
 
--(void)setSentenceImageViewWithFrame:(CGRect)frame sentence:(PFObject *)sentence;
+-(void)setSentenceImageViewWithFrame:(CGRect)frame;
+-(void)setVotedStatus;
+-(void)setTextContent;
 @end

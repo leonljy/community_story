@@ -318,13 +318,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             [cell.imageViewSentence removeFromSuperview];
             cell.imageViewSentence = nil;
         }
-        
-//        BOOL isLastCell = indexPath.row - (self.selectedSentences.count - 1) == 0;
-//        if(isLastCell){
-//            [cell.viewBottomBar setHidden:NO];
-//        }else{
-//            [cell.viewBottomBar setHidden:YES];
-//        }
         return cell;
     }else{
         DetailVotingTableViewCell *cell = (DetailVotingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_VOTING_CELL"];
@@ -333,17 +326,16 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_VOTING_CELL"];
         }
         PFObject *sentence = [self.sentencesToShow objectAtIndex:indexPath.row];
-        cell.labelNewSentence.text = sentence[SENTENCE_KEY_TEXT];
-        [cell.labelUsername setText:sentence[SENTENCE_KEY_WRITER_NAME]];
-        NSNumber *voteCount = sentence[SENTENCE_KEY_VOTE_POINT];
-        cell.labelVoteCount.text = voteCount.stringValue;
-        
+        cell.sentence = sentence;
+        [cell setTextContent];
+        [cell setVotedStatus];
+
         if(nil!=[sentence objectForKey:SENTENCE_KEY_IMAGE]){
             cell.constraintBottomMargin.constant = heightImage + marginSentence + marginTopBottom;
             CGFloat sentenceHeight = [[sentenceHeights objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]] floatValue];
             CGFloat y = marginTopBottom + heightUserName + marginSentence + sentenceHeight + marginSentence;
             CGRect frameImageView = CGRectMake(marginStoryLeftRight, y, [self getLabelWidthForSentenceCell], heightImage);
-            [cell setSentenceImageViewWithFrame:frameImageView sentence:sentence];
+            [cell setSentenceImageViewWithFrame:frameImageView];
         }else{
             cell.constraintBottomMargin.constant = marginTopBottom;
             [cell.imageViewSentence removeFromSuperview];
@@ -623,7 +615,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     UITableViewScrollPosition scrollPosition = UITableViewScrollPositionBottom;
     [self.tableView beginUpdates];
     if (0==self.sentencesToShow.count) {
-        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:rowAnimation];
+        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:rowAnimation];
     }
     NSMutableArray *sentences = [NSMutableArray arrayWithArray:self.sentencesToShow];
     [sentences addObject:sentence];

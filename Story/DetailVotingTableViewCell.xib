@@ -27,8 +27,10 @@
                                             <constraint firstAttribute="width" constant="25" id="61f-N8-axA"/>
                                             <constraint firstAttribute="height" constant="25" id="FW9-w8-kYS"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="buttonLikeBlue"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" backgroundImage="buttonLikeGrey"/>
                                         <state key="disabled" backgroundImage="buttonLikeGrey"/>
+                                        <state key="selected" backgroundImage="buttonLikeBlue"/>
                                         <connections>
                                             <action selector="handleUp:" destination="VAV-HY-hR0" eventType="touchUpInside" id="heP-66-3vy"/>
                                         </connections>
@@ -40,8 +42,10 @@
                                             <constraint firstAttribute="height" constant="25" id="uDZ-Gx-l3a"/>
                                             <constraint firstAttribute="width" constant="25" id="xI5-pH-wHv"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="buttonBadBlue"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" backgroundImage="buttonBadGrey"/>
                                         <state key="disabled" backgroundImage="buttonBadGrey"/>
+                                        <state key="selected" backgroundImage="buttonBadBlue"/>
                                         <connections>
                                             <action selector="handleDown:" destination="VAV-HY-hR0" eventType="touchUpInside" id="2Pi-06-UIr"/>
                                         </connections>

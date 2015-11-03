@@ -10,6 +10,7 @@
 #import "StoryCollectionViewCell.h"
 #import "PFObject+Story.h"
 #import "PFUser+User.h"
+#import "ArchiveDetailViewController.h"
 
 @interface ArchiveViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -71,7 +72,12 @@
     return [self.stories count];
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    ArchiveDetailViewController *archiveDetailViewController = [storyboard instantiateViewControllerWithIdentifier:@"ArchiveDetailViewController"];
+    PFObject *story = [self.stories objectAtIndex:indexPath.row];
+    archiveDetailViewController.story = story;
+    [archiveDetailViewController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:archiveDetailViewController animated:YES];
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ACHIEVED_STORY" forIndexPath:indexPath];
@@ -79,9 +85,9 @@
     [cell setAchievedStoryDatasToUI:story];
     
     if([bookmarkedIds containsObject:story.objectId]){
-        [cell.imageViewBookmark setImage:[UIImage imageNamed:@"imgMarkLine"]];
-    }else{
         [cell.imageViewBookmark setImage:[UIImage imageNamed:@"imgMarkBold"]];
+    }else{
+        [cell.imageViewBookmark setImage:[UIImage imageNamed:@"imgMarkLine"]];
     }
     return cell;
 }
