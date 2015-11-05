@@ -206,7 +206,7 @@ typedef enum {
     [label setText:self.story[STORY_KEY_FIRST_SENTENCE]];
     
     CGFloat height = [self getLabelHeight:label];
-    height += marginTopBottom;
+    height += marginTopBottom * 2;
     return height;
 }
 
@@ -236,7 +236,7 @@ typedef enum {
     
     CGFloat height = [self getLabelHeight:label];
     
-    return height + heightLabel + (marginTopBottom * 2);
+    return height + heightLabel + (marginTopBottom * 3);
 }
 
 -(UILabel *)labelForHeightWithRect:(CGRect)rect{

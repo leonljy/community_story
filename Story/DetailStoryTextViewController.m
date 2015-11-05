@@ -603,6 +603,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:NO];
     sentence[SENTENCE_KEY_TEXT] = self.textView.text;
     sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:self.isEndSentence];
+    sentence[SENTENCE_KEY_VOTE_POINT] = [NSNumber numberWithInt:0];
     if(imageViewComment){
         NSData *imageData = UIImagePNGRepresentation(imageViewComment.image);
         PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
