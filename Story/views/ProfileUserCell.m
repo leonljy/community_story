@@ -10,4 +10,8 @@
 
 @implementation ProfileUserCell
 
+-(void)awakeFromNib{
+    self.buttonLogout.layer.masksToBounds = YES;
+    self.buttonLogout.layer.cornerRadius = 5.0;
+}
 @end

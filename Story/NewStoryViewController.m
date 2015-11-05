@@ -17,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelDescriptionLength;
 @property (weak, nonatomic) IBOutlet UILabel *labelFirstSentenceLength;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
+@property (weak, nonatomic) IBOutlet UILabel *labelCategorytitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelCategoryDescription;
+@property (weak, nonatomic) IBOutlet UILabel *labelCategoryPrologue;
+@property (weak, nonatomic) IBOutlet UILabel *labelCategorySelectPhoto;
 
 @end
 
@@ -39,12 +43,23 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setContentsFont];
+    
     [descriptionTextView setTag:TAG_TEXTVIEW_DESCRIPTION];
     [prologueTextView setTag:TAG_TEXTVIEW_FIRST_SENTENCE];
     isKeyboardOpened = NO;
     isImageSet = NO;
     [self.imageViewPhoto setContentMode:UIViewContentModeScaleAspectFill];
     [self.imageViewPhoto setClipsToBounds:YES];
+}
+
+-(void)setContentsFont{
+    NSInteger fontSize = 14;
+    [self.labelCategoryDescription setFont:[UIFont systemFontOfSize:fontSize]];
+    [self.labelCategoryPrologue setFont:[UIFont systemFontOfSize:fontSize]];
+    [self.labelCategorySelectPhoto setFont:[UIFont systemFontOfSize:fontSize]];
+    [self.labelCategorytitle setFont:[UIFont systemFontOfSize:fontSize]];
+    
 }
 
 - (IBAction)saveNewStory:(id)sender {

@@ -12,12 +12,12 @@
 @implementation UIFont (CustomFont)
 +(UIFont *)regularFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"Montserrat-Regular" size:size];
+    return [UIFont fontWithName:@"Montserrat-Light" size:size];
 }
 
 +(UIFont *)boldFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"Montserrat-Bold" size:size];
+    return [UIFont fontWithName:@"Montserrat-Regular" size:size];
 }
 
 +(void)load

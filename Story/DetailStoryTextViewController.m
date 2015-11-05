@@ -192,9 +192,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:10]];
     [self.rightButton setBackgroundImage:[UIImage imageNamed:@"buttonSendBlue"] forState:UIControlStateNormal];
     [self.rightButton setBackgroundImage:[UIImage imageNamed:@"buttonSendGrey"] forState:UIControlStateDisabled];
-//    [self.rightButton setBackgroundColor:[UIColor colorBlueBrand]];
-//    self.rightButton.layer.masksToBounds = YES;
-//    self.rightButton.layer.cornerRadius = 5.0;
 }
 
 -(void)initializeInputBar{

@@ -9,10 +9,27 @@
 #import "StoryCollectionViewCell.h"
 #import "PFObject+Story.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "UIColor+Tool.h"
 
 @implementation StoryCollectionViewCell
+-(void)awakeFromNib{
+    [self.labelUnderline setFont:[UIFont systemFontOfSize:15]];
+    [self.labelStoryText setFont:[UIFont systemFontOfSize:13]];
+    [self.labelPopular setFont:[UIFont systemFontOfSize:10]];
+    [self.constraintLineHeight setConstant:0.5];
+}
 
+-(void)setLabelColorsForMain{
+    [self.labelPopular setTextColor:[UIColor colorGrayWith:100]];
+    [self.labelStoryText setTextColor:[UIColor colorGrayWith:100]];
+    [self.labelUnderline setTextColor:[UIColor blackColor]];
+}
+
+-(void)setLabelColorsForOthers{
+    [self.labelPopular setTextColor:[UIColor whiteColor]];
+    [self.labelStoryText setTextColor:[UIColor whiteColor]];
+    [self.labelUnderline setTextColor:[UIColor whiteColor]];
+}
 
 -(void)setStandardStoryDatasToUI:(PFObject *)story{
     [self setStoryTitle:story];
@@ -20,6 +37,7 @@
     [self setStoryText:story];
     
     [self setStoryPopular:story];
+    [self setLabelColorsForMain];
 }
 -(void)setFeaturedStoryDatasToUI:(PFObject *)story{
     [self setStoryTitle:story];
@@ -29,6 +47,7 @@
     [self setStoryPopular:story];
     
     [self setStoryPhoto:story];
+    [self setLabelColorsForMain];
 }
 -(void)setAchievedStoryDatasToUI:(PFObject *)story{
     [self setStoryTitle:story];
@@ -38,6 +57,7 @@
     [self setStoryPopular:story];
     
     [self setStoryPhoto:story];
+    [self setLabelColorsForOthers];
 }
 
 -(void)setStoryPhoto:(PFObject *)story{

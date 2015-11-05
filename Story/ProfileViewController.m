@@ -109,7 +109,6 @@ typedef enum{
             [profileCell.buttonLogout addTarget:self action:@selector(handleLogout) forControlEvents:UIControlEventTouchUpInside];
             [profileCell.labelUsername setText:[[PFUser currentUser] username]];
             [profileCell.labelUserDescription setText:[[PFUser currentUser] email]];
-            
             cell = profileCell;
             break;
         }

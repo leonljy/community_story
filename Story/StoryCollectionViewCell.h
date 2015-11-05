@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelPopular;
 @property (weak, nonatomic) IBOutlet UILabel *labelStoryText;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBookmark;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLineHeight;
 
 
 -(void)setStandardStoryDatasToUI:(PFObject *)story;

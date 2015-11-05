@@ -30,6 +30,7 @@
 -(void)customizeTabBar{
 //    [[UITabBar appearance] setBarTintColor:[UIColor colorGrayWith:50]];
     [[UITabBar appearance] setTintColor:[UIColor colorTabbarTint]];
+    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -5)];
 }
 
 -(void)customizeStatusBar{
