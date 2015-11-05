@@ -23,4 +23,12 @@
 +(UIColor *)colorBlueBrand{
     return [self colorWithR:8 G:78 B:156];
 }
+
++(UIColor *)colorRedBrand{
+    return [self colorWithR:215 G:65 B:100];
+}
+
++(UIColor *)colorTabbarTint{
+    return [self colorRedBrand];
+}
 @end

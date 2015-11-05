@@ -13,4 +13,6 @@
 +(UIColor *)colorGrayWith:(CGFloat)rgb;
 +(UIColor *)colorGrayWith:(CGFloat)rgb alpha:(CGFloat)alpha;
 +(UIColor *)colorBlueBrand;
++(UIColor *)colorRedBrand;
++(UIColor *)colorTabbarTint;
 @end

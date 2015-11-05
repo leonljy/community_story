@@ -10,7 +10,6 @@
 #import <Parse/Parse.h>
 @interface StoryCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
-@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labelUnderline;
 @property (weak, nonatomic) IBOutlet UILabel *labelPopular;
 @property (weak, nonatomic) IBOutlet UILabel *labelStoryText;

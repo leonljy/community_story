@@ -11,18 +11,29 @@
 
 @implementation AppDelegate (CustomUI)
 
+-(void)customizeUIElements{
+    [self customizeUINavigationBar];
+    [self customizeTabBar];
+    
+}
+
 -(void)customizeUINavigationBar{
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:15]}];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorGrayWith:50]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 }
 
 -(void)customizeBarButtons{
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} forState:UIControlStateNormal];
 }
 
--(void)customizeUIElements{
-    [self customizeUINavigationBar];
-//    [self customizeBarButtons];
+-(void)customizeTabBar{
+//    [[UITabBar appearance] setBarTintColor:[UIColor colorGrayWith:50]];
+    [[UITabBar appearance] setTintColor:[UIColor colorTabbarTint]];
 }
+
+-(void)customizeStatusBar{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 @end

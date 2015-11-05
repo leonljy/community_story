@@ -15,6 +15,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PFObject+Sentence.h"
 #import "PFUser+User.h"
+#import "NovelistConstants.h"
 
 @interface ArchiveDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -60,11 +61,11 @@ typedef enum {
 }
 
 -(void)initializeConstants{
-    marginLeftRight = 14.0f;
-    marginTopBottom = 8.0f;
-    heightLabel = 21.0f;
-    fontSizeStory = 15;
-    heightImageStory = 150.0f;
+    marginLeftRight = [NovelistConstants getMarginLeftRight];
+    marginTopBottom = [NovelistConstants getMarginTopBottom];
+    heightLabel = [NovelistConstants getLabelSingleHeight];
+    fontSizeStory = [NovelistConstants getTextFontSize];
+    heightImageStory = [NovelistConstants getImageHeight];
 }
 
 -(void)reloadSentences{

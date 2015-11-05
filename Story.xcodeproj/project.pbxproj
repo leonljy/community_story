@@ -54,6 +54,7 @@
 		91B0A8A71BD489AD00ECC89A /* NewStoryNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0A8A61BD489AD00ECC89A /* NewStoryNavigationController.m */; };
 		91B0A8AA1BD48A9F00ECC89A /* AppDelegate+CustomUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0A8A91BD48A9F00ECC89A /* AppDelegate+CustomUI.m */; };
 		91B0A8AD1BD48AE000ECC89A /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0A8AC1BD48AE000ECC89A /* UIColor+Tool.m */; };
+		91F536661BE8A8F60063AEE5 /* ProfileContributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F536651BE8A8F60063AEE5 /* ProfileContributeCell.m */; };
 		C0295258FA60BA2B9C52B7FB /* libPods-Story.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FE2C0A8A87B2178FFBA798 /* libPods-Story.a */; };
 		E138E4261BBE2D0E00A8614F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4251BBE2D0E00A8614F /* MainViewController.m */; };
 		E138E4291BBE2D3E00A8614F /* NewStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4281BBE2D3E00A8614F /* NewStoryViewController.m */; };
@@ -177,6 +178,8 @@
 		91B0A8A91BD48A9F00ECC89A /* AppDelegate+CustomUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+CustomUI.m"; sourceTree = "<group>"; };
 		91B0A8AB1BD48AE000ECC89A /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Tool.h"; path = "Helpers/UIColor+Tool.h"; sourceTree = "<group>"; };
 		91B0A8AC1BD48AE000ECC89A /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Tool.m"; path = "Helpers/UIColor+Tool.m"; sourceTree = "<group>"; };
+		91F536641BE8A8F60063AEE5 /* ProfileContributeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileContributeCell.h; path = ProfileVC/ProfileContributeCell.h; sourceTree = "<group>"; };
+		91F536651BE8A8F60063AEE5 /* ProfileContributeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileContributeCell.m; path = ProfileVC/ProfileContributeCell.m; sourceTree = "<group>"; };
 		94FE2C0A8A87B2178FFBA798 /* libPods-Story.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Story.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4139CDAE7CE5A4AD553AB6B /* Pods-Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Story/Pods-Story.debug.xcconfig"; sourceTree = "<group>"; };
 		E138E4241BBE2D0E00A8614F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -328,8 +331,6 @@
 			children = (
 				E138E4301BBE2D5E00A8614F /* ProfileViewController.h */,
 				E138E4311BBE2D5E00A8614F /* ProfileViewController.m */,
-				91667AEC1BD6087700FD6F23 /* ProfileUserCell.h */,
-				91667AED1BD6087700FD6F23 /* ProfileUserCell.m */,
 				E138E42D1BBE2D5500A8614F /* ArchiveViewController.h */,
 				E138E42E1BBE2D5500A8614F /* ArchiveViewController.m */,
 				E138E42A1BBE2D4A00A8614F /* BookMarkViewController.h */,
@@ -472,9 +473,21 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		91F536631BE8A8CF0063AEE5 /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				91667AEC1BD6087700FD6F23 /* ProfileUserCell.h */,
+				91667AED1BD6087700FD6F23 /* ProfileUserCell.m */,
+				91F536641BE8A8F60063AEE5 /* ProfileContributeCell.h */,
+				91F536651BE8A8F60063AEE5 /* ProfileContributeCell.m */,
+			);
+			name = ProfileVC;
+			sourceTree = "<group>";
+		};
 		E138E4331BBE2D6300A8614F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				91F536631BE8A8CF0063AEE5 /* ProfileVC */,
 				915E9CB71BE87C3400397E06 /* ArchiveVC */,
 				91667AEA1BD6081900FD6F23 /* DetailVC */,
 				91667AE91BD607FD00FD6F23 /* TabBarVC */,
@@ -796,6 +809,7 @@
 				91B0A8A71BD489AD00ECC89A /* NewStoryNavigationController.m in Sources */,
 				91B0A8AD1BD48AE000ECC89A /* UIColor+Tool.m in Sources */,
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
+				91F536661BE8A8F60063AEE5 /* ProfileContributeCell.m in Sources */,
 				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
 				915E9CD51BE87D5100397E06 /* ArchiveContributesCell.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,

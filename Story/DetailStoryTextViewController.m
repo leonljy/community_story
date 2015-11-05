@@ -17,6 +17,7 @@
 #import "NSDate+Tool.h"
 #import <Photos/Photos.h>
 #import "UIColor+Tool.h"
+#import "NovelistConstants.h"
 
 
 @interface DetailStoryTextViewController () <UIAlertViewDelegate>
@@ -101,8 +102,13 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     [self initializeProperties];
     [self initializeInputBar];
     [self reloadSentences];
-    
+    [self addRightButton];
     [self initializeTimer];
+}
+
+-(void)addRightButton{
+    UIBarButtonItem *buttonRefresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadSentences)];
+    [self.navigationItem setRightBarButtonItem:buttonRefresh];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -119,13 +125,13 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     self.isEndSentence = NO;
     callImagePicker = NO;
     
-    marginStoryLeftRight = 14.0f;
-    marginTopBottom = 8.0f;
-    fontSizeStory = 15;
-    heightUserName = 21.0f;
-    marginSentence = 8.0f;
+    marginStoryLeftRight = [NovelistConstants getMarginLeftRight];
+    marginTopBottom = [NovelistConstants getMarginTopBottom];
+    fontSizeStory = [NovelistConstants getTextFontSize];
+    heightUserName = [NovelistConstants getLabelSingleHeight];
+    marginSentence = [NovelistConstants getSpaceBetweenElements];
     widthViewVote = 53.0f;
-    heightImage = 150.0f;
+    heightImage = [NovelistConstants getImageHeight];
 }
 
 

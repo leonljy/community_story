@@ -18,6 +18,6 @@
 typedef void (^ArrayBlock)(NSArray *objects);
 typedef void (^SuccessBlock)(id responseObject);
 typedef void (^FailureBlock)(NSError *error);
-
++(void)contributedCurrentUserWithSuccessBlock:(ArrayBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 -(void)updateUsername:(NSString *)username successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 @end

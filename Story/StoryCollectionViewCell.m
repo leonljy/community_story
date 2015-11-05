@@ -59,10 +59,11 @@
 
 -(void)setStoryTitle:(PFObject *)story{
     NSString *storyTitle = story[STORY_KEY_TITLE];
-    self.labelTitle.text = storyTitle;
-    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleThick), NSUnderlineColorAttributeName:[UIColor blackColor]};
-    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:storyTitle  attributes:underlineAttribute];
-    self.labelUnderline.attributedText = attrString;
+    self.labelUnderline.text = storyTitle;
+    
+//    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleThick), NSUnderlineColorAttributeName:[UIColor blackColor]};
+//    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:storyTitle  attributes:underlineAttribute];
+//    self.labelUnderline.attributedText = attrString;
 }
 
 -(void)setStoryText:(PFObject *)story{
