@@ -46,6 +46,7 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="labelCategory" destination="Ghr-9T-b3h" id="nmd-5g-z0h"/>
                 <outlet property="labelDescription" destination="NfW-G1-NqN" id="c7B-YK-f6A"/>
             </connections>
             <point key="canvasLocation" x="552" y="168"/>

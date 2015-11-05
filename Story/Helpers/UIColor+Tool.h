@@ -15,4 +15,5 @@
 +(UIColor *)colorBlueBrand;
 +(UIColor *)colorRedBrand;
 +(UIColor *)colorTabbarTint;
++(UIColor *)colorTextGrey;
 @end

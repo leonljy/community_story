@@ -8,11 +8,15 @@
 
 #import "DetailContentsTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIColor+Tool.h"
+#import "NovelistConstants.h"
 
 @implementation DetailContentsTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.labelContents setFont:[UIFont systemFontOfSize:[NovelistConstants getTextFontSize]]];
+    [self.labelContents setTextColor:[UIColor colorTextGrey]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

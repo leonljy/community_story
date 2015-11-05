@@ -20,8 +20,8 @@
 }
 
 -(void)setLabelColorsForMain{
-    [self.labelPopular setTextColor:[UIColor colorGrayWith:100]];
-    [self.labelStoryText setTextColor:[UIColor colorGrayWith:100]];
+    [self.labelPopular setTextColor:[UIColor colorTextGrey]];
+    [self.labelStoryText setTextColor:[UIColor colorTextGrey]];
     [self.labelUnderline setTextColor:[UIColor blackColor]];
 }
 

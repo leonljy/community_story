@@ -54,6 +54,8 @@
 		91B0A8A71BD489AD00ECC89A /* NewStoryNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0A8A61BD489AD00ECC89A /* NewStoryNavigationController.m */; };
 		91B0A8AA1BD48A9F00ECC89A /* AppDelegate+CustomUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0A8A91BD48A9F00ECC89A /* AppDelegate+CustomUI.m */; };
 		91B0A8AD1BD48AE000ECC89A /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0A8AC1BD48AE000ECC89A /* UIColor+Tool.m */; };
+		91D268CB1BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D268C91BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.m */; };
+		91D268CC1BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D268CA1BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.xib */; };
 		91F536661BE8A8F60063AEE5 /* ProfileContributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F536651BE8A8F60063AEE5 /* ProfileContributeCell.m */; };
 		C0295258FA60BA2B9C52B7FB /* libPods-Story.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FE2C0A8A87B2178FFBA798 /* libPods-Story.a */; };
 		E138E4261BBE2D0E00A8614F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138E4251BBE2D0E00A8614F /* MainViewController.m */; };
@@ -178,6 +180,9 @@
 		91B0A8A91BD48A9F00ECC89A /* AppDelegate+CustomUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+CustomUI.m"; sourceTree = "<group>"; };
 		91B0A8AB1BD48AE000ECC89A /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Tool.h"; path = "Helpers/UIColor+Tool.h"; sourceTree = "<group>"; };
 		91B0A8AC1BD48AE000ECC89A /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Tool.m"; path = "Helpers/UIColor+Tool.m"; sourceTree = "<group>"; };
+		91D268C81BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDividerTableViewCell.h; sourceTree = "<group>"; };
+		91D268C91BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDividerTableViewCell.m; sourceTree = "<group>"; };
+		91D268CA1BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDividerTableViewCell.xib; sourceTree = "<group>"; };
 		91F536641BE8A8F60063AEE5 /* ProfileContributeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileContributeCell.h; path = ProfileVC/ProfileContributeCell.h; sourceTree = "<group>"; };
 		91F536651BE8A8F60063AEE5 /* ProfileContributeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileContributeCell.m; path = ProfileVC/ProfileContributeCell.m; sourceTree = "<group>"; };
 		94FE2C0A8A87B2178FFBA798 /* libPods-Story.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Story.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -582,6 +587,9 @@
 				E54EA6C61BC35B6000104EF7 /* DetailVotingTableViewCell.h */,
 				E54EA6C71BC35B6000104EF7 /* DetailVotingTableViewCell.m */,
 				E52B45911BC71BB800452BD5 /* DetailVotingTableViewCell.xib */,
+				91D268C81BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.h */,
+				91D268C91BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.m */,
+				91D268CA1BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -694,6 +702,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E52B45931BC71BB800452BD5 /* DetailContentsTableViewCell.xib in Resources */,
+				91D268CC1BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.xib in Resources */,
 				E52B45941BC71BB800452BD5 /* DetailDescriptionTableViewCell.xib in Resources */,
 				91AD921D1BBE0FC8000137A4 /* LaunchScreen.storyboard in Resources */,
 				E52B45971BC71BB800452BD5 /* DetailVotingTableViewCell.xib in Resources */,
@@ -811,6 +820,7 @@
 				91AD92121BBE0FC8000137A4 /* AppDelegate.m in Sources */,
 				91F536661BE8A8F60063AEE5 /* ProfileContributeCell.m in Sources */,
 				91A8B18E1BC35AEA0000178F /* LoginViewController.m in Sources */,
+				91D268CB1BEB4BEF00E9ABD4 /* DetailDividerTableViewCell.m in Sources */,
 				915E9CD51BE87D5100397E06 /* ArchiveContributesCell.m in Sources */,
 				91AD920F1BBE0FC8000137A4 /* main.m in Sources */,
 				91B0A8A41BD4885200ECC89A /* UIFont+CustomFont.m in Sources */,

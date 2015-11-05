@@ -8,11 +8,20 @@
 
 #import "DetailVotingTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIColor+Tool.h"
+#import "NovelistConstants.h"
 
 @implementation DetailVotingTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.labelNewSentence setFont:[UIFont systemFontOfSize:[NovelistConstants getTextFontSize]]];
+    [self.labelUsername setFont:[UIFont systemFontOfSize:[NovelistConstants getLabelFontSize]]];
+    [self.labelVoteCount setFont:[UIFont systemFontOfSize:[NovelistConstants getSmallTextSize]]];
+    
+    [self.labelNewSentence setTextColor:[UIColor colorTextGrey]];
+    [self.labelUsername setTextColor:[UIColor blackColor]];
+    [self.labelVoteCount setTextColor:[UIColor blackColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

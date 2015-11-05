@@ -7,11 +7,15 @@
 //
 
 #import "DetailDescriptionTableViewCell.h"
-
+#import "UIColor+Tool.h"
+#import "NovelistConstants.h"
 @implementation DetailDescriptionTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.labelCategory setFont:[UIFont systemFontOfSize:[NovelistConstants getLabelFontSize]]];
+    [self.labelDescription setFont:[UIFont systemFontOfSize:[NovelistConstants getTextFontSize]]];
+    [self.labelDescription setTextColor:[UIColor colorTextGrey]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

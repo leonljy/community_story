@@ -15,7 +15,14 @@
 }
 
 +(NSInteger)getTextFontSize{
+    return 13;
+}
+
++(NSInteger)getLabelFontSize{
     return 15;
+}
++(NSInteger)getSmallTextSize{
+    return 10;
 }
 
 +(CGFloat)getImageHeight{

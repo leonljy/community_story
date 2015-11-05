@@ -12,6 +12,7 @@
 #import "DetailContentsTableViewCell.h"
 #import "DetailVotingTableViewCell.h"
 #import "DetailFirstSentenceTableViewCell.h"
+#import "DetailDividerTableViewCell.h"
 #import "PFUser+User.h"
 #import "PFObject+Sentence.h"
 #import "NSDate+Tool.h"
@@ -33,6 +34,7 @@
 typedef enum {
     CELL_TITLE = 0,
     CELL_DESCRIPTION,
+    CELL_DIVIDER,
     CELL_FIRST_SENTENCE
 }cellDetail;
 
@@ -256,7 +258,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (SECTION_STORY_DETAIL == section) {
-        return 3;
+        return 4;
     } else if(SECTION_STORY_CONTENT ==  section){
         storyHeights = [NSMutableDictionary dictionary];
         return self.selectedSentences.count;
@@ -281,6 +283,8 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             NSArray *bookmarkedStory = user[USER_KEY_BOOKMARKED_STORIES];
             [cell.buttonBookmark setSelected:[bookmarkedStory containsObject:self.story]];
             [cell setStoryPhoto];
+            [cell.labelTitle setFont:[UIFont systemFontOfSize:15]];
+            [cell.labelTimeClock setFont:[UIFont systemFontOfSize:18]];
             self.labelTimer = cell.labelTimeClock;
             [self handleTimerDeadline:nil];
             return cell;
@@ -292,7 +296,14 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             }
             cell.labelDescription.text = self.story[STORY_KEY_DESCRIPTION];
             return cell;
-        } else{
+        } else if(CELL_DIVIDER==indexPath.row){
+            DetailDividerTableViewCell *cell = (DetailDividerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_DIVIDER_CELL"];
+            if (!cell) {
+                [tableView registerNib:[UINib nibWithNibName:@"DetailDividerTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_DIVIDER_CELL"];
+                cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_DIVIDER_CELL"];
+            }
+            return cell;
+        }else{
             DetailFirstSentenceTableViewCell *cell = (DetailFirstSentenceTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
             if (!cell) {
                 [tableView registerNib:[UINib nibWithNibName:@"DetailFirstSentenceTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
@@ -355,8 +366,12 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (SECTION_STORY_DETAIL == indexPath.section) {
         if (CELL_TITLE == indexPath.row) {
-            return 200;
-        } else {
+            return 225;
+        } else if(CELL_DESCRIPTION ==indexPath.row){
+            return [self heightForDescriptionSentenceCell];
+        }else if(CELL_DIVIDER == indexPath.row){
+            return 20;
+        }else{
             return [self heightForFirstSentenceCell];
         }
     } else if(SECTION_STORY_CONTENT == indexPath.section){
@@ -365,8 +380,19 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         return [self heightForSentencesCell:indexPath.row];
     }
 }
-
 -(CGFloat)heightForFirstSentenceCell{
+    CGSize viewSize = self.view.frame.size;
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginTopBottom
+                                                                                                                                    *2));
+    UILabel *label = [self labelForHeightWithRect:rect];
+    [label setText:self.story[STORY_KEY_FIRST_SENTENCE]];
+    
+    CGFloat height = [self getLabelHeight:label];
+    
+    return height + ( 2 * marginTopBottom );
+}
+
+-(CGFloat)heightForDescriptionSentenceCell{
     CGSize viewSize = self.view.frame.size;
     CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginTopBottom
                                                                                                                                     *2));

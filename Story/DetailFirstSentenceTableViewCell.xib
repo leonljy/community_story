@@ -14,18 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="600" height="157.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVV-lb-6jl">
-                        <rect key="frame" x="14" y="11" width="572" height="21"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="gOw-Ht-hzW"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJw-M6-o5s">
-                        <rect key="frame" x="14" y="40" width="572" height="109"/>
+                        <rect key="frame" x="14" y="8" width="572" height="141"/>
                         <animations/>
                         <string key="text">This sentence consists of 140 characters. This sentence consists of 140 characters. This sentence consists of 140 characters. This sentences</string>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -35,22 +25,11 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="vVV-lb-6jl" firstAttribute="leading" secondItem="dyv-j9-20S" secondAttribute="leading" constant="14" id="46u-bo-1rQ"/>
-                    <constraint firstItem="qJw-M6-o5s" firstAttribute="top" secondItem="vVV-lb-6jl" secondAttribute="bottom" constant="8" id="VH6-Bd-y6I"/>
-                    <constraint firstAttribute="bottom" secondItem="qJw-M6-o5s" secondAttribute="bottom" constant="8" id="ZAs-pV-34q"/>
-                    <constraint firstAttribute="trailing" secondItem="vVV-lb-6jl" secondAttribute="trailing" constant="14" id="a8C-t6-5x2"/>
-                    <constraint firstItem="qJw-M6-o5s" firstAttribute="leading" secondItem="dyv-j9-20S" secondAttribute="leading" constant="14" id="exK-03-8J7"/>
-                    <constraint firstItem="vVV-lb-6jl" firstAttribute="centerY" secondItem="dyv-j9-20S" secondAttribute="centerY" id="mZN-d0-xbk"/>
-                    <constraint firstItem="vVV-lb-6jl" firstAttribute="top" secondItem="dyv-j9-20S" secondAttribute="top" constant="11" id="sZM-2n-bEf"/>
-                    <constraint firstItem="vVV-lb-6jl" firstAttribute="centerX" secondItem="dyv-j9-20S" secondAttribute="centerX" id="slH-2p-ccJ"/>
-                    <constraint firstAttribute="trailing" secondItem="qJw-M6-o5s" secondAttribute="trailing" constant="14" id="tUC-Wj-KQb"/>
+                    <constraint firstItem="qJw-M6-o5s" firstAttribute="leading" secondItem="dyv-j9-20S" secondAttribute="leading" constant="14" id="Ez3-2V-Wqc"/>
+                    <constraint firstAttribute="bottom" secondItem="qJw-M6-o5s" secondAttribute="bottom" constant="8" id="Qh5-do-HeW"/>
+                    <constraint firstAttribute="trailing" secondItem="qJw-M6-o5s" secondAttribute="trailing" constant="14" id="ZIl-GJ-qA1"/>
+                    <constraint firstItem="qJw-M6-o5s" firstAttribute="top" secondItem="dyv-j9-20S" secondAttribute="top" constant="8" id="wbq-xQ-Gy4"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="mZN-d0-xbk"/>
-                        <exclude reference="slH-2p-ccJ"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>

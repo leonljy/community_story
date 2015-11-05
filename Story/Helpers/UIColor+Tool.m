@@ -31,4 +31,8 @@
 +(UIColor *)colorTabbarTint{
     return [self colorRedBrand];
 }
+
++(UIColor *)colorTextGrey{
+    return [self colorGrayWith:50];
+}
 @end

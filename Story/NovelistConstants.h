@@ -17,4 +17,6 @@
 +(CGFloat)getMarginTopBottom;
 +(CGFloat)getLabelSingleHeight;
 +(CGFloat)getSpaceBetweenElements;
++(NSInteger)getLabelFontSize;
++(NSInteger)getSmallTextSize;
 @end

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelCategoryDescription;
 @property (weak, nonatomic) IBOutlet UILabel *labelCategoryPrologue;
 @property (weak, nonatomic) IBOutlet UILabel *labelCategorySelectPhoto;
+@property (weak, nonatomic) IBOutlet UIView *viewSelectPhotoBackground;
 
 @end
 
@@ -44,6 +45,7 @@ typedef enum {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setContentsFont];
+    [self setTextFieldRadious];
     
     [descriptionTextView setTag:TAG_TEXTVIEW_DESCRIPTION];
     [prologueTextView setTag:TAG_TEXTVIEW_FIRST_SENTENCE];
@@ -53,13 +55,35 @@ typedef enum {
     [self.imageViewPhoto setClipsToBounds:YES];
 }
 
+-(void)setTextFieldContentSize{
+    
+}
+-(void)setTextFieldRadious{
+    CGFloat radius = 5.0f;
+    self.titleTextField.layer.masksToBounds = YES;
+    self.titleTextField.layer.cornerRadius = radius;
+    self.descriptionTextView.layer.masksToBounds = YES;
+    self.descriptionTextView.layer.cornerRadius = radius;
+    self.prologueTextView.layer.masksToBounds = YES;
+    self.prologueTextView.layer.cornerRadius = radius;
+    
+    self.viewSelectPhotoBackground.layer.masksToBounds = YES;
+    self.viewSelectPhotoBackground.layer.cornerRadius = radius;
+}
 -(void)setContentsFont{
     NSInteger fontSize = 14;
+    NSInteger smallFontSize = 10;
     [self.labelCategoryDescription setFont:[UIFont systemFontOfSize:fontSize]];
     [self.labelCategoryPrologue setFont:[UIFont systemFontOfSize:fontSize]];
     [self.labelCategorySelectPhoto setFont:[UIFont systemFontOfSize:fontSize]];
     [self.labelCategorytitle setFont:[UIFont systemFontOfSize:fontSize]];
     
+    [self.labelDescriptionLength setFont:[UIFont systemFontOfSize:smallFontSize]];
+    [self.labelFirstSentenceLength setFont:[UIFont systemFontOfSize:smallFontSize]];
+    
+    [self.titleTextField setFont:[UIFont systemFontOfSize:fontSize]];
+    [self.descriptionTextView setFont:[UIFont systemFontOfSize:fontSize]];
+    [self.prologueTextView setFont:[UIFont systemFontOfSize:fontSize]];
 }
 
 - (IBAction)saveNewStory:(id)sender {

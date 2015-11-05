@@ -7,11 +7,14 @@
 //
 
 #import "DetailFirstSentenceTableViewCell.h"
-
+#import "UIColor+Tool.h"
+#import "NovelistConstants.h"
 @implementation DetailFirstSentenceTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.labelContents setFont:[UIFont systemFontOfSize:[NovelistConstants getTextFontSize]]];
+    [self.labelContents setTextColor:[UIColor colorTextGrey]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

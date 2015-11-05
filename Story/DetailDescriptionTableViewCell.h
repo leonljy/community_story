@@ -10,5 +10,6 @@
 
 @interface DetailDescriptionTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelDescription;
+@property (weak, nonatomic) IBOutlet UILabel *labelCategory;
 
 @end
