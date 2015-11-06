@@ -41,7 +41,10 @@ typedef enum {
 typedef enum{
     SECTION_STORY_DETAIL=0,
     SECTION_STORY_CONTENT,
-    SECTION_VOTING
+    SECTION_DIVIDER,
+    SECTION_VOTING,
+    SECTION_COUNT
+    
 }sectionDetail;
 
 @implementation DetailStoryTextViewController{
@@ -49,12 +52,13 @@ typedef enum{
     UIImageView *imageViewComment;
     BOOL callImagePicker;
     CGFloat marginStoryLeftRight;
-    CGFloat marginTopBottom;
+    CGFloat marginBottom;
     CGFloat heightUserName;
     CGFloat marginSentence;
     CGFloat widthViewVote;
     NSInteger fontSizeStory;
     CGFloat heightImage;
+    CGFloat marginTop;
     NSMutableDictionary *sentenceHeights;
     NSMutableDictionary *storyHeights;
 }
@@ -128,11 +132,12 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     callImagePicker = NO;
     
     marginStoryLeftRight = [NovelistConstants getMarginLeftRight];
-    marginTopBottom = [NovelistConstants getMarginTopBottom];
+    marginBottom = [NovelistConstants getMarginTopBottom];
     fontSizeStory = [NovelistConstants getTextFontSize];
     heightUserName = [NovelistConstants getLabelSingleHeight];
     marginSentence = [NovelistConstants getSpaceBetweenElements];
     widthViewVote = 53.0f;
+    marginTop = 14;
     heightImage = [NovelistConstants getImageHeight];
 }
 
@@ -249,9 +254,9 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.sentencesToShow.count > 0) {
-        return 3;
+        return SECTION_COUNT;
     } else {
-        return 2;
+        return SECTION_COUNT-1;
     }
 }
 
@@ -262,6 +267,8 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     } else if(SECTION_STORY_CONTENT ==  section){
         storyHeights = [NSMutableDictionary dictionary];
         return self.selectedSentences.count;
+    }else if(SECTION_DIVIDER == section){
+        return 1;
     }else{
         sentenceHeights = [NSMutableDictionary dictionary];
         return self.sentencesToShow.count;
@@ -283,7 +290,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             NSArray *bookmarkedStory = user[USER_KEY_BOOKMARKED_STORIES];
             [cell.buttonBookmark setSelected:[bookmarkedStory containsObject:self.story]];
             [cell setStoryPhoto];
-            [cell.labelTitle setFont:[UIFont systemFontOfSize:15]];
+            [cell.labelTitle setFont:[UIFont systemFontOfSize:[NovelistConstants getLabelFontSize]]];
             [cell.labelTimeClock setFont:[UIFont systemFontOfSize:18]];
             self.labelTimer = cell.labelTimeClock;
             [self handleTimerDeadline:nil];
@@ -302,6 +309,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
                 [tableView registerNib:[UINib nibWithNibName:@"DetailDividerTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_DIVIDER_CELL"];
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_DIVIDER_CELL"];
             }
+            [cell.imageViewDivider setHidden:NO];
             return cell;
         }else{
             DetailFirstSentenceTableViewCell *cell = (DetailFirstSentenceTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_FIRST_SENTENCE_CELL"];
@@ -322,18 +330,27 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         cell.labelContents.text = selectedSentence[SENTENCE_KEY_TEXT];
         
         if(nil!=[selectedSentence objectForKey:SENTENCE_KEY_IMAGE]){
-            cell.constraintBottom.constant = heightImage + marginSentence + marginTopBottom;
+            cell.constraintBottom.constant = heightImage + marginSentence + marginBottom;
             CGFloat sentenceHeight = [[storyHeights objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]] floatValue];
-            CGFloat y = marginTopBottom + sentenceHeight + marginSentence;
+            CGFloat y = marginBottom + sentenceHeight + marginSentence;
             CGRect frameImageView = CGRectMake(marginStoryLeftRight, y, [self getLabelWidthForStoryText], heightImage);
             [cell setSentenceImageViewWithFrame:frameImageView sentence:selectedSentence];
         }else{
-            cell.constraintBottom.constant = marginTopBottom;
+            cell.constraintBottom.constant = marginBottom;
             [cell.imageViewSentence removeFromSuperview];
             cell.imageViewSentence = nil;
         }
         return cell;
+    }else if(SECTION_DIVIDER == indexPath.section){
+        DetailDividerTableViewCell *cell = (DetailDividerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_DIVIDER_CELL"];
+        if (!cell) {
+            [tableView registerNib:[UINib nibWithNibName:@"DetailDividerTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_DIVIDER_CELL"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"DETAIL_DIVIDER_CELL"];
+        }
+        [cell.imageViewDivider setHidden:YES];
+        return cell;
     }else{
+        
         DetailVotingTableViewCell *cell = (DetailVotingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DETAIL_VOTING_CELL"];
         if (!cell) {
             [tableView registerNib:[UINib nibWithNibName:@"DetailVotingTableViewCell" bundle:nil] forCellReuseIdentifier:@"DETAIL_VOTING_CELL"];
@@ -345,13 +362,13 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         [cell setVotedStatus];
 
         if(nil!=[sentence objectForKey:SENTENCE_KEY_IMAGE]){
-            cell.constraintBottomMargin.constant = heightImage + marginSentence + marginTopBottom;
+            cell.constraintBottomMargin.constant = heightImage + marginSentence + marginBottom;
             CGFloat sentenceHeight = [[sentenceHeights objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]] floatValue];
-            CGFloat y = marginTopBottom + heightUserName + marginSentence + sentenceHeight + marginSentence;
+            CGFloat y = marginTop + heightUserName + marginSentence + sentenceHeight + marginSentence;
             CGRect frameImageView = CGRectMake(marginStoryLeftRight, y, [self getLabelWidthForSentenceCell], heightImage);
             [cell setSentenceImageViewWithFrame:frameImageView];
         }else{
-            cell.constraintBottomMargin.constant = marginTopBottom;
+            cell.constraintBottomMargin.constant = marginBottom;
             [cell.imageViewSentence removeFromSuperview];
             cell.imageViewSentence = nil;
         }
@@ -370,43 +387,45 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         } else if(CELL_DESCRIPTION ==indexPath.row){
             return [self heightForDescriptionSentenceCell];
         }else if(CELL_DIVIDER == indexPath.row){
-            return 20;
+            return 50;
         }else{
             return [self heightForFirstSentenceCell];
         }
     } else if(SECTION_STORY_CONTENT == indexPath.section){
         return [self heightForStoryTextCell:indexPath.row];
+    }else if(SECTION_DIVIDER== indexPath.section){
+        return 25;
     }else{
         return [self heightForSentencesCell:indexPath.row];
     }
 }
 -(CGFloat)heightForFirstSentenceCell{
     CGSize viewSize = self.view.frame.size;
-    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginTopBottom
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginBottom
                                                                                                                                     *2));
     UILabel *label = [self labelForHeightWithRect:rect];
     [label setText:self.story[STORY_KEY_FIRST_SENTENCE]];
     
     CGFloat height = [self getLabelHeight:label];
     
-    return height + ( 2 * marginTopBottom );
+    return height + ( 2 * marginBottom );
 }
 
 -(CGFloat)heightForDescriptionSentenceCell{
     CGSize viewSize = self.view.frame.size;
-    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginTopBottom
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginBottom
                                                                                                                                     *2));
     UILabel *label = [self labelForHeightWithRect:rect];
     [label setText:self.story[STORY_KEY_FIRST_SENTENCE]];
     
     CGFloat height = [self getLabelHeight:label];
     
-    return height + ( 2 * marginTopBottom ) + heightUserName + marginSentence;
+    return height + ( 2 * marginBottom ) + heightUserName + marginSentence;
 }
 
 -(CGFloat)heightForStoryTextCell:(NSInteger)row{
     CGSize viewSize = self.view.frame.size;
-    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginTopBottom
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginBottom, viewSize.width - (marginStoryLeftRight * 2), viewSize.height - (marginBottom
                                                                                                                               *2));
     PFObject *selectedSentence = [self.selectedSentences objectAtIndex:row];
  
@@ -418,9 +437,9 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     
     
     if(nil==[selectedSentence objectForKey:SENTENCE_KEY_IMAGE]){
-        height += ( 2 * marginTopBottom );
+        height += ( 2 * marginBottom );
     }else{
-        height += ( 2 * marginTopBottom + marginSentence + heightImage);
+        height += ( 2 * marginBottom + marginSentence + heightImage);
     }
     
     return height;
@@ -437,7 +456,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 
 -(CGFloat)heightForSentencesCell:(NSInteger)row{
-    CGRect rect = CGRectMake(marginStoryLeftRight, marginTopBottom, [self getLabelWidthForSentenceCell], self.view.frame.size.height - (marginTopBottom * 2));
+    CGRect rect = CGRectMake(marginStoryLeftRight, marginTop, [self getLabelWidthForSentenceCell], self.view.frame.size.height - (marginBottom + marginTop));
     
     UILabel *label = [self labelForHeightWithRect:rect];
     PFObject *sentence = [self.sentencesToShow objectAtIndex:row];
@@ -447,9 +466,9 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     [sentenceHeights setObject:[NSNumber numberWithFloat:height] forKey:[NSString stringWithFormat:@"%ld", row]];
     
     if(nil==[sentence objectForKey:SENTENCE_KEY_IMAGE]){
-        height += ( 2 * marginTopBottom + heightUserName + marginSentence);
+        height += ( marginTop + marginBottom + heightUserName + marginSentence);
     }else{
-        height += ( 2 * marginTopBottom + heightUserName + 2 * marginSentence + heightImage);
+        height += ( marginTop + marginBottom + heightUserName + 2 * marginSentence + heightImage + marginSentence);
     }
     
     if(height <= 100){
@@ -473,7 +492,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
     CGSize boundingBox = [label.text boundingRectWithSize:constraint
                                                   options:NSStringDrawingUsesLineFragmentOrigin
-                                               attributes:@{NSFontAttributeName:label.font}
+                                               attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSizeStory]}
                                                   context:context].size;
     
     size = CGSizeMake(ceil(boundingBox.width), ceil(boundingBox.height));

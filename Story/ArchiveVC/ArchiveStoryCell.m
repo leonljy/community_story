@@ -8,11 +8,18 @@
 
 #import "ArchiveStoryCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIColor+Tool.h"
+#import "NovelistConstants.h"
+
 
 @implementation ArchiveStoryCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.labelStory setFont:[UIFont systemFontOfSize:[NovelistConstants getTextFontSize]]];
+    [self.labelStory setTextColor:[UIColor colorTextGrey]];
+
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

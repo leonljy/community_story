@@ -7,11 +7,13 @@
 //
 
 #import "ArchiveContributesCell.h"
+#import "NovelistConstants.h"
 
 @implementation ArchiveContributesCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.labelUserName setFont:[UIFont systemFontOfSize:[NovelistConstants getTextFontSize]]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

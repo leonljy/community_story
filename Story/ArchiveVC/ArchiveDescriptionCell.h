@@ -10,6 +10,7 @@
 #import "PFObject+Story.h"
 @interface ArchiveDescriptionCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelDescription;
+@property (weak, nonatomic) IBOutlet UILabel *labelCategory;
 
 
 -(void)setContents:(PFObject *)story;

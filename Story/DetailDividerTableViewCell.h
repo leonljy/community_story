@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailDividerTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewDivider;
 
 @end

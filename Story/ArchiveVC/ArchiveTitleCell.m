@@ -8,11 +8,12 @@
 
 #import "ArchiveTitleCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "NovelistConstants.h"
 @implementation ArchiveTitleCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.labelTitle setFont:[UIFont systemFontOfSize:[NovelistConstants getLabelFontSize]]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

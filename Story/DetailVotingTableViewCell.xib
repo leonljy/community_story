@@ -28,9 +28,9 @@
                                             <constraint firstAttribute="height" constant="25" id="FW9-w8-kYS"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" backgroundImage="buttonLikeGrey"/>
+                                        <state key="normal" backgroundImage="buttonUpGray"/>
                                         <state key="disabled" backgroundImage="buttonLikeGrey"/>
-                                        <state key="selected" backgroundImage="buttonLikeBlue"/>
+                                        <state key="selected" backgroundImage="buttonUpRed"/>
                                         <connections>
                                             <action selector="handleUp:" destination="VAV-HY-hR0" eventType="touchUpInside" id="heP-66-3vy"/>
                                         </connections>
@@ -43,9 +43,9 @@
                                             <constraint firstAttribute="width" constant="25" id="xI5-pH-wHv"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" backgroundImage="buttonBadGrey"/>
+                                        <state key="normal" backgroundImage="buttonDownGray"/>
                                         <state key="disabled" backgroundImage="buttonBadGrey"/>
-                                        <state key="selected" backgroundImage="buttonBadBlue"/>
+                                        <state key="selected" backgroundImage="buttonDownRed"/>
                                         <connections>
                                             <action selector="handleDown:" destination="VAV-HY-hR0" eventType="touchUpInside" id="2Pi-06-UIr"/>
                                         </connections>
@@ -88,7 +88,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="547" height="99"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hE3-Zw-ZSt">
-                                <rect key="frame" x="14" y="8" width="525" height="21"/>
+                                <rect key="frame" x="14" y="14" width="525" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Ta9-vl-nCR"/>
@@ -98,7 +98,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnR-uZ-Ijq">
-                                <rect key="frame" x="14" y="37" width="533" height="54"/>
+                                <rect key="frame" x="14" y="43" width="533" height="48"/>
                                 <animations/>
                                 <string key="text">New sentence for voting. New sentence for voting. New sentence for voting.  New sentence for voting.  New sentence for voting.  New sentenc </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -110,7 +110,7 @@
                         <constraints>
                             <constraint firstItem="gnR-uZ-Ijq" firstAttribute="top" secondItem="hE3-Zw-ZSt" secondAttribute="bottom" constant="8" id="Hgs-xW-fcd"/>
                             <constraint firstAttribute="bottom" secondItem="gnR-uZ-Ijq" secondAttribute="bottom" constant="8" id="Mfe-uu-6ip"/>
-                            <constraint firstItem="hE3-Zw-ZSt" firstAttribute="top" secondItem="48d-ZC-oXF" secondAttribute="top" constant="8" id="Nhs-Ig-acP"/>
+                            <constraint firstItem="hE3-Zw-ZSt" firstAttribute="top" secondItem="48d-ZC-oXF" secondAttribute="top" constant="14" id="Nhs-Ig-acP"/>
                             <constraint firstAttribute="trailing" secondItem="hE3-Zw-ZSt" secondAttribute="trailing" constant="8" id="aTE-uI-Igq"/>
                             <constraint firstAttribute="trailing" secondItem="gnR-uZ-Ijq" secondAttribute="trailing" id="c93-P2-9vN"/>
                             <constraint firstItem="gnR-uZ-Ijq" firstAttribute="top" secondItem="hE3-Zw-ZSt" secondAttribute="bottom" constant="8" id="dxH-Sr-XHF"/>
@@ -158,9 +158,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="buttonBadBlue" width="25" height="25"/>
         <image name="buttonBadGrey" width="25" height="25"/>
-        <image name="buttonLikeBlue" width="25" height="25"/>
+        <image name="buttonDownGray" width="22" height="23"/>
+        <image name="buttonDownRed" width="22" height="23"/>
         <image name="buttonLikeGrey" width="25" height="25"/>
+        <image name="buttonUpGray" width="22" height="23"/>
+        <image name="buttonUpRed" width="22" height="23"/>
     </resources>
 </document>

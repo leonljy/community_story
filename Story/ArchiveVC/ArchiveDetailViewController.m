@@ -30,6 +30,7 @@ typedef enum{
     SECTION_STORY,
     SECTION_DIVIDER,
     SECTION_CONTRIBUTES,
+    SECTION_DIVIDER_SECOND,
     SECTION_COUNT
 }archiveSection;
 typedef enum {
@@ -100,6 +101,9 @@ typedef enum {
         case SECTION_CONTRIBUTES:
             return [self.writers count];
             break;
+        case SECTION_DIVIDER_SECOND:
+            return 1;
+            break;
         default:
             break;
     }
@@ -156,6 +160,9 @@ typedef enum {
             cell = contributesCell;
             break;
         }
+        case SECTION_DIVIDER_SECOND:
+            cell = (ArchiveDividerCell *)[tableView dequeueReusableCellWithIdentifier:@"CELL_ARCHIVE_DIVIDER"];
+            break;
         default:
             break;
     }
@@ -167,12 +174,12 @@ typedef enum {
     switch(indexPath.section){
         case SECTION_STORY_INFO:{
             if(CELL_ARCHIVE_TITLE == indexPath.row){
-                return 200;
+                return 225;
             }else if(CELL_ARCHIVE_DESCRIPTION == indexPath.row){
                 CGFloat height = [self heightForDescriptionCell];
                 return height;
             }else if(CELL_ARCHIVE_DIVIDER == indexPath.row){
-                return 20;
+                return 50;
             }else if(CELL_ARCHIVE_PROLOGUE == indexPath.row){
                 return [self heightForPrologue];
             }
@@ -187,7 +194,10 @@ typedef enum {
             break;
         }
         case SECTION_DIVIDER:{
-            return 20;
+            return 50;
+        }
+        case SECTION_DIVIDER_SECOND:{
+            return 50;
         }
         default:
             return 0;
@@ -236,7 +246,7 @@ typedef enum {
     
     CGFloat height = [self getLabelHeight:label];
     
-    return height + heightLabel + (marginTopBottom * 3);
+    return height + heightLabel + (marginTopBottom * 3) + 3;
 }
 
 -(UILabel *)labelForHeightWithRect:(CGRect)rect{

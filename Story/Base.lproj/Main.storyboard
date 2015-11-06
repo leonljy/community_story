@@ -361,7 +361,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                             <animations/>
                                                         </imageView>
-                                                        <view alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkx-VY-cKI">
+                                                        <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkx-VY-cKI">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                             <animations/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -552,7 +552,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                             <animations/>
                                                         </imageView>
-                                                        <view alpha="0.20000000298023224" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pBp-Tn-bmg">
+                                                        <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pBp-Tn-bmg">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                             <animations/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1088,6 +1088,11 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                     <animations/>
                                                 </imageView>
+                                                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qa9-ra-rF9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83O-6g-xDS">
                                                     <rect key="frame" x="8" y="70" width="359" height="60"/>
                                                     <animations/>
@@ -1115,13 +1120,17 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstItem="Qa9-ra-rF9" firstAttribute="leading" secondItem="wMa-Jw-rKu" secondAttribute="leading" id="3Zj-5v-Q4J"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qa9-ra-rF9" secondAttribute="trailing" id="9Jx-bS-nox"/>
                                                 <constraint firstAttribute="trailing" secondItem="MzB-BU-gEl" secondAttribute="trailing" constant="12" id="KTR-6f-tY7"/>
+                                                <constraint firstItem="Qa9-ra-rF9" firstAttribute="top" secondItem="wMa-Jw-rKu" secondAttribute="top" id="SZF-Xl-UWk"/>
                                                 <constraint firstItem="83O-6g-xDS" firstAttribute="centerX" secondItem="wMa-Jw-rKu" secondAttribute="centerX" id="Wam-F5-uBG"/>
                                                 <constraint firstItem="83O-6g-xDS" firstAttribute="centerY" secondItem="wMa-Jw-rKu" secondAttribute="centerY" id="aQZ-FP-qn4"/>
                                                 <constraint firstItem="64u-M5-Rv5" firstAttribute="leading" secondItem="wMa-Jw-rKu" secondAttribute="leading" id="b5q-GY-6fJ"/>
                                                 <constraint firstItem="64u-M5-Rv5" firstAttribute="top" secondItem="wMa-Jw-rKu" secondAttribute="top" id="g55-na-Ok7"/>
                                                 <constraint firstItem="83O-6g-xDS" firstAttribute="trailing" secondItem="wMa-Jw-rKu" secondAttribute="trailingMargin" id="iSU-Dc-CAA"/>
                                                 <constraint firstAttribute="bottom" secondItem="64u-M5-Rv5" secondAttribute="bottom" id="mNv-3H-TtF"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qa9-ra-rF9" secondAttribute="bottom" id="pZ8-zu-8z2"/>
                                                 <constraint firstItem="MzB-BU-gEl" firstAttribute="top" secondItem="wMa-Jw-rKu" secondAttribute="top" constant="12" id="rac-oC-Cqh"/>
                                                 <constraint firstItem="83O-6g-xDS" firstAttribute="leading" secondItem="wMa-Jw-rKu" secondAttribute="leadingMargin" id="tbx-BY-IqI"/>
                                                 <constraint firstAttribute="trailing" secondItem="64u-M5-Rv5" secondAttribute="trailing" id="xdh-Ob-DmP"/>
@@ -1166,7 +1175,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1C-M1-XHR">
-                                                    <rect key="frame" x="14" y="8" width="347" height="21"/>
+                                                    <rect key="frame" x="14" y="11" width="347" height="21"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="2Jz-xz-kcX"/>
@@ -1176,7 +1185,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-7a-2ko">
-                                                    <rect key="frame" x="14" y="37" width="347" height="55"/>
+                                                    <rect key="frame" x="14" y="40" width="347" height="52"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1185,7 +1194,7 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="F1C-M1-XHR" firstAttribute="top" secondItem="DeH-ZI-kjz" secondAttribute="top" constant="8" id="0LT-6M-Og8"/>
+                                                <constraint firstItem="F1C-M1-XHR" firstAttribute="top" secondItem="DeH-ZI-kjz" secondAttribute="top" constant="11" id="0LT-6M-Og8"/>
                                                 <constraint firstItem="F1C-M1-XHR" firstAttribute="leading" secondItem="DeH-ZI-kjz" secondAttribute="leading" constant="14" id="CAv-bO-zyq"/>
                                                 <constraint firstAttribute="trailing" secondItem="F1C-M1-XHR" secondAttribute="trailing" constant="14" id="CYR-KZ-8pU"/>
                                                 <constraint firstItem="f1z-7a-2ko" firstAttribute="top" secondItem="F1C-M1-XHR" secondAttribute="bottom" constant="8" id="Xdu-jE-SQw"/>
@@ -1197,6 +1206,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
+                                            <outlet property="labelCategory" destination="F1C-M1-XHR" id="wXU-8u-1dn"/>
                                             <outlet property="labelDescription" destination="f1z-7a-2ko" id="0ct-Cn-F7C"/>
                                         </connections>
                                     </tableViewCell>
@@ -1555,24 +1565,32 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zz4-nf-H5G">
                                         <rect key="frame" x="14" y="41" width="347" height="178"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgCamera" translatesAutoresizingMaskIntoConstraints="NO" id="IBM-b1-v1h">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgCamera" translatesAutoresizingMaskIntoConstraints="NO" id="Ws8-Kc-yHt">
                                                 <rect key="frame" x="147" y="71" width="53" height="36"/>
                                                 <animations/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="53" id="I8c-Sw-Qml"/>
-                                                    <constraint firstAttribute="height" constant="36" id="r4g-J0-lwL"/>
+                                                    <constraint firstAttribute="width" constant="53" id="R4u-sW-6DP"/>
+                                                    <constraint firstAttribute="height" constant="36" id="qmd-sk-Ir0"/>
                                                 </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBM-b1-v1h">
+                                                <rect key="frame" x="0.0" y="0.0" width="347" height="178"/>
+                                                <animations/>
                                             </imageView>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="IBM-b1-v1h" secondAttribute="bottom" id="5QR-T1-sr6"/>
-                                            <constraint firstItem="IBM-b1-v1h" firstAttribute="centerX" secondItem="Zz4-nf-H5G" secondAttribute="centerX" id="G4O-PZ-R8K"/>
+                                            <constraint firstItem="IBM-b1-v1h" firstAttribute="top" secondItem="Zz4-nf-H5G" secondAttribute="top" id="7bL-qh-UsW"/>
+                                            <constraint firstAttribute="bottom" secondItem="IBM-b1-v1h" secondAttribute="bottom" id="BpF-Mt-aGF"/>
                                             <constraint firstItem="IBM-b1-v1h" firstAttribute="top" secondItem="Zz4-nf-H5G" secondAttribute="top" id="R0m-wo-bWY"/>
+                                            <constraint firstItem="IBM-b1-v1h" firstAttribute="leading" secondItem="Zz4-nf-H5G" secondAttribute="leading" id="SYl-Bn-9wQ"/>
                                             <constraint firstAttribute="trailing" secondItem="IBM-b1-v1h" secondAttribute="trailing" id="cp8-MR-tJZ"/>
-                                            <constraint firstItem="IBM-b1-v1h" firstAttribute="centerY" secondItem="Zz4-nf-H5G" secondAttribute="centerY" id="uft-0G-w3A"/>
+                                            <constraint firstItem="Ws8-Kc-yHt" firstAttribute="centerX" secondItem="Zz4-nf-H5G" secondAttribute="centerX" id="gbB-ub-3I0"/>
+                                            <constraint firstItem="Ws8-Kc-yHt" firstAttribute="centerY" secondItem="Zz4-nf-H5G" secondAttribute="centerY" id="q6p-tF-Eqj"/>
                                             <constraint firstItem="IBM-b1-v1h" firstAttribute="leading" secondItem="Zz4-nf-H5G" secondAttribute="leading" id="unH-tX-zT3"/>
+                                            <constraint firstAttribute="trailing" secondItem="IBM-b1-v1h" secondAttribute="trailing" id="wYS-fr-4L6"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
