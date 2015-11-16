@@ -37,7 +37,7 @@
         self.imageViewStory = nil;
     }else{
         PFFile *image = sentence[SENTENCE_KEY_IMAGE];
-        [self.imageViewStory sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil];
+        [self.imageViewStory sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
         [self.imageViewStory setContentMode:UIViewContentModeScaleAspectFill];
         [self.imageViewStory setClipsToBounds:YES];
     }

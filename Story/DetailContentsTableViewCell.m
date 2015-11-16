@@ -34,7 +34,7 @@
         [self.contentView addSubview:self.imageViewSentence];
     }
     PFFile *image = sentence[SENTENCE_KEY_IMAGE];
-    [self.imageViewSentence sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil];
+    [self.imageViewSentence sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
 }
 
 @end

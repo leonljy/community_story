@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelCategoryPrologue;
 @property (weak, nonatomic) IBOutlet UILabel *labelCategorySelectPhoto;
 @property (weak, nonatomic) IBOutlet UIView *viewSelectPhotoBackground;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonRightButton;
 
 @end
 
@@ -53,6 +54,7 @@ typedef enum {
     isImageSet = NO;
     [self.imageViewPhoto setContentMode:UIViewContentModeScaleAspectFill];
     [self.imageViewPhoto setClipsToBounds:YES];
+    [self.buttonRightButton setEnabled:NO];
 }
 
 -(void)setTextFieldContentSize{
@@ -87,6 +89,7 @@ typedef enum {
 }
 
 - (IBAction)saveNewStory:(id)sender {
+    [self.buttonRightButton setEnabled:NO];
     PFObject *newStory = [PFObject objectWithClassName:STORY_CLASSNAME];
     newStory[STORY_KEY_TITLE] = titleTextField.text;
     newStory[STORY_KEY_DESCRIPTION] = descriptionTextView.text;
@@ -101,7 +104,7 @@ typedef enum {
     [newStory saveNewStoryWithSuccessBlock:^(id responseObject) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } failureBlock:^(NSError *error) {
-        
+        [self.buttonRightButton setEnabled:YES];
     }];
 }
 
@@ -161,6 +164,18 @@ typedef enum {
         }
         default:
             break;
+    }
+    [self validateDoneEnable];
+}
+- (IBAction)handleTitleChanged:(id)sender {
+    [self validateDoneEnable];
+}
+
+-(void)validateDoneEnable{
+    if(self.titleTextField.text.length > 0 && self.descriptionTextView.text.length > 0 && self.prologueTextView.text.length > 0){
+        [self.buttonRightButton setEnabled:YES];
+    }else{
+        [self.buttonRightButton setEnabled:NO];
     }
 }
 - (IBAction)handleHideKeyboard:(id)sender {
@@ -223,7 +238,7 @@ typedef enum {
         [requestOptions setDeliveryMode:PHImageRequestOptionsDeliveryModeOpportunistic];
         [requestOptions setNetworkAccessAllowed:YES];
         [requestOptions setSynchronous:NO];
-        [imageManager requestImageForAsset:phAsset targetSize:CGSizeMake(320, 480) contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        [imageManager requestImageForAsset:phAsset targetSize:CGSizeMake(160, 240) contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             [self.imageViewPhoto setImage:result];
             isImageSet = YES;
             [picker dismissViewControllerAnimated:YES completion:^{

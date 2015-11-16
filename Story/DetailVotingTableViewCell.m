@@ -135,7 +135,7 @@
         [self.viewContentBackground addSubview:self.imageViewSentence];
     }
     PFFile *image = self.sentence[SENTENCE_KEY_IMAGE];
-    [self.imageViewSentence sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil];
+    [self.imageViewSentence sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
 }
 
 -(void)setTextContent{

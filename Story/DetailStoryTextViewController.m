@@ -144,7 +144,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 
 -(void)initializeTimer{
-    NSTimeInterval oneSec = 1;
+    NSTimeInterval oneSec = 0.5;
     self.timerDeadline = [NSTimer scheduledTimerWithTimeInterval:oneSec target:self selector:@selector(handleTimerDeadline:) userInfo:nil repeats:YES];
     [self.timerDeadline fire];
 }
@@ -235,12 +235,13 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         }
     }else{
         [self.rightButton setTitle:NSLocalizedString(@"DetailStoryTextVC.Button.Send", @"Send") forState:UIControlStateNormal];
-        self.isEndSentence = YES;
+        self.isEndSentence = NO;
     }
 }
 
 -(void)alertViewCancel:(UIAlertView *)alertView{
     NSLog(@"AlertView Cancel");
+    //TODO: Remove Comments
 //    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KEY_FIRST_END];
 //    [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -373,6 +374,25 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
             cell.imageViewSentence = nil;
         }
         
+        if([sentence[SENTENCE_KEY_END_SENTENCE] boolValue]){
+            CGFloat sentenceHeight = [[sentenceHeights objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]] floatValue];
+            
+            CGFloat y = marginTop + heightUserName + (marginSentence * 4) + sentenceHeight;
+            if(nil!=[sentence objectForKey:SENTENCE_KEY_IMAGE]){
+                y+= heightImage;
+            }
+            CGFloat width = self.view.frame.size.width - widthViewVote;
+            CGRect frameEndLabel = CGRectMake(0, y, width, 21);
+            cell.labelEndSentence = [[UILabel alloc] initWithFrame:frameEndLabel];
+//            [cell.labelEndSentence setBackgroundColor:[UIColor redColor]];
+            [cell.labelEndSentence setTextColor:[UIColor colorRedBrand]];
+            [cell.labelEndSentence setText:@"~ The End"];
+            [cell.labelEndSentence setTextAlignment:NSTextAlignmentRight];
+            [cell.labelEndSentence setFont:[UIFont systemFontOfSize:fontSizeStory]];
+            [cell.contentView addSubview:cell.labelEndSentence];
+        }else{
+            [cell.labelEndSentence removeFromSuperview];
+        }
         return cell;
     }
 }
@@ -471,6 +491,10 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         height += ( marginTop + marginBottom + heightUserName + 2 * marginSentence + heightImage + marginSentence);
     }
     
+    if([sentence[SENTENCE_KEY_END_SENTENCE] boolValue]){
+        height += heightUserName * 2;
+    }
+    
     if(height <= 100){
         return 100;
     }
@@ -541,7 +565,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-//    NSLog(@"Info: %@", info);
     NSURL *picURL = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
     NSString *stringUrl = picURL.absoluteString;
     NSURL *asssetURL = [NSURL URLWithString:stringUrl];
@@ -555,7 +578,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
         [requestOptions setDeliveryMode:PHImageRequestOptionsDeliveryModeOpportunistic];
         [requestOptions setNetworkAccessAllowed:YES];
         [requestOptions setSynchronous:NO];
-        [imageManager requestImageForAsset:phAsset targetSize:CGSizeMake(320, 480) contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        [imageManager requestImageForAsset:phAsset targetSize:CGSizeMake(160, 240) contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             [self showPIPWindow:result];
             callImagePicker = NO;
             [self.rightButton setEnabled:YES];
@@ -642,7 +665,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     
     PFObject *sentence = [PFObject objectWithClassName:SENTENCE_CLASSNAME];
     sentence[SENTENCE_KEY_STORY] = self.story;
-    sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:NO];
     sentence[SENTENCE_KEY_TEXT] = self.textView.text;
     sentence[SENTENCE_KEY_END_SENTENCE] = [NSNumber numberWithBool:self.isEndSentence];
     sentence[SENTENCE_KEY_VOTE_POINT] = [NSNumber numberWithInt:0];
@@ -664,7 +686,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     UITableViewScrollPosition scrollPosition = UITableViewScrollPositionBottom;
     [self.tableView beginUpdates];
     if (0==self.sentencesToShow.count) {
-        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:rowAnimation];
+        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:SECTION_VOTING] withRowAnimation:rowAnimation];
     }
     NSMutableArray *sentences = [NSMutableArray arrayWithArray:self.sentencesToShow];
     [sentences addObject:sentence];
@@ -708,15 +730,6 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
 
 - (void)didCommitTextEditing:(id)sender{
     // Notifies the view controller when tapped on the right "Accept" button for commiting the edited text
-//    
-//    Message *message = [Message new];
-//    message.username = [LoremIpsum name];
-//    message.text = [self.textView.text copy];
-//    
-//    [self.messages removeObjectAtIndex:0];
-//    [self.messages insertObject:message atIndex:0];
-//    [self.tableView reloadData];
-    
     [super didCommitTextEditing:sender];
 }
 

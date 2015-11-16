@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 @property (weak, nonatomic) IBOutlet UILabel *labelSentence;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewContent;
+@property (weak, nonatomic) IBOutlet UITextView *textViewContribute;
 
 @end

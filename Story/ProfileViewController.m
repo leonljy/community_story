@@ -122,7 +122,7 @@ typedef enum{
                 name = object[STORY_KEY_TITLE];
                 content = object[STORY_KEY_FIRST_SENTENCE];
                 PFFile *image = object[STORY_KEY_IMAGE];
-                [contributeCell.imageViewContent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil];
+                [contributeCell.imageViewContent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
             }else{
                 if(nil==object[SENTENCE_KEY_IMAGE]){
                     contributeCell = [tableView dequeueReusableCellWithIdentifier:@"CELL_PROFILE_CONTRIBUTE"];
@@ -133,7 +133,7 @@ typedef enum{
                         contributeCell = [tableView dequeueReusableCellWithIdentifier:@"CELL_PROFILE_CONTRIBUTE_COMBINE"];
                     }
                     PFFile *image = object[SENTENCE_KEY_IMAGE];
-                    [contributeCell.imageViewContent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil];
+                    [contributeCell.imageViewContent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
                 }
                 NSString *objectId = ((PFObject *)object[SENTENCE_KEY_STORY]).objectId;
                 PFObject *story = [self.othersStories objectForKey:objectId];
@@ -146,7 +146,7 @@ typedef enum{
             contributeCell.imageViewContent.layer.cornerRadius = 5.0;
             
             [contributeCell.labelName setText:name];
-            [contributeCell.labelSentence setText:content];
+            [contributeCell.textViewContribute setText:content];
 
             cell = contributeCell;
             break;

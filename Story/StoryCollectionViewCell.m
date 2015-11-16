@@ -62,7 +62,7 @@
 
 -(void)setStoryPhoto:(PFObject *)story{
     PFFile *image = story[STORY_KEY_IMAGE];
-    [self.imageViewPhoto sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.imageViewPhoto sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [self.imageViewPhoto setImage:image];
         [self.imageViewPhoto setClipsToBounds:YES];
         [self.imageViewPhoto setContentMode:UIViewContentModeScaleAspectFill];
