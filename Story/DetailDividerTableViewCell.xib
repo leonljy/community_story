@@ -11,14 +11,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-cO-tcP">
-                        <rect key="frame" x="145" y="5" width="30" height="10"/>
+                        <rect key="frame" x="15" y="5" width="290" height="10"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="6mt-zZ-x0b"/>
+                            <constraint firstAttribute="width" constant="290" id="6mt-zZ-x0b"/>
                             <constraint firstAttribute="height" constant="10" id="ovy-nr-1iI"/>
                         </constraints>
                     </imageView>
@@ -36,6 +36,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="divider" width="30" height="10"/>
+        <image name="divider" width="295" height="2"/>
     </resources>
 </document>

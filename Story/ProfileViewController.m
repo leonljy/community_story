@@ -113,41 +113,34 @@ typedef enum{
             break;
         }
         case SECTION_CONTRIBUTES:{
-            ProfileContributeCell *contributeCell;
+            ProfileContributeCell *contributeCell = [tableView dequeueReusableCellWithIdentifier:@"CELL_PROFILE_CONTRIBUTE_SMALL"];
             PFObject *object = [self.contributes objectAtIndex:indexPath.row];
             NSString *name;
             NSString *content;
+            
             if([object.parseClassName isEqualToString:STORY_CLASSNAME]){
-                contributeCell = [tableView dequeueReusableCellWithIdentifier:@"CELL_PROFILE_CONTRIBUTE_COMBINE"];
                 name = object[STORY_KEY_TITLE];
                 content = object[STORY_KEY_FIRST_SENTENCE];
+                [contributeCell setStoryInfoWithStory:object];
                 PFFile *image = object[STORY_KEY_IMAGE];
                 [contributeCell.imageViewContent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
             }else{
-                if(nil==object[SENTENCE_KEY_IMAGE]){
-                    contributeCell = [tableView dequeueReusableCellWithIdentifier:@"CELL_PROFILE_CONTRIBUTE"];
-                }else{
-                    if(0==[object[SENTENCE_KEY_TEXT] length]){
-                        contributeCell = [tableView dequeueReusableCellWithIdentifier:@"CELL_PROFILE_CONTRIBUTE_IMAGE"];
-                    }else{
-                        contributeCell = [tableView dequeueReusableCellWithIdentifier:@"CELL_PROFILE_CONTRIBUTE_COMBINE"];
-                    }
-                    PFFile *image = object[SENTENCE_KEY_IMAGE];
-                    [contributeCell.imageViewContent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
-                }
                 NSString *objectId = ((PFObject *)object[SENTENCE_KEY_STORY]).objectId;
                 PFObject *story = [self.othersStories objectForKey:objectId];
+                [contributeCell setStoryInfoWithStory:story];
                 name = story[STORY_KEY_TITLE];
                 content = object[SENTENCE_KEY_TEXT];
+                PFFile *image;
+                if(nil==object[SENTENCE_KEY_IMAGE]){
+                    image = story[STORY_KEY_IMAGE];
+                }else{
+                    image = object[SENTENCE_KEY_IMAGE];
+                }
+                [contributeCell.imageViewContent sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"]];
             }
-            [contributeCell.imageViewContent setContentMode:UIViewContentModeScaleAspectFill];
-            [contributeCell.imageViewContent setClipsToBounds:YES];
-            contributeCell.imageViewContent.layer.masksToBounds = YES;
-            contributeCell.imageViewContent.layer.cornerRadius = 5.0;
-            
-            [contributeCell.labelName setText:name];
-            [contributeCell.textViewContribute setText:content];
 
+            [contributeCell.labelName setText:name];
+            [contributeCell.labelSentence setText:content];
             cell = contributeCell;
             break;
         }
@@ -166,7 +159,7 @@ typedef enum{
             break;
         }
         case SECTION_CONTRIBUTES:{
-            return 155;
+            return 75;
             break;
         }
         default:

@@ -414,7 +414,7 @@ static NSString *KEY_FIRST_END = @"isFirstEnd";
     } else if(SECTION_STORY_CONTENT == indexPath.section){
         return [self heightForStoryTextCell:indexPath.row];
     }else if(SECTION_DIVIDER== indexPath.section){
-        return 25;
+        return 20;
     }else{
         return [self heightForSentencesCell:indexPath.row];
     }

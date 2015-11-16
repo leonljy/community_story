@@ -14,6 +14,7 @@
 
 @interface BookMarkViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *viewBookmark;
 @property (strong, nonatomic) NSArray *stories;
 @end
 
@@ -25,9 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
-    
+    [self.viewBookmark setHidden:YES];
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshData:)
@@ -42,6 +44,11 @@
         self.stories = objects;
         [self.collectionView reloadData];
         [refreshControl endRefreshing];
+        if(0==self.stories.count){
+            [self.viewBookmark setHidden:NO];
+        }else{
+            [self.viewBookmark setHidden:YES];
+        }
     } failureBlock:^(NSError *error) {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }];
