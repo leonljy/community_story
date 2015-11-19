@@ -62,11 +62,15 @@
 
 -(void)setStoryPhoto:(PFObject *)story{
     PFFile *image = story[STORY_KEY_IMAGE];
-    [self.imageViewPhoto sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.imageViewPhoto setImage:image];
-        [self.imageViewPhoto setClipsToBounds:YES];
-        [self.imageViewPhoto setContentMode:UIViewContentModeScaleAspectFill];
-    }];
+    [self.imageViewPhoto setClipsToBounds:YES];
+    [self.imageViewPhoto setContentMode:UIViewContentModeScaleAspectFill];
+    if(nil==image){
+        [self.imageViewPhoto setImage:[UIImage imageNamed:@"placeHolder"]];
+    }else{
+        [self.imageViewPhoto sd_setImageWithURL:[NSURL URLWithString:image.url] placeholderImage:[UIImage imageNamed:@"placeHolder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [self.imageViewPhoto setImage:image];
+        }];
+    }
 }
 
 -(void)setStoryPopular:(PFObject *)story{

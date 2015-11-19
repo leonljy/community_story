@@ -46,12 +46,13 @@ typedef enum{
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(reloadContributes) forControlEvents:UIControlEventValueChanged];
     
+    [self.tableView addSubview:refreshControl];
     [self reloadContributes];
 }
 
 -(void)reloadContributes{
     [PFUser contributedCurrentUserWithSuccessBlock:^(NSArray *objects) {
-//        NSLog(@"Objects: %@", objects);
+//        NSLog(@"Objects: %@", objects);7
         NSMutableDictionary *othersStories = [NSMutableDictionary dictionary];
         NSMutableArray *contributes = [NSMutableArray array];
         for(PFObject *object in objects){
@@ -68,8 +69,9 @@ typedef enum{
         self.contributes = contributes;
         self.othersStories = othersStories;
         [self.tableView reloadData];
+        [refreshControl endRefreshing];
     } failureBlock:^(NSError *error) {
-        
+        [refreshControl endRefreshing];
     }];
 }
 
